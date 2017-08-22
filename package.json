@@ -28,7 +28,7 @@
     "jest": "^20.0.4",
     "lerna": "^2.0.0",
     "lint-staged": "^4.0.0",
-    "marlint": "^5.0.2",
+    "marlint": "^6.2.1",
     "next": "beta",
     "react": "^15.6.1",
     "react-cookie": "^2.0.8",

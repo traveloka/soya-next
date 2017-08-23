@@ -7,13 +7,12 @@
     "clean-all": "yarn run clean && lerna clean",
     "coverage": "yarn test -- --coverage",
     "coveralls": "yarn run coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "marlint",
-    "lint:fix": "yarn run lint -- --fix",
+    "lint": "marlint --fix",
     "postinstall": "lerna bootstrap",
     "precommit": "lint-staged",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish",
-    "test": "jest",
+    "test": "yarn run lint && jest",
     "watch": "yarn run build -- -w"
   },
   "devDependencies": {
@@ -40,7 +39,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "lint:fix",
+      "lint",
       "git add"
     ]
   },
@@ -59,15 +58,7 @@
       "**/lib/**"
     ],
     "rules": {
-      "react/react-in-jsx-scope": "off",
-      "react/forbid-prop-types": "warn",
-      "react/jsx-no-literals": "off",
-      "max-nested-callbacks": [
-        "error",
-        {
-          "max": 5
-        }
-      ]
+      "react/react-in-jsx-scope": "off"
     }
   },
   "jest": {
@@ -81,5 +72,8 @@
       "**/__tests__/**/*.js?(x)",
       "**/?(*).(spec|test).js?(x)"
     ]
+  },
+  "dependencies": {
+    "eslint-config-semistandard": "^11.0.0"
   }
 }

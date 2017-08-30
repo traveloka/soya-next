@@ -13,7 +13,7 @@
     "precommit": "lint-staged",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish",
-    "test": "NODE_CONFIG_DIR=./packages/soya-next/config jest",
+    "test": "jest",
     "watch": "yarn run build -- -w"
   },
   "devDependencies": {

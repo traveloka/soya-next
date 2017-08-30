@@ -1,3 +1,5 @@
+require('../config/setDefault');
+
 process.on('unhandledRejection', err => {
   console.error(err);
 });
@@ -6,13 +8,13 @@ const express = require('express');
 const next = require('next');
 const { join } = require('path');
 const { createRouter } = require('soya-next/server/router');
-const { soya } = require('soya-next/server/config');
+const config = require('config');
 // @remove-on-eject-begin
 const conf = require('../next.config');
 // @remove-on-eject-end
 
-const { appDir, host, port } = require('../config/_default');
-const dev = typeof soya.config.dev !== 'undefined' ? soya.config.dev : process.env.NODE_ENV !== 'production';
+const { appDir } = require('../config/paths');
+const dev = typeof config.dev !== 'undefined' ? config.dev : process.env.NODE_ENV !== 'production';
 const app = next({
   dev,
   // @remove-on-eject-begin
@@ -41,13 +43,19 @@ app.prepare()
       const p = join(app.dir, app.dist, 'dist', 'static', req.params.path);
       app.serveStatic(req, res, p);
     });
-    server.use(createRouter(app, soya.config));
-    server.listen(port, host, err => {
+    server.use(createRouter(app, {
+      routes: config.routes,
+      redirects: config.redirects,
+      defaultLocale: config.defaultLocale,
+      siteLocales: config.siteLocales,
+      compression: config.server.compression,
+    }));
+    server.listen(config.server.port, config.server.host, err => {
       if (err) {
         throw err;
       }
       // eslint-disable-next-line no-console
-      console.log(`> Ready on ${host}:${port}`);
+      console.log(`> Ready on ${config.server.host}:${config.server.port}`);
     });
   })
   .catch(ex => {

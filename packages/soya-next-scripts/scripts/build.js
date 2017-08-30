@@ -1,3 +1,5 @@
+require('../config/setDefault');
+
 process.on('unhandledRejection', err => {
   throw err;
 });
@@ -10,7 +12,7 @@ const conf = require('../next.config');
 // @remove-on-eject-end
 const build = require('next/dist/server/build').default;
 
-const { appDir } = require('../config/_default');
+const { appDir } = require('../config/paths');
 const buildSoya = require('./utils/build-soya');
 build(
   appDir

@@ -5,7 +5,7 @@ import path from 'path';
 import spawn from 'cross-spawn';
 import createEslintConfig from './utils/createEslintConfig';
 import createJestConfig from './utils/createJestConfig';
-import { appDir } from '../config/_default';
+import { appDir } from '../config/paths';
 
 process.on('unhandledRejection', err => {
   throw err;

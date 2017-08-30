@@ -55,6 +55,7 @@
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "peerDependencies": {
+    "config": "^1.26.2",
     "soya-next": "^0.2.0"
   }
 }

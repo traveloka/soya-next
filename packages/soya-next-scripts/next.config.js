@@ -1,14 +1,15 @@
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { join } = require('path');
+const config = require('config');
+const assetPrefix = config.assetPrefix || '';
+const browserConfigJs = join(__dirname, 'config', 'browser.js');
 // @remove-on-eject-begin
 const webpack = require('webpack');
-const { join } = require('path');
 const pagesDir = join(__dirname, 'pages');
-const { appDir } = require('./config/_default');
+const { appDir } = require('./config/paths');
 const appPackage = require(join(appDir, 'package.json'));
 const createEslintConfig = require('./lib/utils/createEslintConfig').default;
 // @remove-on-eject-end
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { soya } = require('soya-next/server/config');
-const assetPrefix = soya.config.assetPrefix || '';
 
 module.exports = {
   assetPrefix,
@@ -81,6 +82,7 @@ module.exports = {
     if (dev) {
       config.module.rules.push({
         test: /\.js(x)?$/,
+        exclude: /node_modules/,
         enforce: 'pre',
         loader: require.resolve('eslint-loader'),
         options: {
@@ -96,6 +98,18 @@ module.exports = {
     }
 
     config.module.rules.push(
+      {
+        loader: 'babel-loader',
+        include: join(__dirname, 'config'),
+        exclude(str) {
+          return /node_modules/.test(str) && str.indexOf(browserConfigJs) !== 0;
+        },
+        options: {
+          babelrc: false,
+          cacheDirectory: true,
+          presets: [require.resolve('next/babel')],
+        },
+      },
       // @remove-on-eject-begin
       {
         loader: 'babel-loader',
@@ -183,6 +197,10 @@ module.exports = {
         },
       }
     );
+
+    config.resolve = config.resolve || {};
+    config.resolve.alias = config.resolve.alias || {};
+    config.resolve.alias.config = browserConfigJs;
 
     if (process.env.ANALYZE) {
       config.plugins.push(new BundleAnalyzerPlugin());

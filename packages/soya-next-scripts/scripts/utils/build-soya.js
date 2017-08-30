@@ -1,20 +1,20 @@
-const { soya } = require('soya-next/server/config');
+const config = require('config');
 const webpack = require('webpack');
 const { join } = require('path');
-const { appDir, host, port } = require('../../config/_default');
+const { appDir } = require('../../config/paths');
 
 module.exports = ({ dev = false } = {}) => {
   try {
     const legacyConfig = Object.assign({
       absoluteProjectDir: appDir,
-      assetHostPath: `${host}:${port}/assets/`,
+      assetHostPath: `${config.server.host}:${config.server.port}/assets/`,
       debug: dev,
       hotReload: dev,
       minifyJs: !dev,
-      port,
+      port: config.server.port,
       precompileClient: false,
       NODE_ENV: process.env.NODE_ENV,
-    }, soya.config.legacy);
+    }, config.legacy);
 
     const Precompiler = require('soya/lib/precompile/Precompiler').default;
     const precompiler = new Precompiler(legacyConfig);

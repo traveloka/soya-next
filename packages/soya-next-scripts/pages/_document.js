@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
+import { pageEnhancer } from 'soya-next/pages';
 import flush from 'styled-modules/server';
 
 const __SOYA_CONFIG__ = { ...require('config') };
@@ -11,7 +12,7 @@ export default class extends Document {
 
   static getInitialProps({ renderPage }) {
     return {
-      ...renderPage(),
+      ...renderPage(pageEnhancer),
       styles: flush(),
     };
   }

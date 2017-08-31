@@ -2320,9 +2320,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-marlint@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-marlint/-/eslint-config-marlint-6.2.0.tgz#269cb3d47e67aa4606eecc5e0bf0e4cc1ee816a7"
+eslint-config-marlint@^6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-marlint/-/eslint-config-marlint-6.2.1.tgz#c24747cce2cfa4ce51db175a01356a4be07932ce"
 
 eslint-formatter-pretty@^1.1.0:
   version "1.1.0"
@@ -2869,10 +2869,6 @@ get-stdin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
 
-get-stdin@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-5.0.1.tgz#122e161591e21ff4c52530305693f20e6393a398"
-
 get-stream@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-2.3.1.tgz#5f38f93f346009666ee0150a054167f91bdd95de"
@@ -3128,6 +3124,10 @@ hoek@2.x.x:
 hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+
+hoist-non-react-statics@^2.2.2:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.3.1.tgz#343db84c6018c650778898240135a1420ee22ce0"
 
 home-or-tmp@^2.0.0:
   version "2.0.0"
@@ -4253,25 +4253,24 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-marlint@6.2.1:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/marlint/-/marlint-6.2.1.tgz#873fa45b995fbcaeac178a8fee5cc27abe81f102"
+marlint@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/marlint/-/marlint-6.3.1.tgz#2d9253061bf18f4dea3a71d87e314faf3ae8782f"
   dependencies:
     arrify "^1.0.1"
     babel-eslint "^7.2.3"
     deep-assign "^2.0.0"
     eslint "^4.5.0"
-    eslint-config-marlint "^6.2.0"
+    eslint-config-marlint "^6.2.1"
     eslint-formatter-pretty "^1.1.0"
     eslint-json "^2.0.0"
     eslint-plugin-babel "^4.1.2"
     eslint-plugin-flowtype "^2.35.0"
     eslint-plugin-jsx-a11y "^6.0.2"
     eslint-plugin-react "^7.3.0"
-    get-stdin "^5.0.1"
     globby "^6.0.0"
     meow "^3.7.0"
-    object-assign "^4.1.0"
+    minimatch "^3.0.4"
     pkg-conf "^2.0.0"
     update-notifier "^2.2.0"
 
@@ -4468,9 +4467,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-next@beta:
-  version "3.0.1-beta.18"
-  resolved "https://registry.yarnpkg.com/next/-/next-3.0.1-beta.18.tgz#fa09e59c54a2c1ed23bbc89746ed74545bebcaa0"
+next@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/next/-/next-3.2.1.tgz#6d694823ac6e74e9be4553117144a6402220490f"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.25.0"
@@ -4497,6 +4496,7 @@ next@beta:
     friendly-errors-webpack-plugin "1.5.0"
     glob "7.1.1"
     glob-promise "3.1.0"
+    hoist-non-react-statics "^2.2.2"
     htmlescape "1.1.1"
     http-status "1.0.1"
     json-loader "0.5.4"
@@ -4514,10 +4514,9 @@ next@beta:
     recursive-copy "^2.0.6"
     send "^0.15.3"
     source-map-support "0.4.15"
-    strip-ansi "4.0.0"
+    strip-ansi "3.0.1"
     styled-jsx "^1.0.8"
     touch "3.1.0"
-    uglifyjs-webpack-plugin "0.4.6"
     unfetch "3.0.0"
     url "0.11.0"
     uuid "3.1.0"
@@ -5803,17 +5802,17 @@ stringstream@~0.0.4:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
 
-strip-ansi@4.0.0, strip-ansi@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
-  dependencies:
-    ansi-regex "^3.0.0"
-
-strip-ansi@^3.0.0, strip-ansi@^3.0.1:
+strip-ansi@3.0.1, strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
   dependencies:
     ansi-regex "^2.0.0"
+
+strip-ansi@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
+  dependencies:
+    ansi-regex "^3.0.0"
 
 strip-bom@3.0.0, strip-bom@^3.0.0:
   version "3.0.0"
@@ -6117,7 +6116,7 @@ uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
-uglifyjs-webpack-plugin@0.4.6, uglifyjs-webpack-plugin@^0.4.6:
+uglifyjs-webpack-plugin@^0.4.6:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-0.4.6.tgz#b951f4abb6bd617e66f63eb891498e391763e309"
   dependencies:

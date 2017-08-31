@@ -13,7 +13,7 @@ describe('<LocaleLink />', () => {
       'id-id',
       'en-id',
     ],
-    url: {
+    router: {
       pathname: '/',
     },
   };

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { compose } from 'redux';
 import { format, resolve } from 'url';
+import { withRouter } from 'next/router';
 import withLocale from '../i18n/withLocaleComponent';
-import withUrl from '../router/withUrl';
-import { localeShape, urlShape } from '../constants/PropTypes';
+import { localeShape } from '../constants/PropTypes';
 import { toPath } from '../utils/locale';
 
 class LocaleLink extends React.Component {
@@ -13,7 +13,7 @@ class LocaleLink extends React.Component {
     children: PropTypes.element.isRequired,
     defaultLocale: PropTypes.string.isRequired,
     locale: localeShape.isRequired,
-    url: urlShape.isRequired,
+    router: PropTypes.object,
   };
 
   render() {
@@ -21,7 +21,7 @@ class LocaleLink extends React.Component {
       children,
       defaultLocale,
       locale,
-      url,
+      router,
       ...props
     } = this.props;
     let { as, href } = props;
@@ -37,8 +37,8 @@ class LocaleLink extends React.Component {
     return (
       <Link
         {...props}
-        as={localeSegment + resolve(url.pathname, as || href)}
-        href={`${resolve(url.pathname, href)}${sep}locale=${language}-${country}`}
+        as={localeSegment + resolve(router.pathname, as || href)}
+        href={`${resolve(router.pathname, href)}${sep}locale=${language}-${country}`}
       >
         {children}
       </Link>
@@ -48,5 +48,5 @@ class LocaleLink extends React.Component {
 
 export default compose(
   withLocale,
-  withUrl,
+  withRouter,
 )(LocaleLink);

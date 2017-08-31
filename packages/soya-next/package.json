@@ -35,12 +35,11 @@
   "files": [
     "lib",
     "server",
-    "babel.js",
     "i18n.js",
     "link.js",
+    "pages.js",
     "prop-types.js",
-    "redux.js",
-    "router.js"
+    "redux.js"
   ],
   "dependencies": {
     "compression": "^1.6.2",
@@ -53,7 +52,7 @@
   },
   "peerDependencies": {
     "express": "^4.15.3",
-    "next": "^3.0.2",
+    "next": "^3.2.1",
     "react-cookie": "^2.0.8",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2"

@@ -1,8 +1,4 @@
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import applyReducers from '../redux/applyReducers';
+import createPageFactory from './createPageFactory';
+import createConfigureStore from '../redux/createConfigureStore';
 
-export default (...connectArgs) => (Page, reducers) => compose(
-  applyReducers(reducers),
-  connect(...connectArgs),
-)(Page);
+export default createPageFactory(createConfigureStore());

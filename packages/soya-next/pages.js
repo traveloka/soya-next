@@ -1,2 +1,1 @@
-exports.pageEnhancer = require('./lib/pages/pageEnhancer').default;
-exports.createPageEnhancer = require('./lib/pages/createPageEnhancer').default;
+exports.createPageFactory = require('./lib/pages/createPageFactory').default;

@@ -38,9 +38,10 @@ export default class Footer extends Component {
     const { filter: selectedFilter } = this.props;
 
     return (
-      <a className={classnames({ selected: filter === selectedFilter })}
-         style={{ cursor: 'pointer' }}
-         onClick={this.handleShow(filter)}
+      <a
+        className={classnames({ selected: filter === selectedFilter })}
+        style={{ cursor: 'pointer' }}
+        onClick={this.handleShow(filter)}
       >
         {title}
       </a>
@@ -51,8 +52,9 @@ export default class Footer extends Component {
     const { completedCount, onClearCompleted } = this.props;
     if (completedCount > 0) {
       return (
-        <button className='clear-completed'
-                onClick={onClearCompleted}
+        <button
+          className='clear-completed'
+          onClick={onClearCompleted}
         >
           Clear completed
         </button>
@@ -65,11 +67,11 @@ export default class Footer extends Component {
       <footer className='footer'>
         {this.renderTodoCount()}
         <ul className='filters'>
-          {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter =>
+          {[SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED].map(filter => (
             <li key={filter}>
               {this.renderFilterLink(filter)}
             </li>
-          )}
+          ))}
         </ul>
         {this.renderClearButton()}
       </footer>

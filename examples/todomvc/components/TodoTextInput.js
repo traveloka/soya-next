@@ -39,7 +39,7 @@ export default class TodoTextInput extends Component {
     return (
       <input className={
         classnames({
-          'edit': this.props.editing,
+          edit: this.props.editing,
           'new-todo': this.props.newTodo,
         })}
         type='text'

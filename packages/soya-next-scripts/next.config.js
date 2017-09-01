@@ -69,7 +69,6 @@ module.exports = {
       rule.test && rule.test.toString() === '/\\.js(\\?[^?]*)?$/'
     ));
     if (babelRule && !babelRule.options.babelrc) {
-      babelRule.options.presets.push(require.resolve('soya-next/babel'));
       babelRule.options.plugins = babelRule.options.plugins || [];
       babelRule.options.plugins.push([
         require.resolve('styled-modules/babel'),

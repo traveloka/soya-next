@@ -44,12 +44,6 @@
     ]
   },
   "marlint": {
-    "envs": [
-      "browser",
-      "es6",
-      "jest",
-      "node"
-    ],
     "ignores": [
       "**/.next/**",
       "**/coverage/**",
@@ -72,8 +66,5 @@
       "**/__tests__/**/*.js?(x)",
       "**/?(*).(spec|test).js?(x)"
     ]
-  },
-  "dependencies": {
-    "eslint-config-semistandard": "^11.0.0"
   }
 }

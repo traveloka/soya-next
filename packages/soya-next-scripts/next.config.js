@@ -78,23 +78,21 @@ module.exports = {
       ]);
     }
 
-    if (dev) {
-      config.module.rules.push({
-        test: /\.js(x)?$/,
-        exclude: /node_modules/,
-        enforce: 'pre',
-        loader: require.resolve('eslint-loader'),
-        options: {
-          failOnError: true,
-          formatter: require('eslint/lib/formatters/codeframe'),
-          // @remove-on-eject-begin
-          baseConfig: createEslintConfig(appPackage.eslintConfig),
-          ignore: !!appPackage.eslintIgnore,
-          useEslintrc: false,
-          // @remove-on-eject-end
-        },
-      });
-    }
+    config.module.rules.push({
+      test: /\.js(x)?$/,
+      exclude: /node_modules/,
+      enforce: 'pre',
+      loader: require.resolve('eslint-loader'),
+      options: {
+        failOnError: true,
+        formatter: require('eslint/lib/formatters/codeframe'),
+        // @remove-on-eject-begin
+        baseConfig: createEslintConfig(appPackage.eslintConfig),
+        ignore: !!appPackage.eslintIgnore,
+        useEslintrc: false,
+        // @remove-on-eject-end
+      },
+    });
 
     config.module.rules.push(
       {

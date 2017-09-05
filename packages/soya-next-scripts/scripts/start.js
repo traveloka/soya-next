@@ -54,6 +54,11 @@ app.prepare()
       if (err) {
         throw err;
       }
+
+      if (typeof process.send === 'function') {
+        process.send('ready');
+      }
+
       // eslint-disable-next-line no-console
       console.log(`> Ready on ${config.server.host}:${config.server.port}`);
     });

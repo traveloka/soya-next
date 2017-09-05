@@ -27,7 +27,7 @@ export default class extends Document {
             dangerouslySetInnerHTML={{
               __html: `
                 __SOYA_CONFIG__ = ${JSON.stringify(__SOYA_CONFIG__)}
-              `
+              `,
             }}
           />
           <NextScript />

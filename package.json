@@ -34,7 +34,7 @@
     "lint-staged": "^4.0.0",
     "marlint": "^6.3.1",
     "next": "^3.2.1",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
     "react-cookie": "^2.0.8",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",

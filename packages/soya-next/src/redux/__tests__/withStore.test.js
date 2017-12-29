@@ -12,7 +12,15 @@ describe('withStore', () => {
     PageWithStore = withStore(createConfigureStore())(Page);
   });
 
+  afterEach(() => {
+    delete process.browser;
+  });
+
   describe('browser', () => {
+    beforeEach(() => {
+      process.browser = true;
+    });
+
     it('should add store to page props', async () => {
       const props = await PageWithStore.getInitialProps({});
       const wrapper = shallow(<PageWithStore {...props} store={{ soya: true }} />);
@@ -23,6 +31,10 @@ describe('withStore', () => {
   });
 
   describe('server', () => {
+    beforeEach(() => {
+      process.browser = false;
+    });
+
     it('should add store to page props', async () => {
       delete global.window;
       const props = await PageWithStore.getInitialProps({});

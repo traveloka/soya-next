@@ -15,7 +15,7 @@ describe('withCookiesPage', () => {
   describe('browser', () => {
     it('should add cookie to page props', async () => {
       const props = await PageWithCookies.getInitialProps({});
-      const wrapper = shallow(<PageWithCookies {...props} cookies={{}} />);
+      const wrapper = shallow(<PageWithCookies {...props} cookies={new Cookies()} />);
       expect(wrapper.find(Page).props()).toMatchSnapshot();
     });
   });

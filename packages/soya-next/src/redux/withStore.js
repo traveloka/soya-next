@@ -18,7 +18,7 @@ export default configureStore => Page => {
     static displayName = getDisplayName('WithStore', Page);
 
     static propTypes = {
-      preloadedState: PropTypes.object.isRequired,
+      reduxState: PropTypes.object.isRequired,
       store: PropTypes.oneOfType([
         PropTypes.object,
         storeShape,
@@ -30,19 +30,19 @@ export default configureStore => Page => {
       const props = Page.getInitialProps && await Page.getInitialProps({ ...ctx, store });
       return {
         ...props,
-        preloadedState: store.getState(),
+        reduxState: store.getState(),
         store,
       };
     }
 
     constructor(props) {
       super(props);
-      this.store = props.store.dispatch ? props.store : configureStoreIfNeeded(props.preloadedState, { cookies: props.cookies });
+      this.store = !process.browser ? props.store : configureStoreIfNeeded(props.reduxState, { cookies: props.cookies });
     }
 
     render() {
       const { ...props } = this.props;
-      delete props.preloadedState;
+      delete props.reduxState;
       delete props.store;
 
       return (

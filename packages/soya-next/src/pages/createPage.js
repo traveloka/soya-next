@@ -1,4 +1,5 @@
-import createPageFactory from './createPageFactory';
-import createConfigureStore from '../redux/createConfigureStore';
+import createReduxPage from "./createReduxPage";
 
-export default createPageFactory(createConfigureStore());
+// For backward compatibility
+export default (...connectArgs) => (Page, reducers) =>
+  createReduxPage(reducers, ...connectArgs)(Page);

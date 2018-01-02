@@ -59,6 +59,7 @@ Read the full API documentation [here](/docs/api/README.md).
 
 ## Examples
 
+- [Apollo](/examples/apollo)
 - [Authentication](/examples/auth)
 - [CSS Modules](/examples/css-modules)
 - [CSS Modules with SCSS](/examples/css-modules-with-scss)

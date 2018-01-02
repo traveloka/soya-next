@@ -25,6 +25,7 @@
   - [`withLocale`](/docs/api/with-locale.md)
   - [`LocaleLink`](/docs/api/locale-link.md)
 - [Examples](/docs/examples/README.md)
+  - [Apollo](/docs/examples/apollo/README.md)
   - [Authentication](/docs/examples/auth/README.md)
   - [CSS Modules](/docs/examples/css-modules/README.md)
   - [CSS Modules with SCSS](/docs/examples/css-modules-with-scss/README.md)

@@ -1,5 +1,6 @@
 # Examples
 
+- [Apollo](apollo/README.md)
 - [Authentication](auth/README.md)
 - [CSS Modules](css-modules/README.md)
 - [CSS Modules with SCSS](css-modules-with-scss/README.md)

@@ -1,0 +1,30 @@
+{
+  "name": "apollo",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.0.0",
+    "apollo-client": "^2.0.1",
+    "apollo-link": "^1.0.0",
+    "apollo-link-http": "^1.1.0",
+    "config": "^1.29.0",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
+    "isomorphic-unfetch": "^2.0.0",
+    "react": "^16.0.0",
+    "react-apollo": "^2.0.0",
+    "react-cookie": "^2.1.2",
+    "react-dom": "^16.0.0",
+    "react-modal": "^3.1.0",
+    "soya-next": "^0.3.2",
+    "soya-next-scripts": "^0.3.2",
+    "styled-modules": "^0.2.4",
+    "tachyons": "^4.9.0"
+  },
+  "scripts": {
+    "build": "soya-next-scripts build",
+    "eject": "soya-next-scripts eject",
+    "start": "soya-next-scripts start",
+    "test": "soya-next-scripts test"
+  }
+}

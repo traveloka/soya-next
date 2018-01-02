@@ -1,0 +1,4 @@
+{
+  // __SIMPLE_API_ENDPOINT__ looks like: 'https://api.graph.cool/simple/v1/__SERVICE_ID__'
+  "graphqlEndpoint": "__SIMPLE_API_ENDPOINT__"
+}

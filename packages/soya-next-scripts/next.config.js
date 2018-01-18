@@ -1,7 +1,7 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { join } = require('path');
 const config = require('config');
-const assetPrefix = config.assetPrefix || '';
+const assetPrefix = config.assetPrefix || config.basePath || '';
 const browserConfigJs = join(__dirname, 'config', 'browser.js');
 const soyaNextNodeModulesDir = join(__dirname, 'node_modules');
 // @remove-on-eject-begin

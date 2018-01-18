@@ -68,6 +68,18 @@ Please refer to this [wiki](https://github.com/lorenwest/node-config/wiki/Common
 
 The following are the configurations keys which are reserved:
 
+### `assetPrefix`
+
+- Type: `string`
+
+Prefix added to assets. It will fallback to `basePath`.
+
+### `basePath`
+
+- Type: `string`
+
+Base URL to which the app paths (assets, pages, static) are prefixed.
+
 ### `dev`
 
 - Type: `boolean`

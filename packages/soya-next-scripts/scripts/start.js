@@ -37,14 +37,13 @@ app.prepare()
   .then((soyaMiddleware = null) => {
     const server = express();
     if (config.basePath) {
-      const nextHMRPaths = [
-        '/_next/webpack-hmr',
-        '/_next/on-demand-entries-ping',
-      ];
       server.use((req, res, next) => {
         if (req.url.startsWith(config.basePath)) {
           req.url = req.url.replace(new RegExp(`^${config.basePath}/*`), "/");
-        } else if (!nextHMRPaths.some(prefix => req.url.startsWith(prefix))) {
+        } else if (dev && ![
+          '/_next/webpack-hmr',
+          '/_next/on-demand-entries-ping',
+        ].some(prefix => req.url.startsWith(prefix))) {
           return app.send404(res);
         }
         next();

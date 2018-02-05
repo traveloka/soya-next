@@ -33,7 +33,7 @@
     "lerna": "^2.0.0",
     "lint-staged": "^6.0.0",
     "marlint": "^6.3.1",
-    "next": "^4.1.2",
+    "next": "^5.0.0",
     "prettier": "^1.9.2",
     "react": "^16.0.0",
     "react-cookie": "^2.0.8",

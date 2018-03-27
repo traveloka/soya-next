@@ -1,6 +1,6 @@
 const config = require("config");
 const withAssetsImport = require("next-assets-import");
-const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+const withBundleAnalyzer = require("./withBundleAnalyzer");
 const withCSS = require("./withCSS");
 const withCSSModules = require("./withCSSModules");
 const withConfig = require("next-config");

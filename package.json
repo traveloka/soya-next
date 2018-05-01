@@ -80,5 +80,8 @@
       "**/__tests__/**/*.js?(x)",
       "**/?(*).(spec|test).js?(x)"
     ]
+  },
+  "dependencies": {
+    "@zeit/next-source-maps": "^0.0.2"
   }
 }

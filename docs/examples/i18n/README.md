@@ -1,1 +1,0 @@
-../../../examples/i18n/README.md

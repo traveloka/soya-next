@@ -1,1 +1,0 @@
-../../../examples/apollo/README.md

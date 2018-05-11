@@ -1,20 +1,3 @@
 structure:
   readme: README.md
   summary: docs/README.md
-
-redirects:
-  examples: examples/README.md
-  examples/apollo: examples/apollo/README.md
-  examples/authentication: examples/authentication/README.md
-  examples/css-modules: examples/css-modules/README.md
-  examples/css-modules-with-scss: packages/css-modules-with-scss/README.md
-  examples/custom-routes: examples/custom-routes/README.md
-  examples/internationalization: examples/internationalization/README.md
-  examples/internationalization-with-redux: examples/internationalization-with-redux/README.md
-  examples/redirection: packages/redirection/README.md
-  examples/todomvc: packages/todomvc/README.md
-  packages: packages/README.md
-  packages/soya-next: packages/soya-next/README.md
-  packages/soya-next-cli: packages/soya-next-cli/README.md
-  packages/soya-next-scripts: packages/soya-next-scripts/README.md
-  packages/soya-next-server: packages/soya-next-server/README.md

@@ -8,4 +8,4 @@ Please refer to the following for documentation:
 
 - [Getting Started](/docs/getting-started/README.md)
 - [API Reference](/docs/api/README.md)
-- [Examples](/docs/examples/README.md)
+- [Examples](/examples/README.md)

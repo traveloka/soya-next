@@ -1,7 +1,7 @@
-[soya-next]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next
-[soya-next-cli]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli
-[soya-next-scripts]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-scripts
-[soya-next-server]: https://github.com/traveloka/soya-next/tree/master/packages/soya-next-server
+[soya-next]: packages/soya-next
+[soya-next-cli]: packages/soya-next-cli
+[soya-next-scripts]: packages/soya-next-scripts
+[soya-next-server]: packages/soya-next-server
 
 # Setup
 

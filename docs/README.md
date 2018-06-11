@@ -19,6 +19,8 @@
   - [Custom Marlint Configuration](user-guide/custom-marlint-configuration.md)
   - [Custom Routing](user-guide/custom-routing.md)
   - [Universal Environment Configuration](user-guide/universal-environment-configuration.md)
+- [Migration Guide](migration-guide/README.md)
+  - [0.4.x to 0.5.x](migration-guide/0.4.x-to-0.5.x.md)
 - [API Reference](api/README.md)
   - [`applyReducers([reducers])`](api/apply-reducers.md)
   - [`createPage([...connectArgs])(Page, [reducers])`](api/create-page.md)

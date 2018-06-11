@@ -54,6 +54,10 @@ Open http://localhost:3000 in your browser to see your app running.
 - [Custom Routing](docs/user-guide/custom-routing.md)
 - [Universal Environment Configuration](docs/user-guide/universal-environment-configuration.md)
 
+## Migration Guide
+
+- [0.4.x to 0.5.x](docs/migration-guide/0.4.x-to-0.5.x.md)
+
 ## API Reference
 
 Read the full API documentation [here](docs/api/README.md).

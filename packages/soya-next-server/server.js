@@ -10,6 +10,7 @@ process.on("unhandledRejection", err => {
 
 const config = require("config");
 const express = require("express");
+const frameguard = require("frameguard");
 const next = require("next");
 const { realpathSync } = require("fs");
 const { join, resolve } = require("path");
@@ -55,6 +56,7 @@ app
         whoami: config.whoami
       })
     );
+    server.use(frameguard(config.frameguard));
     server.listen(config.server.port, config.server.host, err => {
       if (err) {
         throw err;

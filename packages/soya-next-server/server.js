@@ -12,9 +12,16 @@ const config = require("config");
 const express = require("express");
 const frameguard = require("frameguard");
 const next = require("next");
-const { realpathSync } = require("fs");
-const { join, resolve } = require("path");
-const { createRouter } = require("soya-next/server/router");
+const {
+  realpathSync
+} = require("fs");
+const {
+  join,
+  resolve
+} = require("path");
+const {
+  createRouter
+} = require("soya-next/server/router");
 
 const appDir = resolve(realpathSync(process.cwd()));
 const app = next({
@@ -33,7 +40,7 @@ app
   .then(() => require.resolve("soya"))
   .then(
     stats =>
-      stats ? require(join(appDir, "build/server", "index.js")).default : null,
+    stats ? require(join(appDir, "build/server", "index.js")).default : null,
     err => {
       if (err.code !== "MODULE_NOT_FOUND") {
         throw err;
@@ -56,7 +63,7 @@ app
         whoami: config.whoami
       })
     );
-    server.use(frameguard(config.frameguard));
+    server.use(frameguard(config.server.frameguard));
     server.listen(config.server.port, config.server.host, err => {
       if (err) {
         throw err;

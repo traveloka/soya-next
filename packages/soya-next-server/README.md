@@ -14,7 +14,7 @@ npm install --save soya-next-server
 
 ## Usage
 
-Build using [soya-next-scripts](https://github.com/traveloka/soya-next/tree/master/packages/soya-next-scripts) with the following:
+Build using [soya-next-scripts](../soya-next-scripts/README.md) with the following:
 
 ```bash
 soya-next-scripts build

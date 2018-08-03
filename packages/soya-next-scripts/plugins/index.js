@@ -10,10 +10,12 @@ const withMarlint = require("./withMarlint");
 const withResolver = require("./withResolver");
 const withSASS = require("./withSASS");
 const withSASSModules = require("./withSASSModules");
+const withSourceMaps = require("@zeit/next-source-maps");
 const compose = require("lodash/flowRight");
 
 module.exports = (nextConfig = {}) =>
   compose(
+    withSourceMaps,
     withResolver,
     withAssetsImport,
     withBundleAnalyzer,

@@ -1,6 +1,6 @@
 {
   "name": "soya-next-scripts",
-  "version": "0.5.8-alpha.3",
+  "version": "0.5.9",
   "description": "A CLI which contains configuration and scripts used by soya-next-cli.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -36,6 +36,7 @@
     "@zeit/next-bundle-analyzer": "0.1.1",
     "@zeit/next-css": "0.1.5",
     "@zeit/next-sass": "0.1.2",
+    "@zeit/next-source-maps": "^0.0.2",
     "babel-eslint": "8.2.2",
     "chalk": "2.3.2",
     "cross-spawn": "6.0.5",

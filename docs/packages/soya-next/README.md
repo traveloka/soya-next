@@ -1,1 +1,0 @@
-../../../packages/soya-next/README.md

@@ -1,4 +1,4 @@
-const { join } = require("path");
+const { join, normalize } = require("path");
 
 module.exports = (nextConfig = {}) =>
   Object.assign({}, nextConfig, {
@@ -15,7 +15,7 @@ module.exports = (nextConfig = {}) =>
           entry().then(entries => {
             const names = Object.keys(entries);
             const name = names.find(
-              name => name === "bundles/pages/_document.js"
+              name => name === normalize("bundles/pages/_document.js")
             );
             const [documentPageEntry] = entries[name];
             if (documentPageEntry !== "./pages/_document.js") {

@@ -33,5 +33,7 @@
     "next": "^5.0.0",
     "soya-next": "^0.5.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "frameguard": "^3.0.0"
+  }
 }

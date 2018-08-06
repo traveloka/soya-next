@@ -55,7 +55,7 @@
     "next-assets-import": "0.0.2",
     "next-config": "0.0.2",
     "next-eslint": "0.0.4",
-    "node-sass": "4.7.2",
+    "node-sass": "4.9.0",
     "webpack": "3.10.0"
   },
   "peerDependencies": {

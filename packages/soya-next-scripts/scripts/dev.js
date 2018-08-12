@@ -17,10 +17,10 @@ const conf = require("../next.config");
 
 const { appDir } = require("../config/paths");
 const app = next({
-  dev: true,
+  dev: true
   // @remove-on-eject-begin
   // eslint-disable-next-line comma-style
-  conf
+  , conf
   // @remove-on-eject-end
 });
 const argv = process.argv ? process.argv.slice(2) : [];

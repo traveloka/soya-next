@@ -6,7 +6,6 @@ process.on("unhandledRejection", err => {
 });
 
 const express = require("express");
-const frameguard = require("frameguard");
 const next = require("next");
 const { join } = require("path");
 const { createRouter } = require("soya-next/server/router");
@@ -46,7 +45,6 @@ app
   )
   .then((soyaMiddleware = null) => {
     const server = express();
-    server.use(frameguard(config.server.frameguard));
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
     }

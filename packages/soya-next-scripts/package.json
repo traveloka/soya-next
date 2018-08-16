@@ -59,7 +59,7 @@
     "webpack": "3.10.0"
   },
   "peerDependencies": {
-    "config": "^1.30.0",
+    "config": "^2.0.0",
     "express": "^4.16.0",
     "next": "^5.1.0",
     "soya-next": "^0.5.0"

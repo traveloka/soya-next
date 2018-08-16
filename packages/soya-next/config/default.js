@@ -11,7 +11,9 @@ config.assetPrefix = config.assetPrefix || basePath || "";
 config.server = config.server || {};
 config.server.host = config.server.host || "0.0.0.0";
 config.server.port = config.server.port || 3000;
+config.server.frameguard = config.server.frameguard || { action: "sameorigin" };
 config.server.distDir = config.server.distDir || ".next";
 config.server.generateEtags = config.server.generateEtags || true;
 config.server.poweredByHeader = config.server.poweredByHeader || true;
-config.server.useFileSystemPublicRoutes = config.server.useFileSystemPublicRoutes || true;
+config.server.useFileSystemPublicRoutes =
+  config.server.useFileSystemPublicRoutes || true;

@@ -57,48 +57,6 @@ npm run lint
 
 ### Examples
 
-#### Setup
-
-Open `lerna.json` and update it with the following:
-
-```diff
-{
-  "lerna": "2.0.0",
-  "npmClient": "yarn",
-  "commands": {
-    "bootstrap": {
--     "scope": [
-+     "ignore": [
-        "soya-next*"
-      ]
-    }
-  },
-  "packages": [
-    "packages/*",
-    "examples/*"
-  ],
-  "version": "0.2.11"
-}
-```
-
-Then, run the following:
-
-```bash
-lerna bootstrap
-```
-
-It will install external dependencies and link local dependencies.
-
-#### Building
-
-To manually link the local repositories to any example app, run the following on each example directory:
-
-```bash
-npm link soya-next
-npm link soya-next-scripts
-npm link soya-next-server
-```
-
 To build and watch for code changes, run the following on each example directory:
 
 ```bash

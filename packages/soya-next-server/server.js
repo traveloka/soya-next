@@ -10,6 +10,7 @@ process.on("unhandledRejection", err => {
 
 const config = require("config");
 const express = require("express");
+const frameguard = require("frameguard");
 const next = require("next");
 const { realpathSync } = require("fs");
 const { join, resolve } = require("path");
@@ -41,6 +42,7 @@ app
   )
   .then((soyaMiddleware = null) => {
     const server = express();
+    server.use(frameguard(config.server.frameguard));
     if (soyaMiddleware !== null) {
       server.use(soyaMiddleware);
     }

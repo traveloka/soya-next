@@ -1,6 +1,6 @@
 {
   "name": "soya-next-scripts",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "description": "A CLI which contains configuration and scripts used by soya-next-cli.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -55,7 +55,7 @@
     "next-assets-import": "0.0.2",
     "next-config": "0.0.2",
     "next-eslint": "0.0.4",
-    "node-sass": "4.7.2",
+    "node-sass": "4.9.3",
     "webpack": "3.10.0"
   },
   "peerDependencies": {

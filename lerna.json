@@ -1,16 +1,10 @@
 {
-  "lerna": "2.0.0",
+  "lerna": "2.11.0",
   "npmClient": "yarn",
-  "commands": {
-    "bootstrap": {
-      "scope": [
-        "soya-next*"
-      ]
-    }
-  },
+  "useWorkspaces": true,
+  "version": "0.5.11",
   "packages": [
-    "packages/*",
-    "examples/*"
-  ],
-  "version": "0.5.9"
+    "examples/*",
+    "packages/*"
+  ]
 }

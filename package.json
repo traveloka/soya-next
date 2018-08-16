@@ -28,7 +28,7 @@
     "express": "^4.16.3",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
-    "lerna": "^2.11.0",
+    "lerna": "^3.0.5",
     "lint-staged": "^7.0.0",
     "marlint": "^6.5.4",
     "next": "^5.1.0",
@@ -77,5 +77,6 @@
   "workspaces": [
     "examples/*",
     "packages/*"
-  ]
+  ],
+  "name": "soya-next"
 }

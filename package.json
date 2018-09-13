@@ -11,7 +11,7 @@
     "precommit": "lint-staged",
     "prepublish": "yarn run clean && yarn run build",
     "publish": "lerna publish",
-    "test": "yarn run lint && jest",
+    "test": "jest",
     "watch": "yarn run build -- -w"
   },
   "devDependencies": {

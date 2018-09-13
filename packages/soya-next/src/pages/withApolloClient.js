@@ -7,7 +7,8 @@ import { NEXT_STATICS } from "../constants/Statics";
 
 export const withApolloClientFactory = (
   enhancer = Page => Page,
-  rootContext = ctx => ({})
+  rootContext = ctx => ({}),
+  ssr = false
 ) => configureClient => Page => {
   const EnhancedPage = enhancer(
     hoistStatics(
@@ -19,6 +20,10 @@ export const withApolloClientFactory = (
       Page
     )
   );
+
+  if (!ssr) {
+    return withClient(configureClient)(EnhancedPage);
+  }
 
   class WithApolloClient extends React.Component {
     static async getInitialProps(ctx) {

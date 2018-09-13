@@ -16,7 +16,7 @@ export default Page =>
       static displayName = getDisplayName("ApplyRedirect", Page);
 
       static async getInitialProps(ctx) {
-        const { defaultLocale, locale, method, redirects, siteLocales } =
+        const { defaultLocale, locale, method, redirects = {}, siteLocales } =
           ctx.req || window.__NEXT_DATA__.props;
         if (!ctx.req) {
           for (const from of Object.keys(redirects)) {

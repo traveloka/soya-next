@@ -15,7 +15,7 @@
     "watch": "yarn run build -- -w"
   },
   "devDependencies": {
-    "@zeit/next-css": "^0.1.5",
+    "@zeit/next-css": "^0.2.0",
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.0.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",

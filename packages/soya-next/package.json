@@ -45,7 +45,7 @@
   ],
   "dependencies": {
     "compression": "^1.6.2",
-    "hoist-non-react-statics": "^2.2.0",
+    "hoist-non-react-statics": "^3.0.1",
     "path-to-regexp": "^1.7.0",
     "prop-types": "^15.5.10",
     "redux-devtools-extension": "^2.13.2",

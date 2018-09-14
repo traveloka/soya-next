@@ -23,7 +23,7 @@
     "react-cookie": "^2.1.4",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "soya-next": "^0.5.11",
     "soya-next-server": "^0.5.11"
   },

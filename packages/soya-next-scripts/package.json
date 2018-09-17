@@ -38,7 +38,7 @@
     "@zeit/next-sass": "0.1.2",
     "@zeit/next-source-maps": "^0.0.2",
     "babel-eslint": "9.0.0",
-    "chalk": "2.3.2",
+    "chalk": "2.4.1",
     "cross-spawn": "6.0.5",
     "eslint": "5.5.0",
     "eslint-config-marlint": "6.3.4",

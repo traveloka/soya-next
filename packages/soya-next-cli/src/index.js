@@ -28,7 +28,7 @@ const projectDirectory = argv._[0];
 
 const dependencies = [
   "apollo-client@^2.2.7",
-  "config@^1.30.0",
+  "config@^2.0.0",
   "express@^4.16.2",
   "graphql@^0.13.2",
   "next@^5.1.0",

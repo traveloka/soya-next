@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "config": "^1.30.0",
+    "config": "^2.0.1",
     "express": "^4.16.3",
     "next": "^5.0.0",
     "prop-types": "^15.6.1",

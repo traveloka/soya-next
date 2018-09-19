@@ -729,17 +729,6 @@
   dependencies:
     webpack-bundle-analyzer "2.11.1"
 
-"@zeit/next-css@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@zeit/next-css/-/next-css-0.1.5.tgz#e306a0ea7b0f49935632c3b154232d6a8b96f982"
-  dependencies:
-    css-loader "0.28.9"
-    extract-text-webpack-plugin "3.0.2"
-    extracted-loader "1.0.4"
-    find-up "2.1.0"
-    ignore-loader "0.1.2"
-    postcss-loader "2.0.10"
-
 "@zeit/next-css@0.2.0", "@zeit/next-css@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@zeit/next-css/-/next-css-0.2.0.tgz#35da071256397b509b86ac7726ce0f7d3593e62b"
@@ -751,11 +740,11 @@
     ignore-loader "0.1.2"
     postcss-loader "2.0.10"
 
-"@zeit/next-sass@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@zeit/next-sass/-/next-sass-0.1.2.tgz#cc46cc1d76b64d599edf662356e38520346968bc"
+"@zeit/next-sass@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@zeit/next-sass/-/next-sass-0.2.0.tgz#dc860dbbab45b5fa010168c3a44a29cf8aa39db5"
   dependencies:
-    "@zeit/next-css" "0.1.5"
+    "@zeit/next-css" "0.2.0"
     extract-text-webpack-plugin "3.0.2"
     sass-loader "6.0.6"
 

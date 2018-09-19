@@ -716,17 +716,6 @@
   dependencies:
     webpack-bundle-analyzer "2.11.1"
 
-"@zeit/next-css@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@zeit/next-css/-/next-css-0.1.5.tgz#e306a0ea7b0f49935632c3b154232d6a8b96f982"
-  dependencies:
-    css-loader "0.28.9"
-    extract-text-webpack-plugin "3.0.2"
-    extracted-loader "1.0.4"
-    find-up "2.1.0"
-    ignore-loader "0.1.2"
-    postcss-loader "2.0.10"
-
 "@zeit/next-css@0.2.0", "@zeit/next-css@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@zeit/next-css/-/next-css-0.2.0.tgz#35da071256397b509b86ac7726ce0f7d3593e62b"
@@ -738,11 +727,11 @@
     ignore-loader "0.1.2"
     postcss-loader "2.0.10"
 
-"@zeit/next-sass@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@zeit/next-sass/-/next-sass-0.1.2.tgz#cc46cc1d76b64d599edf662356e38520346968bc"
+"@zeit/next-sass@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@zeit/next-sass/-/next-sass-0.2.0.tgz#dc860dbbab45b5fa010168c3a44a29cf8aa39db5"
   dependencies:
-    "@zeit/next-css" "0.1.5"
+    "@zeit/next-css" "0.2.0"
     extract-text-webpack-plugin "3.0.2"
     sass-loader "6.0.6"
 
@@ -8821,6 +8810,10 @@ react-is@^16.4.2:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
 
+react-is@^16.5.2:
+  version "16.5.2"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
+
 react-lifecycles-compat@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -8845,7 +8838,16 @@ react-redux@^5.0.7:
     loose-envify "^1.1.0"
     prop-types "^15.6.0"
 
-react-test-renderer@16.5.1, react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
+react-test-renderer@^16.0.0:
+  version "16.5.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.5.2.tgz#92e9d2c6f763b9821b2e0b22f994ee675068b5ae"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    react-is "^16.5.2"
+    schedule "^0.5.0"
+
+react-test-renderer@^16.0.0-0, react-test-renderer@^16.2.0:
   version "16.5.1"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.5.1.tgz#17f020fb0cf884cadebb5240d9d9c23452f18299"
   dependencies:
@@ -9497,6 +9499,12 @@ schedule@^0.3.0:
 schedule@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/schedule/-/schedule-0.4.0.tgz#fa20cfd0bfbf91c47d02272fd7096780d3170bbb"
+  dependencies:
+    object-assign "^4.1.1"
+
+schedule@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/schedule/-/schedule-0.5.0.tgz#c128fffa0b402488b08b55ae74bb9df55cc29cc8"
   dependencies:
     object-assign "^4.1.1"
 
@@ -10568,7 +10576,7 @@ unique-string@^1.0.0:
   dependencies:
     crypto-random-string "^1.0.0"
 
-universal-cookie-express@3.0.4:
+universal-cookie-express@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.4.tgz#efb347740e29b9c4cb73e49f6adad815761c4986"
   dependencies:

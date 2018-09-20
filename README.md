@@ -1,6 +1,5 @@
 # Soya Next
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/traveloka/soya-next.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/traveloka/soya-next.svg?branch=master)](https://travis-ci.org/traveloka/soya-next)
 [![Coverage Status](https://coveralls.io/repos/github/traveloka/soya-next/badge.svg?branch=master)](https://coveralls.io/github/traveloka/soya-next?branch=master)
 
@@ -21,8 +20,8 @@ Name | Version | Description
 - Custom routing
 - CSS Modules
 - Gzip compression
-- Internationalization
-- On-the-fly linting
+- [Locale-specific URLs](https://support.google.com/webmasters/answer/182192?hl=en&ref_topic=2370587#locale-specific-urls) (Subdirectories with gTLD)
+- On-the-fly ESLint
 - Redux (Automatic code splitting)
 - SASS/SCSS
 - Universal cookie

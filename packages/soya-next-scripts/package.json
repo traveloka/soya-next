@@ -33,7 +33,7 @@
     "soya-next-scripts": "./bin/soya-next-scripts.js"
   },
   "dependencies": {
-    "@zeit/next-bundle-analyzer": "0.1.1",
+    "@zeit/next-bundle-analyzer": "0.1.2",
     "@zeit/next-css": "0.2.0",
     "@zeit/next-sass": "0.2.0",
     "@zeit/next-source-maps": "^0.0.2",

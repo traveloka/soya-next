@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@zeit/next-bundle-analyzer": "0.1.2",
-    "@zeit/next-css": "1.0.0",
+    "@zeit/next-css": "1.0.1",
     "@zeit/next-sass": "1.0.0",
     "@zeit/next-source-maps": "0.0.3",
     "babel-eslint": "9.0.0",

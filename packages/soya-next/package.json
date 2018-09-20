@@ -44,12 +44,12 @@
     "redux.js"
   ],
   "dependencies": {
-    "compression": "^1.6.2",
+    "compression": "^1.7.3",
     "hoist-non-react-statics": "^3.0.1",
     "path-to-regexp": "^2.4.0",
-    "prop-types": "^15.5.10",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0",
+    "prop-types": "^15.6.2",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0",
     "universal-cookie-express": "^3.0.4"
   },
   "peerDependencies": {

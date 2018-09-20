@@ -10,7 +10,7 @@ process.on("unhandledRejection", err => {
 // @remove-on-eject-begin
 const conf = require("../next.config");
 // @remove-on-eject-end
-const build = require("next/dist/server/build").default;
+const build = require("next/dist/build").default;
 
 const { appDir } = require("../config/paths");
 const buildSoya = require("./utils/build-soya");

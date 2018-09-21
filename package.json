@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
-    "@zeit/next-css": "^1.0.0",
+    "@zeit/next-css": "1.0.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "config": "^2.0.1",

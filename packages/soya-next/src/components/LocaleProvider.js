@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Cookies, CookiesProvider } from "react-cookie";
 import { localeShape } from "../constants/PropTypes";
 import Locale from "./LocaleContext";
 
-class BaseProvider extends React.Component {
+class LocaleProvider extends React.Component {
   static propTypes = {
-    cookies: PropTypes.instanceOf(Cookies).isRequired,
     defaultLocale: PropTypes.string,
     siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
     locale: localeShape,
@@ -24,13 +22,11 @@ class BaseProvider extends React.Component {
 
   render() {
     return (
-      <CookiesProvider cookies={this.props.cookies}>
-        <Locale.Provider value={this.locale}>
-          {React.Children.only(this.props.children)}
-        </Locale.Provider>
-      </CookiesProvider>
+      <Locale.Provider value={this.locale}>
+        {React.Children.only(this.props.children)}
+      </Locale.Provider>
     );
   }
 }
 
-export default BaseProvider;
+export default LocaleProvider;

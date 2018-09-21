@@ -2,26 +2,24 @@ import React from "react";
 import PropTypes from "prop-types";
 import TestUtils from "react-dom/test-utils";
 import { Cookies } from "react-cookie";
+import LocaleContext from "../LocaleContext";
 import BaseProvider from "../BaseProvider";
+import { withCookies } from "react-cookie";
 import { localeShape } from "../../constants/PropTypes";
 
 describe("<BaseProvider />", () => {
-  const createChild = () =>
-    class extends React.Component {
-      static contextTypes = {
-        cookies: PropTypes.instanceOf(Cookies).isRequired,
-        defaultLocale: PropTypes.string,
-        siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
-        locale: localeShape
-      };
+  let rootContext;
+  const ContextChecker = withCookies(({ cookies }) => (
+    <LocaleContext.Consumer>
+      {context => ((rootContext = ({ ...context, cookies })), null)}
+    </LocaleContext.Consumer>
+  ));
 
-      render() {
-        return <div />;
-      }
-    };
+  afterEach(() => {
+    rootContext = undefined;
+  });
 
   it("should add cookies, defaultLocale, locale, and siteLocales to child context", () => {
-    const Child = createChild();
     const tree = TestUtils.renderIntoDocument(
       <BaseProvider
         cookies={new Cookies()}
@@ -29,10 +27,9 @@ describe("<BaseProvider />", () => {
         locale={{ language: "en", country: "id" }}
         siteLocales={["id-id", "en-id"]}
       >
-        <Child />
+        <ContextChecker />
       </BaseProvider>
     );
-    const child = TestUtils.findRenderedComponentWithType(tree, Child);
-    expect(child.context).toMatchSnapshot();
+    expect(rootContext).toMatchSnapshot();
   });
 });

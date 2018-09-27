@@ -6,7 +6,7 @@ import LanguagePicker from "./LanguagePicker";
 import data from "../data/i18n.json";
 
 const Layout = ({ children, locale, siteLocales }) => (
-  <div>
+  <>
     <LanguagePicker />
     <hr />
     <div>
@@ -20,7 +20,7 @@ const Layout = ({ children, locale, siteLocales }) => (
     {children}
     <hr />
     <LanguagePicker />
-  </div>
+  </>
 );
 
 Layout.propTypes = {

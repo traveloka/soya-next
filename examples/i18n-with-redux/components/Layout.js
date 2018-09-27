@@ -4,7 +4,7 @@ import Dictionary from "../components/Dictionary";
 import LanguagePicker from "./LanguagePicker";
 
 const Layout = ({ children }) => (
-  <div>
+  <>
     <LanguagePicker />
     <hr />
     <div>
@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
     {children}
     <hr />
     <LanguagePicker />
-  </div>
+  </>
 );
 
 Layout.propTypes = {

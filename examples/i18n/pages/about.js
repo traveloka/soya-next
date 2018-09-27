@@ -10,7 +10,7 @@ const AboutPage = ({ locale }) => (
 );
 
 AboutPage.propTypes = {
-  locale: localeShape.isRequired
+  locale: localeShape
 };
 
 export default AboutPage;

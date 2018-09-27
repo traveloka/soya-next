@@ -10,7 +10,7 @@ const IndexPage = ({ locale }) => (
 );
 
 IndexPage.propTypes = {
-  locale: localeShape.isRequired
+  locale: localeShape
 };
 
 export default IndexPage;

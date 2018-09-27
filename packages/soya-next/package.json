@@ -1,6 +1,6 @@
 {
   "name": "soya-next",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -37,23 +37,25 @@
     "config",
     "lib",
     "server",
+    "cookies.js",
     "i18n.js",
     "link.js",
     "pages.js",
     "prop-types.js",
-    "redux.js"
+    "redux.js",
+    "router.js"
   ],
   "dependencies": {
-    "compression": "^1.6.2",
-    "hoist-non-react-statics": "^2.2.0",
-    "path-to-regexp": "^1.7.0",
-    "prop-types": "^15.5.10",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-thunk": "^2.2.0",
-    "universal-cookie-express": "^2.0.5"
+    "compression": "^1.7.3",
+    "hoist-non-react-statics": "^3.0.1",
+    "path-to-regexp": "^2.4.0",
+    "prop-types": "^15.6.2",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-thunk": "^2.3.0",
+    "universal-cookie-express": "^3.0.4"
   },
   "peerDependencies": {
-    "config": "^1.30.0",
+    "config": "^2.0.0",
     "express": "^4.16.0",
     "next": "^3.0.0 || ^4.0.0 || ^5.0.0",
     "react-apollo": "^2.0.4",

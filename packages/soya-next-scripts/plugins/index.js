@@ -1,11 +1,11 @@
 const config = require("config");
+const withApp = require("./withApp");
 const withAssetsImport = require("next-assets-import");
 const withBundleAnalyzer = require("./withBundleAnalyzer");
 const withCSS = require("./withCSS");
 const withCSSModules = require("./withCSSModules");
 const withConfig = require("next-config");
 const withDocument = require("./withDocument");
-const withExtractStyles = require("./withExtractStyles");
 const withMarlint = require("./withMarlint");
 const withResolver = require("./withResolver");
 const withSASS = require("./withSASS");
@@ -20,7 +20,7 @@ module.exports = (nextConfig = {}) =>
     withAssetsImport,
     withBundleAnalyzer,
     withDocument,
-    withExtractStyles,
+    withApp,
     withCSSModules,
     withCSS,
     withConfig,

@@ -28,7 +28,7 @@ describe("createRouter", () => {
       getRequestHandler: jest.fn(() => handle),
       handle,
       render: jest.fn(),
-      send404: jest.fn(),
+      render404: jest.fn(),
       serveStatic: jest.fn()
     };
   };
@@ -175,7 +175,7 @@ describe("createRouter", () => {
       expect(next).toBeCalled();
 
       router.middlewares[2]({ url: "/" }, res, next);
-      expect(app.send404).toBeCalled();
+      expect(app.render404).toBeCalled();
     });
 
     it("should create router with base path and exclude some paths", () => {

@@ -6,19 +6,21 @@ import applyRedirect from "../router/applyRedirect";
 import withCookies from "../cookies/withCookiesPage";
 import withLocale from "../i18n/withLocalePage";
 
-export default Page =>
-  compose(withLocale, applyRedirect, withCookies)(
-    hoistStatics(
-      props => (
-        <BaseProvider
-          cookies={props.cookies}
-          locale={props.locale}
-          defaultLocale={props.defaultLocale}
-          siteLocales={props.siteLocales}
-        >
-          <Page {...props} />
-        </BaseProvider>
-      ),
-      Page
-    )
+export default Page => {
+  const BasePage = props => (
+    <BaseProvider
+      cookies={props.cookies}
+      locale={props.locale}
+      defaultLocale={props.defaultLocale}
+      siteLocales={props.siteLocales}
+    >
+      <Page {...props} />
+    </BaseProvider>
   );
+
+  return compose(
+    withLocale,
+    applyRedirect,
+    withCookies
+  )(hoistStatics(BasePage, Page));
+};

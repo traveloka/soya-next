@@ -16,7 +16,7 @@ export default configureClient => Page => {
   };
 
   class WithClient extends React.Component {
-    static displayName = getDisplayName("WithClient", Page);
+    static displayName = getDisplayName("withClient", Page);
     static propTypes = {
       apolloState: PropTypes.object.isRequired
     };

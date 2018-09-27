@@ -1,1 +1,1 @@
-module.exports = require("./lib/constants/PropTypes");
+module.exports = require("./lib/constants");

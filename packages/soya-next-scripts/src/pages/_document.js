@@ -1,4 +1,3 @@
-import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import config from "config";
 import htmlescape from "htmlescape";
@@ -13,12 +12,7 @@ export default class extends Document {
     const { __NEXT_DATA__ } = this.props;
     return (
       <html>
-        <Head>
-          <link
-            rel="stylesheet"
-            href={`${__NEXT_DATA__.assetPrefix}/_next/static/style.css`}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <script

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { createPage } from "soya-next";
 import Layout from "../components/Layout";
 
 const IndexPage = () => (
@@ -11,4 +10,4 @@ const IndexPage = () => (
   </Layout>
 );
 
-export default createPage()(IndexPage);
+export default IndexPage;

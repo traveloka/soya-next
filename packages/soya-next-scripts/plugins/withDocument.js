@@ -1,4 +1,4 @@
-const { join, normalize } = require("path");
+const { join } = require("path");
 
 module.exports = (nextConfig = {}) =>
   Object.assign({}, nextConfig, {
@@ -11,20 +11,19 @@ module.exports = (nextConfig = {}) =>
 
       if (options.isServer) {
         const entry = config.entry;
-        config.entry = () =>
-          entry().then(entries => {
-            const names = Object.keys(entries);
-            const name = names.find(
-              name => name === normalize("bundles/pages/_document.js")
-            );
-            const [documentPageEntry] = entries[name];
-            if (documentPageEntry !== "./pages/_document.js") {
-              entries[name] = [
-                require.resolve("../pages/_document")
-              ];
-            }
-            return entries;
-          });
+        config.entry = async () => {
+          const entries = await entry();
+          const names = Object.keys(entries);
+          const name = names.find(
+            name =>
+              name === join("static", options.buildId, "pages", "_document.js")
+          );
+          const [documentPageEntry] = entries[name];
+          if (documentPageEntry !== join(".", "pages", "_document.js")) {
+            entries[name] = [require.resolve(join("..", "pages", "_document"))];
+          }
+          return entries;
+        };
       }
 
       if (typeof nextConfig.webpack === "function") {

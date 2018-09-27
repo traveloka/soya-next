@@ -10,7 +10,7 @@ export default reducers => Component => {
   }
 
   class ApplyReducers extends React.Component {
-    static displayName = getDisplayName("ApplyReducers", Component);
+    static displayName = getDisplayName("applyReducers", Component);
 
     static async getInitialProps(ctx) {
       if (!ctx.store.soya) {

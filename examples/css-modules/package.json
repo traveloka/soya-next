@@ -1,6 +1,6 @@
 {
   "name": "css-modules",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -13,19 +13,19 @@
     "test": "soya-next-scripts test"
   },
   "dependencies": {
-    "config": "^1.30.0",
+    "config": "^2.0.1",
     "express": "^4.16.3",
-    "next": "^5.0.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-cookie": "^2.1.4",
-    "react-dom": "^16.2.0",
+    "next": "^7.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-cookie": "^3.0.4",
+    "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "soya-next": "^0.5.11",
+    "redux": "^4.0.0",
+    "soya-next": "^0.5.12",
     "soya-next-server": "^0.5.11"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.5.10"
+    "soya-next-scripts": "^0.5.12"
   }
 }

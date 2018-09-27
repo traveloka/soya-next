@@ -1,1 +1,1 @@
-module.exports = require("../lib/pages/_document").default;
+module.exports = require("../lib/pages/_document");

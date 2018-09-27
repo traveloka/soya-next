@@ -8,7 +8,7 @@ import { NEXT_STATICS } from "../constants/Statics";
 
 export default Page => {
   class WithLocale extends React.Component {
-    static displayName = getDisplayName("WithLocale", Page);
+    static displayName = getDisplayName("withLocale", Page);
 
     static propTypes = {
       defaultLocale: PropTypes.string,
@@ -17,18 +17,13 @@ export default Page => {
     };
 
     static async getInitialProps({ asPath, ...ctx }) {
-      const context = ctx.req || window.__NEXT_DATA__.props;
-      const { defaultLocale, siteLocales } = context;
-      let locale = context.locale;
-      if (!ctx.req) {
+      const context = process.browser ? window.__NEXT_DATA__.props : ctx.req;
+      const { defaultLocale, siteLocales, locale } = context;
+      if (process.browser) {
         if (ctx.query.locale) {
           const [language, country] = ctx.query.locale.split("-");
           if (siteLocales.indexOf(`${language}-${country}`) !== -1) {
-            locale = {
-              language,
-              country
-            };
-            context.locale = locale;
+            context.locale = { language, country };
           }
         }
       }
@@ -36,16 +31,16 @@ export default Page => {
         Page.getInitialProps &&
         (await Page.getInitialProps({
           ...ctx,
-          asPath: ensurePath(asPath, locale, defaultLocale),
+          asPath: ensurePath(asPath, context.locale, defaultLocale),
           defaultLocale,
           siteLocales,
-          locale
+          locale: context.locale
         }));
       return {
         ...props,
         defaultLocale,
         siteLocales,
-        locale
+        locale: context.locale
       };
     }
 

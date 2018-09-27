@@ -9,7 +9,7 @@ const logout = ({ cookies }) => () => {
 };
 
 const Layout = ({ cookies, children }) => (
-  <div>
+  <>
     <Link href="/">
       <a>Public</a>
     </Link>{" "}
@@ -21,7 +21,7 @@ const Layout = ({ cookies, children }) => (
     )}
     <hr />
     {children}
-  </div>
+  </>
 );
 
 Layout.propTypes = {

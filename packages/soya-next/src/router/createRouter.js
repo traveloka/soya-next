@@ -65,7 +65,7 @@ export default (
         req.url = req.url.replace(new RegExp(`^${test}/*`), "/");
         return next();
       }
-      app.send404(res);
+      app.render404(req, res);
     });
   }
   Object.keys(newRedirects).forEach(from => {

@@ -13,12 +13,17 @@ import { NEXT_STATICS } from "../constants/Statics";
 export default Page =>
   hoistStatics(
     class extends React.Component {
-      static displayName = getDisplayName("ApplyRedirect", Page);
+      static displayName = getDisplayName("applyRedirect", Page);
 
       static async getInitialProps(ctx) {
-        const { defaultLocale, locale, method, redirects, siteLocales } =
-          ctx.req || window.__NEXT_DATA__.props;
-        if (!ctx.req) {
+        const {
+          defaultLocale,
+          locale,
+          method,
+          redirects = {},
+          siteLocales
+        } = process.browser ? window.__NEXT_DATA__.props : ctx.req;
+        if (process.browser) {
           for (const from of Object.keys(redirects)) {
             const { method: redirectMethod, page, to } = ensureRedirect(
               redirects[from]

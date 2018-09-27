@@ -35,6 +35,14 @@ describe("withLocalePage", () => {
   });
 
   describe("browser", () => {
+    beforeEach(() => {
+      process.browser = true;
+    });
+
+    afterEach(() => {
+      delete process.browser;
+    });
+
     it("should add default locale, locale, and site locales to page props", async () => {
       window.__NEXT_DATA__ = {
         props: context

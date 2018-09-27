@@ -9,10 +9,11 @@ process.on("unhandledRejection", err => {
 
 const { appDir } = require("../config/paths");
 const { join } = require("path");
-const _export = require("next/dist/server/export").default;
+const config = require("config");
+const _export = require("next/dist/export").default;
 // @remove-on-eject-begin
 const { PHASE_EXPORT } = require("next/constants");
-const { loadConfig } = require("next/dist/server/config");
+const loadConfig = require("next/dist/server/config").default;
 const conf = require("../next.config")(loadConfig(PHASE_EXPORT, appDir));
 // @remove-on-eject-end
 
@@ -20,7 +21,7 @@ _export(
   appDir,
   {
     silent: false,
-    outdir: join(appDir, "out"),
+    outdir: join(appDir, "out")
   }
   // @remove-on-eject-begin
   , conf

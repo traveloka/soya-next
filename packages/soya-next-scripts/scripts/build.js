@@ -12,7 +12,7 @@ const build = require("next/dist/build").default;
 const buildSoya = require("./utils/build-soya");
 // @remove-on-eject-begin
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");
-const { loadConfig } = require("next/dist/server/config");
+const loadConfig = require("next/dist/server/config").default;
 const conf = require("../next.config")(loadConfig(PHASE_PRODUCTION_BUILD, appDir));
 // @remove-on-eject-end
 

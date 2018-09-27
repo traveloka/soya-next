@@ -7,7 +7,7 @@ import { NEXT_STATICS } from "../constants/Statics";
 
 export default Page => {
   class WithCookies extends React.Component {
-    static displayName = getDisplayName("WithCookies", Page);
+    static displayName = getDisplayName("withCookies", Page);
 
     static propTypes = {
       cookies: PropTypes.oneOfType([
@@ -19,7 +19,9 @@ export default Page => {
     };
 
     static async getInitialProps(ctx) {
-      const cookies = (ctx.req && ctx.req.universalCookies) || new Cookies();
+      const cookies = process.browser
+        ? new Cookies()
+        : ctx.req && ctx.req.universalCookies;
       const props =
         Page.getInitialProps &&
         (await Page.getInitialProps({ ...ctx, cookies }));

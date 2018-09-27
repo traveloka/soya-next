@@ -1,6 +1,6 @@
-import React from "react";
 import { shallow } from "enzyme";
-import LocaleLink from "../LocaleLink";
+import React from "react";
+import { LocaleLink } from "../LocaleLink";
 
 describe("<LocaleLink />", () => {
   const context = {
@@ -17,69 +17,62 @@ describe("<LocaleLink />", () => {
 
   it("should render <Link /> to navigate from default locale", () => {
     const wrapper = shallow(
-      <LocaleLink href="/about">
+      <LocaleLink {...context} href="/about">
         <a>Tentang</a>
-      </LocaleLink>,
-      { context }
+      </LocaleLink>
     );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("should render <Link /> to navigate from non-default locale", () => {
+    const locale = {
+      language: "en",
+      country: "id"
+    };
     const wrapper = shallow(
-      <LocaleLink href="/about">
+      <LocaleLink {...context} href="/about" locale={locale}>
         <a>About</a>
-      </LocaleLink>,
-      {
-        context: {
-          ...context,
-          locale: {
-            language: "en",
-            country: "id"
-          }
-        }
-      }
+      </LocaleLink>
     );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("should render <Link /> to navigate to custom route", () => {
     const wrapper = shallow(
-      <LocaleLink as="p/hello-world" href="/post?title=Hello World">
+      <LocaleLink
+        {...context}
+        as="p/hello-world"
+        href="/post?title=Hello World"
+      >
         <a>Hello World</a>
-      </LocaleLink>,
-      { context }
+      </LocaleLink>
     );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("should render <Link /> to navigate to another locale", () => {
+    const locale = {
+      language: "en",
+      country: "id"
+    };
     const wrapper = shallow(
-      <LocaleLink locale="en-id">
+      <LocaleLink {...context} locale={locale}>
         <a>English (Indonesia)</a>
-      </LocaleLink>,
-      { context }
+      </LocaleLink>
     );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
-  });
-
-  it("should accept locale string", () => {
-    const wrapper = shallow(
-      <LocaleLink locale="th-th" href="/about">
-        <a>เกี่ยวกับ</a>
-      </LocaleLink>,
-      { context }
-    );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it("should accept locale object", () => {
     const wrapper = shallow(
-      <LocaleLink locale={{ language: "en", country: "sg" }} href="/about">
+      <LocaleLink
+        {...context}
+        locale={{ language: "en", country: "sg" }}
+        href="/about"
+      >
         <a>About</a>
-      </LocaleLink>,
-      { context }
+      </LocaleLink>
     );
-    expect(wrapper.dive().dive()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });

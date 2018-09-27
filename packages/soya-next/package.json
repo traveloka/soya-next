@@ -37,11 +37,13 @@
     "config",
     "lib",
     "server",
+    "cookies.js",
     "i18n.js",
     "link.js",
     "pages.js",
     "prop-types.js",
-    "redux.js"
+    "redux.js",
+    "router.js"
   ],
   "dependencies": {
     "compression": "^1.7.3",

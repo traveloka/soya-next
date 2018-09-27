@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TestUtils from "react-dom/test-utils";
 import { Cookies } from "react-cookie";
-import LocaleContext from "../LocaleContext";
+import LocaleContext from "../../i18n/LocaleContext";
 import BaseProvider from "../BaseProvider";
 import { withCookies } from "react-cookie";
 import { localeShape } from "../../constants/PropTypes";

@@ -17,7 +17,7 @@ export default configureStore => Page => {
   };
 
   class WithStore extends React.Component {
-    static displayName = getDisplayName("WithStore", Page);
+    static displayName = getDisplayName("withStore", Page);
 
     static propTypes = {
       reduxState: PropTypes.object.isRequired,

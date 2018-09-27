@@ -8,7 +8,7 @@ import withLocale from "../i18n/withLocaleComponent";
 import { localeShape } from "../constants/PropTypes";
 import { toPath } from "../utils/locale";
 
-class LocaleLink extends React.Component {
+export class LocaleLink extends React.Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
     defaultLocale: PropTypes.string.isRequired,

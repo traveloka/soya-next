@@ -42,6 +42,14 @@ describe("applyRedirect", () => {
   });
 
   describe("browser", () => {
+    beforeEach(() => {
+      process.browser = true;
+    });
+
+    afterEach(() => {
+      delete process.browser;
+    });
+
     it("should redirect", async () => {
       await RedirectAppliedPage.getInitialProps({ asPath: "/old/path" });
       expect(Router.push).toBeCalled();

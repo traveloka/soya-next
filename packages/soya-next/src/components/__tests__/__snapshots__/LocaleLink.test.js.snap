@@ -11,17 +11,6 @@ exports[`<LocaleLink /> should accept locale object 1`] = `
 </Link>
 `;
 
-exports[`<LocaleLink /> should accept locale string 1`] = `
-<Link
-  as="/th-th/about"
-  href="/about?locale=th-th"
->
-  <a>
-    เกี่ยวกับ
-  </a>
-</Link>
-`;
-
 exports[`<LocaleLink /> should render <Link /> to navigate from default locale 1`] = `
 <Link
   as="/about"

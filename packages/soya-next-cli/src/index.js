@@ -102,6 +102,7 @@ if (projectDirectory) {
         build: "soya-next-scripts build",
         dev: "soya-next-scripts dev",
         eject: "soya-next-scripts eject",
+        export: "soya-next-scripts export",
         start: "soya-next-server",
         test: "soya-next-scripts test"
       }

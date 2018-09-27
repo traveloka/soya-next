@@ -8,6 +8,7 @@
     "clean:all": "yarn clean && lerna clean",
     "coverage": "yarn test --coverage",
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | coveralls",
+    "export:examples": "lerna run --ignore soya-next* --ignore apollo --ignore i18n* export",
     "lint": "marlint",
     "precommit": "lint-staged",
     "prepublish": "yarn clean && yarn build",

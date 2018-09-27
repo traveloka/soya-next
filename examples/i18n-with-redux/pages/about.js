@@ -1,4 +1,3 @@
-import { createPage } from "soya-next";
 import Layout from "../components/Layout";
 import Dictionary from "../components/Dictionary";
 
@@ -9,4 +8,4 @@ const AboutPage = () => (
   </Layout>
 );
 
-export default createPage()(AboutPage);
+export default AboutPage;

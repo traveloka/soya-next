@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import Router from "next/router";
 import { Cookies } from "react-cookie";
-import { createPage } from "soya-next";
 import Layout from "../components/Layout";
 
 const login = ({ cookies }) => () => {
@@ -34,4 +33,4 @@ LoginPage.propTypes = {
   cookies: PropTypes.instanceOf(Cookies)
 };
 
-export default createPage()(LoginPage);
+export default LoginPage;

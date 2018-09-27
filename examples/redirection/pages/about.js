@@ -1,8 +1,7 @@
-import { createPage } from "soya-next";
 import Layout from "../components/Layout/Layout";
 
-export default createPage()(() => (
+export default () => (
   <Layout>
     <p>This is the about page</p>
   </Layout>
-));
+);

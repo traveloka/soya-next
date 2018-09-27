@@ -1,9 +1,9 @@
-import { createPage } from "soya-next";
+import { withRouter } from "next/router"
 import Layout from "../components/Layout/Layout";
 
-export default createPage()(({ url }) => (
+export default withRouter(({ router }) => (
   <Layout>
-    <h1>{url.query.title || url.query.id}</h1>
+    <h1>{router.query.title || router.query.id}</h1>
     <p>This is the blog post content.</p>
   </Layout>
 ));

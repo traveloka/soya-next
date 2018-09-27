@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { createPage } from "soya-next";
 import withAuth from "../HOCs/withAuth";
 import Layout from "../components/Layout";
 
@@ -12,4 +11,4 @@ const ProtectedPage = () => (
   </Layout>
 );
 
-export default createPage()(withAuth(ProtectedPage));
+export default withAuth(ProtectedPage);

@@ -15,11 +15,12 @@ module.exports = (nextConfig = {}) =>
           const entries = await entry();
           const names = Object.keys(entries);
           const name = names.find(
-            name => name === `static/${options.buildId}/pages/_document.js`
+            name =>
+              name === join("static", options.buildId, "pages", "_document.js")
           );
           const [documentPageEntry] = entries[name];
-          if (documentPageEntry !== "./pages/_document.js") {
-            entries[name] = [require.resolve("../pages/_document")];
+          if (documentPageEntry !== join(".", "pages", "_document.js")) {
+            entries[name] = [require.resolve(join("..", "pages", "_document"))];
           }
           return entries;
         };

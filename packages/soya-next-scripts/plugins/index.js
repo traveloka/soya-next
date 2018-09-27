@@ -1,4 +1,5 @@
 const config = require("config");
+const withApp = require("./withApp");
 const withAssetsImport = require("next-assets-import");
 const withBundleAnalyzer = require("./withBundleAnalyzer");
 const withCSS = require("./withCSS");
@@ -19,6 +20,7 @@ module.exports = (nextConfig = {}) =>
     withAssetsImport,
     withBundleAnalyzer,
     withDocument,
+    withApp,
     withCSSModules,
     withCSS,
     withConfig,

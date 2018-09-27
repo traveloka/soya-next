@@ -1,11 +1,11 @@
 export {
   default as createApolloPageFactory
-} from "./lib/pages/createApolloPageFactory";
-export { default as createBasePage } from "./lib/pages/createBasePage";
-export { default as createPageFactory } from "./lib/pages/createPageFactory";
-export { default as createReduxPage } from "./lib/pages/createReduxPage";
+} from "./createApolloPageFactory";
+export { default as createBasePage } from "./createBasePage";
+export { default as createPageFactory } from "./createPageFactory";
+export { default as createReduxPage } from "./createReduxPage";
 export {
   default as withApolloClient,
   withApolloClientFactory
-} from "./lib/pages/withApolloClient";
-export { default as withReduxStore } from "./lib/pages/withReduxStore";
+} from "./withApolloClient";
+export { default as withReduxStore } from "./withReduxStore";

@@ -56,7 +56,7 @@
     "next-config": "0.0.2",
     "next-eslint": "0.0.4",
     "node-sass": "4.9.3",
-    "webpack": "4.19.0"
+    "webpack": "4.20.2"
   },
   "peerDependencies": {
     "config": "^2.0.0",

@@ -6,7 +6,7 @@
     "build:examples": "lerna run --ignore soya-next* build",
     "clean": "rimraf examples/*/{.next,out} packages/*/lib",
     "clean:all": "yarn clean && lerna clean",
-    "coverage": "yarn test --ci --coverage",
+    "coverage": "yarn test --coverage",
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | coveralls",
     "export:examples": "lerna run --ignore soya-next* --ignore apollo --ignore base-path --ignore i18n* export",
     "lint": "marlint",
@@ -70,7 +70,8 @@
       "enzyme-to-json/serializer"
     ],
     "testPathIgnorePatterns": [
-      "/examples/"
+      "/examples/",
+      "/lib/"
     ],
     "testMatch": [
       "**/__tests__/**/*.js?(x)",

@@ -6,7 +6,7 @@
     "build:examples": "lerna run --ignore soya-next* build",
     "clean": "rimraf examples/*/{.next,out} packages/*/lib",
     "clean:all": "yarn clean && lerna clean",
-    "coverage": "yarn test --coverage",
+    "coverage": "yarn test --ci --coverage",
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | coveralls",
     "export:examples": "lerna run --ignore soya-next* --ignore apollo --ignore base-path --ignore i18n* export",
     "lint": "marlint",

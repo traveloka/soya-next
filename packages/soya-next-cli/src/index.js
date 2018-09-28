@@ -31,7 +31,7 @@ const dependencies = [
   "config@^2.0.0",
   "express@^4.16.2",
   "graphql@^0.13.2",
-  "next@^5.1.0",
+  "next@^7.0.0",
   "prop-types@^15.6.1",
   "react@^16.2.0",
   "react-apollo@^2.0.4",

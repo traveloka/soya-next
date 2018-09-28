@@ -12,9 +12,7 @@ const { createRouter } = require("soya-next/server/router");
 const config = require("config");
 const { appDir } = require("../config/paths");
 // @remove-on-eject-begin
-const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
-const { loadConfig } = require("next/dist/server/config");
-const conf = require("../next.config")(loadConfig(PHASE_DEVELOPMENT_SERVER, appDir));
+const conf = require("../next.config");
 // @remove-on-eject-end
 
 const app = next({

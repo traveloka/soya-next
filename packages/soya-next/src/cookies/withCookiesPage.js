@@ -21,7 +21,8 @@ export default Page => {
 
     static async getInitialProps(ctx) {
       const cookies =
-        process.browser || __NEXT_DATA__.nextExport
+        process.browser ||
+        (typeof __NEXT_DATA__ !== "undefined" && __NEXT_DATA__.nextExport)
           ? new Cookies()
           : ctx.req && ctx.req.universalCookies;
       const props =

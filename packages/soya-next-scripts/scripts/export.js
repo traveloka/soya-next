@@ -9,15 +9,12 @@ process.on("unhandledRejection", err => {
 
 const { appDir } = require("../config/paths");
 const { join } = require("path");
-const config = require("config");
-const _export = require("next/dist/export").default;
+const nextExport = require("next/dist/export").default;
 // @remove-on-eject-begin
-const { PHASE_EXPORT } = require("next/constants");
-const loadConfig = require("next/dist/server/config").default;
-const conf = require("../next.config")(loadConfig(PHASE_EXPORT, appDir));
+const conf = require("../next.config");
 // @remove-on-eject-end
 
-_export(
+nextExport(
   appDir,
   {
     silent: false,
@@ -27,4 +24,3 @@ _export(
   , conf
   // @remove-on-eject-begin
 );
-

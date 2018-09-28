@@ -28,7 +28,6 @@
     "todomvc-app-css": "^2.1.2"
   },
   "devDependencies": {
-    "react-test-renderer": "^16.0.0",
     "soya-next-scripts": "^0.5.12"
   }
 }

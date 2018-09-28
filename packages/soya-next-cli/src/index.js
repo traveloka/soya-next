@@ -27,23 +27,23 @@ const argv = yargs
 const projectDirectory = argv._[0];
 
 const dependencies = [
-  "apollo-client@^2.2.7",
-  "config@^2.0.0",
-  "express@^4.16.2",
-  "graphql@^0.13.2",
-  "next@^5.1.0",
-  "prop-types@^15.6.1",
-  "react@^16.2.0",
-  "react-apollo@^2.0.4",
-  "react-cookie@2.1.1",
-  "react-dom@^16.2.0",
-  "react-redux@^5.0.7",
-  "redux@^3.7.2",
-  "soya-next@^0.5.0",
-  "soya-next-server@^0.5.0"
+  "apollo-client@2.3.8",
+  "config@2.0.1",
+  "express@4.16.3",
+  "graphql@14.0.2",
+  "next@7.0.0",
+  "prop-types@15.6.2",
+  "react@16.5.2",
+  "react-apollo@2.2.1",
+  "react-cookie@3.0.4",
+  "react-dom@16.5.2",
+  "react-redux@5.0.7",
+  "redux@4.0.0",
+  "soya-next@0.7.0",
+  "soya-next-server@0.7.0"
 ];
 
-const devDependencies = ["soya-next-scripts@^0.5.8"];
+const devDependencies = ["soya-next-scripts@0.7.0"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];

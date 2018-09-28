@@ -20,7 +20,7 @@
     "next": "^7.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-apollo": "^2.1.11",
+    "react-apollo": "^2.2.1",
     "react-cookie": "^3.0.4",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

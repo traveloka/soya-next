@@ -17,7 +17,7 @@ const devDependencies = [
   "@zeit/next-bundle-analyzer",
   "@zeit/next-css",
   "@zeit/next-sass",
-  "babel-eslint",
+  "@zeit/next-source-maps",
   "eslint",
   "eslint-config-marlint",
   "eslint-config-prettier",
@@ -31,8 +31,7 @@ const devDependencies = [
   "next-assets-import",
   "next-config",
   "next-eslint",
-  "node-sass",
-  "webpack"
+  "node-sass"
 ];
 const ownDir = path.resolve(__dirname, "..");
 

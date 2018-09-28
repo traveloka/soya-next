@@ -4,6 +4,7 @@
 # build output
 .next
 lib
+out
 
 # dependencies
 node_modules

@@ -1,3 +1,4 @@
+/* global __NEXT_DATA__ */
 import React from "react";
 import PropTypes from "prop-types";
 import hoistStatics from "hoist-non-react-statics";
@@ -19,9 +20,11 @@ export default Page => {
     };
 
     static async getInitialProps(ctx) {
-      const cookies = process.browser
-        ? new Cookies()
-        : ctx.req && ctx.req.universalCookies;
+      const cookies =
+        process.browser ||
+        (typeof __NEXT_DATA__ !== "undefined" && __NEXT_DATA__.nextExport)
+          ? new Cookies()
+          : ctx.req && ctx.req.universalCookies;
       const props =
         Page.getInitialProps &&
         (await Page.getInitialProps({ ...ctx, cookies }));

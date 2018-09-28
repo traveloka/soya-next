@@ -4,10 +4,11 @@
   "scripts": {
     "build": "lerna exec --scope soya-next* --ignore soya-next-server -- babel src -d lib --ignore __tests__ --presets next/babel",
     "build:examples": "lerna run --ignore soya-next* build",
-    "clean": "rimraf examples/*/.next packages/*/lib",
+    "clean": "rimraf examples/*/{.next,out} packages/*/lib",
     "clean:all": "yarn clean && lerna clean",
     "coverage": "yarn test --coverage",
     "coveralls": "yarn coverage && cat ./coverage/lcov.info | coveralls",
+    "export:examples": "lerna run --ignore soya-next* --ignore apollo --ignore base-path --ignore i18n* export",
     "lint": "marlint",
     "precommit": "lint-staged",
     "prepublish": "yarn clean && yarn build",
@@ -69,7 +70,8 @@
       "enzyme-to-json/serializer"
     ],
     "testPathIgnorePatterns": [
-      "/examples/"
+      "/examples/",
+      "/lib/"
     ],
     "testMatch": [
       "**/__tests__/**/*.js?(x)",

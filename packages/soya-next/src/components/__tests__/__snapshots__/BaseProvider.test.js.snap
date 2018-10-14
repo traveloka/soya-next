@@ -8,6 +8,7 @@ Object {
       [Function],
     ],
     "cookies": Object {},
+    "hooks": undefined,
   },
   "defaultLocale": "id-id",
   "locale": Object {

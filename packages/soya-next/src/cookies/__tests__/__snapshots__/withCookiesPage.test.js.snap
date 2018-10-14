@@ -6,6 +6,7 @@ Object {
     "HAS_DOCUMENT_COOKIE": true,
     "changeListeners": Array [],
     "cookies": Object {},
+    "hooks": undefined,
   },
   "init": true,
 }
@@ -19,6 +20,7 @@ Object {
     "cookies": Object {
       "key": "value",
     },
+    "hooks": undefined,
   },
   "init": true,
 }

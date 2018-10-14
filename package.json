@@ -38,7 +38,7 @@
     "prettier": "^1.14.3",
     "react": "^16.5.2",
     "react-apollo": "^2.2.1",
-    "react-cookie": "^3.0.4",
+    "react-cookie": "^2.2.0",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-test-renderer": "^16.5.2",

@@ -35,7 +35,7 @@ const dependencies = [
   "prop-types@15.6.2",
   "react@16.5.2",
   "react-apollo@2.2.1",
-  "react-cookie@3.0.4",
+  "react-cookie@2.2.0",
   "react-dom@16.5.2",
   "react-redux@5.0.7",
   "redux@4.0.0",

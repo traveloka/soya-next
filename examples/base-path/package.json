@@ -1,6 +1,6 @@
 {
   "name": "base-path",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -29,6 +29,6 @@
     "soya-next-server": "^0.7.0"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.0"
+    "soya-next-scripts": "^0.7.1"
   }
 }

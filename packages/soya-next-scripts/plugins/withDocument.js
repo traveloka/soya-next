@@ -1,4 +1,4 @@
-const { join } = require("path");
+const { join, normalize } = require("path");
 
 module.exports = (nextConfig = {}) =>
   Object.assign({}, nextConfig, {
@@ -18,8 +18,8 @@ module.exports = (nextConfig = {}) =>
             name =>
               name === join("static", options.buildId, "pages", "_document.js")
           );
-          const [documentPageEntry] = entries[name];
-          if (documentPageEntry !== join(".", "pages", "_document.js")) {
+          const [pageEntry] = entries[name];
+          if (normalize(pageEntry) !== join("pages", "_document.js")) {
             entries[name] = [require.resolve(join("..", "pages", "_document"))];
           }
           return entries;

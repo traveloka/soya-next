@@ -1,4 +1,4 @@
-const { join } = require("path");
+const { join, normalize } = require("path");
 
 module.exports = (nextConfig = {}) =>
   Object.assign({}, nextConfig, {
@@ -14,10 +14,10 @@ module.exports = (nextConfig = {}) =>
         const entries = await entry();
         const names = Object.keys(entries);
         const name = names.find(
-          name => name === join("static", options.buildId, "pages", `_app.js`)
+          name => name === join("static", options.buildId, "pages", "_app.js")
         );
         const [pageEntry] = entries[name];
-        if (pageEntry !== join(".", "pages", `_app.js`)) {
+        if (normalize(pageEntry) !== join("pages", "_app.js")) {
           entries[name] = [require.resolve(join("..", "pages", "_app"))];
         }
         return entries;

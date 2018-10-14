@@ -1,10 +1,11 @@
-import App, { Container } from "next/app";
+import App, { Container, createUrl } from "next/app";
 import React from "react";
 import { createPage } from "soya-next";
 
-const Component = ({ children, ...props }) =>
-  React.cloneElement(React.Children.only(children), props);
-const BasePage = createPage()(Component);
+const Page = ({ Component, pageProps, router, ...props }) => (
+  <Component {...props} {...pageProps} url={createUrl(router)} />
+);
+const BasePage = createPage()(Page);
 
 export default class extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -17,29 +18,9 @@ export default class extends App {
   }
 
   render() {
-    const {
-      Component,
-      pageProps,
-      cookies,
-      defaultLocale,
-      siteLocales,
-      locale,
-      reduxState,
-      store
-    } = this.props;
-
     return (
       <Container>
-        <BasePage
-          cookies={cookies}
-          defaultLocale={defaultLocale}
-          siteLocales={siteLocales}
-          locale={locale}
-          reduxState={reduxState}
-          store={store}
-        >
-          <Component {...pageProps} />
-        </BasePage>
+        <BasePage {...this.props} />
       </Container>
     );
   }

@@ -1,49 +1,49 @@
-require('soya-next/config/default');
+require("soya-next/config/default");
 
-process.on('unhandledRejection', err => {
+process.on("unhandledRejection", err => {
   // eslint-disable-next-line no-console
   console.error(err);
 });
 
-const express = require('express');
-const next = require('next');
-const { join } = require('path');
-const { createRouter } = require('soya-next/server/router');
-const config = require('config');
-const { appDir } = require('../config/paths');
+const express = require("express");
+const next = require("next");
+const { join } = require("path");
+const { createRouter } = require("soya-next/server/router");
+const config = require("config");
+const { appDir } = require("../config/paths");
 // @remove-on-eject-begin
-const { PHASE_PRODUCTION_BUILD } = require('next/constants');
-const loadConfig = require('next/dist/server/config').default;
+const { PHASE_PRODUCTION_BUILD } = require("next/constants");
+const loadConfig = require("next/dist/server/config").default;
 
-const defaultConf = require('../next.config');
+const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);
 const conf = defaultConf(userConf);
 // @remove-on-eject-end
 
 const app = next({
-  dev: true,
+  dev: true
   // @remove-on-eject-begin
   // eslint-disable-next-line comma-style
-  conf,
+  , conf
   // @remove-on-eject-end
 });
 const argv = process.argv ? process.argv.slice(2) : [];
-const shouldBuildSoyaLegacy = argv.indexOf('--include-soya-legacy') !== -1;
-const buildSoya = shouldBuildSoyaLegacy ? require('./utils/build-soya') : null;
+const shouldBuildSoyaLegacy = argv.indexOf("--include-soya-legacy") !== -1;
+const buildSoya = shouldBuildSoyaLegacy ? require("./utils/build-soya") : null;
 
 app
   .prepare()
   .then(
     () =>
       shouldBuildSoyaLegacy
-        ? buildSoya({ dev: true }).then(() => require.resolve('soya'))
+        ? buildSoya({ dev: true }).then(() => require.resolve("soya"))
         : null
   )
   .then(
     stats =>
-      stats ? require(join(appDir, 'build/server', 'index.js')).default : null,
+      stats ? require(join(appDir, "build/server", "index.js")).default : null,
     err => {
-      if (err.code !== 'MODULE_NOT_FOUND') {
+      if (err.code !== "MODULE_NOT_FOUND") {
         throw err;
       }
     }
@@ -61,7 +61,7 @@ app
         defaultLocale: config.defaultLocale,
         siteLocales: config.siteLocales,
         compression: config.server.compression,
-        whoami: config.whoami,
+        whoami: config.whoami
       })
     );
     server.listen(config.server.port, config.server.host, err => {
@@ -69,8 +69,8 @@ app
         throw err;
       }
 
-      if (typeof process.send === 'function') {
-        process.send('ready');
+      if (typeof process.send === "function") {
+        process.send("ready");
       }
 
       // eslint-disable-next-line no-console

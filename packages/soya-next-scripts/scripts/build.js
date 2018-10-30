@@ -8,7 +8,7 @@ process.on("unhandledRejection", err => {
 });
 
 const { appDir } = require("../config/paths");
-const build = require("next/dist/server/build").default;
+const build = require("next/dist/build").default;
 const buildSoya = require("./utils/build-soya");
 // @remove-on-eject-begin
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");

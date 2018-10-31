@@ -10,11 +10,16 @@ const next = require("next");
 const { join } = require("path");
 const { createRouter } = require("soya-next/server/router");
 const config = require("config");
+const { appDir } = require("../config/paths");
 // @remove-on-eject-begin
-const conf = require("../next.config");
+const { PHASE_PRODUCTION_BUILD } = require("next/constants");
+const loadConfig = require("next/dist/server/config").default;
+
+const defaultConf = require("../next.config");
+const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);
+const conf = defaultConf(userConf);
 // @remove-on-eject-end
 
-const { appDir } = require("../config/paths");
 const app = next({
   dev: true
   // @remove-on-eject-begin

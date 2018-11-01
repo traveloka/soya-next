@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
+    "@babel/core": "7.1.2",
     "apollo-client": "^2.3.8",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",

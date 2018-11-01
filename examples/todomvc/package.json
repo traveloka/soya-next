@@ -1,6 +1,6 @@
 {
   "name": "todomvc",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -29,6 +29,6 @@
     "todomvc-app-css": "^2.1.2"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.1"
+    "soya-next-scripts": "^0.7.3"
   }
 }

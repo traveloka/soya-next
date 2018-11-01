@@ -1,6 +1,6 @@
 {
   "name": "apollo",
-  "version": "0.7.1",
+  "version": "0.7.3",
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.10",
@@ -37,6 +37,6 @@
     "test": "soya-next-scripts test"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.1"
+    "soya-next-scripts": "^0.7.3"
   }
 }

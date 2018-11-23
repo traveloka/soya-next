@@ -17,7 +17,8 @@ module.exports = (nextConfig = {}) =>
           name => name === join("static", options.buildId, "pages", "_app.js")
         );
         const [pageEntry] = entries[name];
-        if (normalize(pageEntry) !== join("pages", "_app.js")) {
+        const matchedEntryPattern = new RegExp(`^${join("pages", "_app")}\\.(js|jsx|ts|tsx)$`);
+        if (!matchedEntryPattern.test(normalize(pageEntry))) {
           entries[name] = [require.resolve(join("..", "pages", "_app"))];
         }
         return entries;

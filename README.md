@@ -51,6 +51,7 @@ Open http://localhost:3000 in your browser to see your app running.
 - [Custom Document](docs/user-guide/custom-document.md)
 - [Custom Marlint Configuration](docs/user-guide/custom-marlint-configuration.md)
 - [Custom Routing](docs/user-guide/custom-routing.md)
+- [Typescript Configuration](docs/user-guide/typescript-configuration.md)
 - [Universal Environment Configuration](docs/user-guide/universal-environment-configuration.md)
 
 ## Migration Guide

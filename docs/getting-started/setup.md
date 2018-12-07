@@ -9,9 +9,9 @@
 
 There are 3 packages that you need to install:
 
-* [soya-next][soya-next] - A set of utility functions for React applications built on top of Next.js
-* [soya-next-scripts][soya-next-scripts] - A CLI which contains configuration and scripts used by [soya-next-cli][soya-next-cli]
-* [soya-next-server][soya-next-server] - Production server for Soya Next
+- [soya-next][soya-next] - A set of utility functions for React applications built on top of Next.js
+- [soya-next-scripts][soya-next-scripts] - A CLI which contains configuration and scripts used by [soya-next-cli][soya-next-cli]
+- [soya-next-server][soya-next-server] - Production server for Soya Next
 
 Both packages have their own dependencies that need to be installed, run the following to install them:
 
@@ -41,7 +41,6 @@ Simply add the following into your `package.json` scripts section:
   "analyze:server": "BUNDLE_ANALYZE=server soya-next-scripts build",
   "build": "soya-next-scripts build",
   "dev": "soya-next-scripts dev",
-  "eject": "soya-next-scripts eject",
   "start": "soya-next-server",
   "test": "soya-next-scripts test"
 }

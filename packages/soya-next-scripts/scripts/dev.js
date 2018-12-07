@@ -11,22 +11,14 @@ const { join } = require("path");
 const { createRouter } = require("soya-next/server/router");
 const config = require("config");
 const { appDir } = require("../config/paths");
-// @remove-on-eject-begin
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");
 const loadConfig = require("next/dist/server/config").default;
 
 const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);
 const conf = defaultConf(userConf);
-// @remove-on-eject-end
 
-const app = next({
-  dev: true
-  // @remove-on-eject-begin
-  // eslint-disable-next-line comma-style
-  , conf
-  // @remove-on-eject-end
-});
+const app = next({ dev: true, conf });
 const argv = process.argv ? process.argv.slice(2) : [];
 const shouldBuildSoyaLegacy = argv.indexOf("--include-soya-legacy") !== -1;
 const buildSoya = shouldBuildSoyaLegacy ? require("./utils/build-soya") : null;

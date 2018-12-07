@@ -16,15 +16,9 @@ delete __NEXT_CONFIG__.server;
 
 export default class extends Document {
   render() {
-    const { __NEXT_DATA__ } = this.props;
     return (
       <html>
-        <Head>
-          <link
-            rel="stylesheet"
-            href={`${__NEXT_DATA__.assetPrefix}/_next/static/style.css`}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <script

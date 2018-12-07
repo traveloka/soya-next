@@ -6,7 +6,7 @@ const withCSS = require("./withCSS");
 const withCSSModules = require("./withCSSModules");
 const withConfig = require("next-config");
 const withDocument = require("./withDocument");
-// const withMarlint = require("./withMarlint");
+const withMarlint = require("./withMarlint");
 const withResolver = require("./withResolver");
 const withSASS = require("./withSASS");
 const withSASSModules = require("./withSASSModules");
@@ -32,7 +32,7 @@ module.exports = (nextConfig = {}) => {
     withCSSModules,
     withCSS,
     withConfig,
-    // withMarlint,
+    withMarlint,
     withSASSModules,
     withSASS
   )(Object.assign({}, nextConfig, { assetPrefix }));

@@ -30,7 +30,7 @@
   "peerDependencies": {
     "config": "^2.0.0",
     "express": "^4.16.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "soya-next": "^0.7.0"
   },
   "dependencies": {

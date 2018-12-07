@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "config": "^2.0.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "soya-next": "^0.7.0",
     "soya-next-server": "^0.7.0"
   }

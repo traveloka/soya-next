@@ -15,7 +15,7 @@ const { PHASE_EXPORT } = require("next/constants");
 const loadConfig = require("next/dist/server/config").default;
 
 const defaultConf = require("../next.config");
-const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);
+const userConf = loadConfig(PHASE_EXPORT, appDir);
 const conf = defaultConf(userConf);
 // @remove-on-eject-end
 

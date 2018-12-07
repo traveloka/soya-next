@@ -1,0 +1,7 @@
+.layout {
+  text-align: center;
+}
+
+.layout > img {
+  height: 100px;
+}

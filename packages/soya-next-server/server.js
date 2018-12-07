@@ -15,17 +15,21 @@ const next = require("next");
 const { realpathSync } = require("fs");
 const { join, resolve } = require("path");
 const { createRouter } = require("soya-next/server/router");
-
+const { PHASE_PRODUCTION_SERVER } = require("next/constants");
+const loadConfig = require("next/dist/server/config").default;
 const appDir = resolve(realpathSync(process.cwd()));
+const nextConfig = loadConfig(PHASE_PRODUCTION_SERVER, appDir);
+let assetPrefix = nextConfig.assetPrefix;
+if (!assetPrefix && config.basePath) {
+  if (typeof config.basePath === "string") {
+    assetPrefix = config.basePath;
+  } else {
+    assetPrefix = config.basePath && config.basePath.test;
+  }
+}
 const app = next({
   dev: false,
-  conf: {
-    assetPrefix: config.assetPrefix,
-    distDir: config.server.distDir,
-    generateEtags: config.server.generateEtags,
-    poweredByHeader: config.server.poweredByHeader,
-    useFileSystemPublicRoutes: config.server.useFileSystemPublicRoutes
-  }
+  conf: Object.assign({}, nextConfig, { assetPrefix })
 });
 
 app

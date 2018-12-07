@@ -1,4 +1,4 @@
-import { createApolloPageFactory } from "soya-next/pages";
+import { withApolloClient } from "soya-next/pages";
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
@@ -11,4 +11,4 @@ const configureApolloClient = apolloState =>
     cache: new InMemoryCache().restore(apolloState)
   });
 
-export default createApolloPageFactory(configureApolloClient);
+export default withApolloClient(configureApolloClient);

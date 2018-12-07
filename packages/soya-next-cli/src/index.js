@@ -43,7 +43,7 @@ const dependencies = [
   "soya-next-server@0.7.0"
 ];
 
-const devDependencies = ["soya-next-scripts@0.7.1"];
+const devDependencies = ["soya-next-scripts@0.7.3"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];

@@ -1,7 +1,7 @@
 const config = require("config");
 const webpack = require("webpack");
 const { join } = require("path");
-const { appDir } = require("../../config/paths");
+const { appDir } = require("soya-next-server/paths");
 
 module.exports = ({ dev = false } = {}) => {
   try {
@@ -34,7 +34,7 @@ module.exports = ({ dev = false } = {}) => {
           return reject(err);
         }
         if (legacyConfig.precompileClient && !dev) {
-          require(join(appDir, "build/server", "index.js"));
+          require(join(appDir, "build", "server", "index.js"));
         }
         const jsonStats = stats.toJson();
         if (jsonStats.errors.length > 0) {

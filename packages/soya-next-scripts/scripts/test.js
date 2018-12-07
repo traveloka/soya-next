@@ -11,7 +11,7 @@ const jest = require("jest");
 const argv = process.argv.slice(2);
 const createJestConfig = require("../lib/utils/createJestConfig").default;
 const { join } = require("path");
-const { appDir } = require("../config/paths");
+const { appDir } = require("soya-next-server/paths");
 const appPackage = require(join(appDir, "package.json"));
 argv.push("--config", JSON.stringify(createJestConfig(appPackage.jest)));
 jest.run(argv);

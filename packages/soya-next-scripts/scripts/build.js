@@ -7,7 +7,7 @@ process.on("unhandledRejection", err => {
   throw err;
 });
 
-const { appDir } = require("../config/paths");
+const { appDir } = require("soya-next-server/paths");
 const build = require("next/dist/build").default;
 const buildSoya = require("./utils/build-soya");
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");

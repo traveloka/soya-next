@@ -7,7 +7,7 @@ process.on("unhandledRejection", err => {
   throw err;
 });
 
-const { appDir } = require("../config/paths");
+const { appDir } = require("soya-next-server/paths");
 const { join } = require("path");
 const nextExport = require("next/dist/export").default;
 const { PHASE_EXPORT } = require("next/constants");

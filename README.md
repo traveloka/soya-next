@@ -56,6 +56,7 @@ Open http://localhost:3000 in your browser to see your app running.
 ## Migration Guide
 
 - [0.4.x to 0.5.x](docs/migration-guide/0.4.x-to-0.5.x.md)
+- [0.5.x to 0.7.x](docs/migration-guide/0.5.x-to-0.7.x.md)
 
 ## API Reference
 

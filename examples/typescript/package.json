@@ -1,6 +1,7 @@
 {
   "name": "typescript",
   "version": "1.0.0",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",

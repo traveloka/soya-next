@@ -6,15 +6,23 @@ const withCSS = require("./withCSS");
 const withCSSModules = require("./withCSSModules");
 const withConfig = require("next-config");
 const withDocument = require("./withDocument");
-const withMarlint = require("./withMarlint");
+// const withMarlint = require("./withMarlint");
 const withResolver = require("./withResolver");
 const withSASS = require("./withSASS");
 const withSASSModules = require("./withSASSModules");
 const withSourceMaps = require("@zeit/next-source-maps");
 const compose = require("lodash/flowRight");
 
-module.exports = (nextConfig = {}) =>
-  compose(
+module.exports = (nextConfig = {}) => {
+  let assetPrefix = nextConfig.assetPrefix;
+  if (!assetPrefix && config.basePath) {
+    if (typeof config.basePath === "string") {
+      assetPrefix = config.basePath;
+    } else {
+      assetPrefix = config.basePath && config.basePath.test;
+    }
+  }
+  return compose(
     withSourceMaps,
     withResolver,
     withAssetsImport,
@@ -24,18 +32,8 @@ module.exports = (nextConfig = {}) =>
     withCSSModules,
     withCSS,
     withConfig,
-    withMarlint,
+    // withMarlint,
     withSASSModules,
     withSASS
-  )(
-    Object.assign(
-      {
-        assetPrefix: config.assetPrefix,
-        distDir: config.server.distDir,
-        generateEtags: config.server.generateEtags,
-        poweredByHeader: config.server.poweredByHeader,
-        useFileSystemPublicRoutes: config.server.useFileSystemPublicRoutes
-      },
-      nextConfig
-    )
-  );
+  )(Object.assign({}, nextConfig, { assetPrefix }));
+};

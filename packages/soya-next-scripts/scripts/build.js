@@ -7,24 +7,17 @@ process.on("unhandledRejection", err => {
   throw err;
 });
 
-const { appDir } = require("../config/paths");
+const { appDir } = require("soya-next-server/paths");
 const build = require("next/dist/build").default;
 const buildSoya = require("./utils/build-soya");
-// @remove-on-eject-begin
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");
 const loadConfig = require("next/dist/server/config").default;
 
 const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);
 const conf = defaultConf(userConf);
-// @remove-on-eject-end
 
-build(
-  appDir
-  // @remove-on-eject-begin
-  , conf
-  // @remove-on-eject-end
-)
+build(appDir, conf)
   .then(
     () => buildSoya(),
     err => {

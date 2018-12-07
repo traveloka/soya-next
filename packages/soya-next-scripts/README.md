@@ -52,11 +52,3 @@ To run unit tests, run the following:
 ```bash
 soya-next-scripts test
 ```
-
-To eject configuration and scripts, run the following:
-
-```bash
-soya-next-scripts eject
-```
-
-> Warning: Eject is permanent, so once it's ejected there's no going back. Use it carefully.

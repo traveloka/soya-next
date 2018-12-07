@@ -43,7 +43,7 @@ const dependencies = [
   "soya-next-server@0.7.0"
 ];
 
-const devDependencies = ["soya-next-scripts@0.7.1"];
+const devDependencies = ["soya-next-scripts@0.7.3"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];
@@ -73,22 +73,22 @@ if (projectDirectory) {
   console.log();
 
   fs.ensureDirSync(projectDirectory);
-  fs
-    .copy(path.resolve(__dirname, "../templates"), root, { overwrite: false })
-    .then(async () => {
-      try {
-        await fs.move(
-          path.join(root, "gitignore"),
-          path.join(root, ".gitignore")
-        );
-      } catch (err) {
-        if (err.code === "EEXIST") {
-          fs.unlink(path.join(root, "gitignore"));
-        } else {
-          throw err;
-        }
+  fs.copy(path.resolve(__dirname, "../templates"), root, {
+    overwrite: false
+  }).then(async () => {
+    try {
+      await fs.move(
+        path.join(root, "gitignore"),
+        path.join(root, ".gitignore")
+      );
+    } catch (err) {
+      if (err.code === "EEXIST") {
+        fs.unlink(path.join(root, "gitignore"));
+      } else {
+        throw err;
       }
-    });
+    }
+  });
   fs.writeJsonSync(
     path.join(root, "package.json"),
     {
@@ -101,7 +101,6 @@ if (projectDirectory) {
         "analyze:server": "BUNDLE_ANALYZE=server soya-next-scripts build",
         build: "soya-next-scripts build",
         dev: "soya-next-scripts dev",
-        eject: "soya-next-scripts eject",
         export: "soya-next-scripts export",
         start: "soya-next-server",
         test: "soya-next-scripts test"

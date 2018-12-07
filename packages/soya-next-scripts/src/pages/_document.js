@@ -9,7 +9,6 @@ delete __NEXT_CONFIG__.server;
 
 export default class extends Document {
   render() {
-    const { __NEXT_DATA__ } = this.props;
     return (
       <html>
         <Head />

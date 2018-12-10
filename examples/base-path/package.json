@@ -1,6 +1,6 @@
 {
   "name": "base-path",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -25,9 +25,9 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "soya-next": "^0.7.4",
-    "soya-next-server": "^0.7.4"
+    "soya-next-server": "^0.7.5"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.4"
+    "soya-next-scripts": "^0.7.5"
   }
 }

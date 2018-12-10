@@ -1,6 +1,6 @@
-const { extname, join, normalize, relative } = require("path");
+const { extname, join, normalize } = require("path");
 
-module.exports = page => (config, { buildId, dir }) => {
+module.exports = page => (config, { buildId }) => {
   const entry = config.entry;
   config.entry = async () => {
     const entries = await entry();
@@ -11,9 +11,7 @@ module.exports = page => (config, { buildId, dir }) => {
     const [pageEntry] = entries[name];
     const ext = extname(pageEntry);
     if (normalize(pageEntry) !== join("pages", page + ext)) {
-      entries[name] = [
-        relative(dir, require.resolve(join("..", "pages", page)))
-      ];
+      entries[name] = [join("soya-next-scripts", "pages", page)];
     }
     return entries;
   };

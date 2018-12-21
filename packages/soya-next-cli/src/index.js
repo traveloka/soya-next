@@ -40,10 +40,10 @@ const dependencies = [
   "react-redux@5.0.7",
   "redux@4.0.0",
   "soya-next@0.7.4",
-  "soya-next-server@0.7.4"
+  "soya-next-server@0.7.5"
 ];
 
-const devDependencies = ["soya-next-scripts@0.7.4"];
+const devDependencies = ["soya-next-scripts@0.7.5"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];

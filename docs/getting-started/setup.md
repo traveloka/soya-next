@@ -41,6 +41,7 @@ Simply add the following into your `package.json` scripts section:
   "analyze:server": "BUNDLE_ANALYZE=server soya-next-scripts build",
   "build": "soya-next-scripts build",
   "dev": "soya-next-scripts dev",
+  "export": "soya-next-scripts export",
   "start": "soya-next-server",
   "test": "soya-next-scripts test"
 }

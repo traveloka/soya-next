@@ -33,11 +33,11 @@ local-{deployment}-{instance}.EXT
 
 Where
 
-* `EXT` can be `yml`, `yaml`, `xml`, `coffee`, `cson`, `properties`, `json`, `json5`, `hjson` or `js` depending on the format you prefer,
-* `{instance}` is an optional instance name string for [Multi-Instance Deployments](https://github.com/lorenwest/node-config/wiki/Configuration-Files#multi-instance-deployments).
-* `{short_hostname}` is your server name up to the first dot, from the `HOST` or `HOSTNAME` environment variable or `os.hostname()` (in that order). For example if your hostname is `www.example.com` then it would load `www.EXT`.
-* `{full_hostname}` is your whole server name, you may use this when `{short_hostname}` collides with other machines.
-* `{deployment}` is the deployment name, from the `NODE_ENV` environment variable.
+- `EXT` can be `yml`, `yaml`, `xml`, `coffee`, `cson`, `properties`, `json`, `json5`, `hjson` or `js` depending on the format you prefer,
+- `{instance}` is an optional instance name string for [Multi-Instance Deployments](https://github.com/lorenwest/node-config/wiki/Configuration-Files#multi-instance-deployments).
+- `{short_hostname}` is your server name up to the first dot, from the `HOST` or `HOSTNAME` environment variable or `os.hostname()` (in that order). For example if your hostname is `www.example.com` then it would load `www.EXT`.
+- `{full_hostname}` is your whole server name, you may use this when `{short_hostname}` collides with other machines.
+- `{deployment}` is the deployment name, from the `NODE_ENV` environment variable.
 
 Please refer to this [wiki](https://github.com/lorenwest/node-config/wiki/Configuration-Files) for the full documentation.
 
@@ -70,19 +70,19 @@ The following are the configurations keys which are reserved:
 
 ### `assetPrefix`
 
-* Type: `string`
+- Type: `string`
 
-Prefix added to assets. It will fallback to `basePath.test`.
+Prefix added to assets. It will fallback to `basePath` or `basePath.test`.
 
 ### `basePath`
 
-* Type: `string` or `{ test: string, exclude: string|Array.<string> }`
+- Type: `string` or `{ test: string, exclude: string|Array.<string> }`
 
 Base URL to which the app paths (assets, pages, static) are prefixed.
 
 ### `defaultLocale`
 
-* Type: `string`
+- Type: `string`
 
 The default locale used when no locale segment found in the url.
 
@@ -97,7 +97,7 @@ The default locale used when no locale segment found in the url.
 
 ### `routes`
 
-* Type: `Object.<Object>`
+- Type: `Object.<Object>`
 
 Define custom routes.
 
@@ -115,13 +115,13 @@ Define custom routes.
 
 ### `redirects`
 
-* Type: `Object.<Object>`
+- Type: `Object.<Object>`
 
 Redirect obsolete pages.
 
 #### Examples
 
-* Redirect static routes
+- Redirect static routes
 
   ```json
   {
@@ -133,7 +133,7 @@ Redirect obsolete pages.
   }
   ```
 
-* Redirect custom routes
+- Redirect custom routes
 
   ```json
   {
@@ -152,7 +152,7 @@ Redirect obsolete pages.
 
 ### `siteLocales`
 
-* Type: `Array.<string>`
+- Type: `Array.<string>`
 
 All locales which is supported by your app.
 
@@ -167,8 +167,8 @@ All locales which is supported by your app.
 
 ### `server`
 
-* Type: `Object`
-* Default: `{ "host": "0.0.0.0", "port": 3000 }`
+- Type: `Object`
+- Default: `{ "host": "0.0.0.0", "port": 3000 }`
 
 For security reasons, the configuration within `server` won't get exposed/hydrated to the client.
 It **should not** be consumed by the client as well.

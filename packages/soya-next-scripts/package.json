@@ -1,6 +1,6 @@
 {
   "name": "soya-next-scripts",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "description": "A CLI which contains configuration and scripts used by soya-next-cli.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -58,7 +58,7 @@
   },
   "peerDependencies": {
     "config": "^2.0.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "soya-next": "^0.7.0",
     "soya-next-server": "^0.7.0"
   }

@@ -1,6 +1,6 @@
 {
   "name": "soya-next",
-  "version": "0.7.0",
+  "version": "0.7.4",
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
   "license": "MIT",
@@ -57,7 +57,7 @@
   "peerDependencies": {
     "config": "^2.0.0",
     "express": "^4.16.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "react-apollo": "^2.0.4",
     "react-cookie": "^2.0.0",
     "react-redux": "^5.0.5",

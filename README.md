@@ -7,12 +7,12 @@
 
 ## Packages
 
-Name | Version | Description
----- | ------- | -----------
-[soya-next](packages/soya-next/README.md) | [![NPM Version](https://img.shields.io/npm/v/soya-next.svg?style=flat-square)](https://www.npmjs.com/package/soya-next) | A set of utility functions for React applications built on top of Next.js
-[soya-next-cli](packages/soya-next-cli/README.md) | [![NPM Version](https://img.shields.io/npm/v/soya-next-cli.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-cli) | A CLI to help bootstrap Soya Next projects quickly
-[soya-next-scripts](packages/soya-next-scripts/README.md) | [![NPM Version](https://img.shields.io/npm/v/soya-next-scripts.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-scripts) | A CLI which contains configuration and scripts used by [soya-next-cli](packages/soya-next-cli/README.md)
-[soya-next-server](packages/soya-next-server/README.md) | [![NPM Version](https://img.shields.io/npm/v/soya-next-server.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-server) | Production server for Soya Next
+| Name                                                      | Version                                                                                                                                 | Description                                                                                              |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [soya-next](packages/soya-next/README.md)                 | [![NPM Version](https://img.shields.io/npm/v/soya-next.svg?style=flat-square)](https://www.npmjs.com/package/soya-next)                 | A set of utility functions for React applications built on top of Next.js                                |
+| [soya-next-cli](packages/soya-next-cli/README.md)         | [![NPM Version](https://img.shields.io/npm/v/soya-next-cli.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-cli)         | A CLI to help bootstrap Soya Next projects quickly                                                       |
+| [soya-next-scripts](packages/soya-next-scripts/README.md) | [![NPM Version](https://img.shields.io/npm/v/soya-next-scripts.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-scripts) | A CLI which contains configuration and scripts used by [soya-next-cli](packages/soya-next-cli/README.md) |
+| [soya-next-server](packages/soya-next-server/README.md)   | [![NPM Version](https://img.shields.io/npm/v/soya-next-server.svg?style=flat-square)](https://www.npmjs.com/package/soya-next-server)   | Production server for Soya Next                                                                          |
 
 ## Features
 
@@ -57,6 +57,7 @@ Open http://localhost:3000 in your browser to see your app running.
 ## Migration Guide
 
 - [0.4.x to 0.5.x](docs/migration-guide/0.4.x-to-0.5.x.md)
+- [0.5.x to 0.7.x](docs/migration-guide/0.5.x-to-0.7.x.md)
 
 ## API Reference
 
@@ -73,6 +74,7 @@ Read the full API documentation [here](docs/api/README.md).
 - [Internationalization with Redux](examples/i18n-with-redux)
 - [Redirection](examples/redirection)
 - [TodoMVC](examples/todomvc)
+- [TypeScript](examples/typescript)
 
 ## Contributing
 

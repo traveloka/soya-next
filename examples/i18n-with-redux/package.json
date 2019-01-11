@@ -1,6 +1,6 @@
 {
   "name": "i18n-with-redux",
-  "version": "0.7.3",
+  "version": "0.7.5",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -16,17 +16,17 @@
     "config": "^2.0.1",
     "express": "^4.16.3",
     "intl-messageformat": "^2.2.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-cookie": "^2.2.0",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "soya-next": "^0.7.0",
-    "soya-next-server": "^0.7.0"
+    "soya-next": "^0.7.4",
+    "soya-next-server": "^0.7.5"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.3"
+    "soya-next-scripts": "^0.7.5"
   }
 }

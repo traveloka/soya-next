@@ -1,6 +1,6 @@
 {
   "name": "soya-next-server",
-  "version": "0.7.0",
+  "version": "0.7.5",
   "description": "Production server for Soya Next.",
   "main": "index.js",
   "license": "MIT",
@@ -22,6 +22,7 @@
   ],
   "files": [
     "index.js",
+    "paths.js",
     "server.js"
   ],
   "bin": {
@@ -30,7 +31,7 @@
   "peerDependencies": {
     "config": "^2.0.0",
     "express": "^4.16.0",
-    "next": "^7.0.0",
+    "next": "^7.0.2",
     "soya-next": "^0.7.0"
   },
   "dependencies": {

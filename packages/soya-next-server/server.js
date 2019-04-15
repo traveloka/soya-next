@@ -26,7 +26,14 @@ module.exports = ({ conf = loadDefaultConfig, dev, phase }) => {
     .then(() => {
       const server = express();
 
-      !dev && server.use(require("frameguard")(config.server.frameguard));
+      config.server.headers &&
+        server.use((_, res, next) => {
+          Object.keys(config.server.headers).forEach(field => {
+            config.server.headers[field] &&
+              res.header(field, config.server.headers[field]);
+          });
+          next();
+        });
 
       const includeSoyaLegacy =
         process.argv.indexOf("--include-soya-legacy") !== -1;

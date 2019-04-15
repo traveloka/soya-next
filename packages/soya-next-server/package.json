@@ -33,8 +33,5 @@
     "express": "^4.16.0",
     "next": "^7.0.2",
     "soya-next": "^0.7.0"
-  },
-  "dependencies": {
-    "frameguard": "^3.0.0"
   }
 }

@@ -31,19 +31,19 @@ const dependencies = [
   "config@2.0.1",
   "express@4.16.3",
   "graphql@14.0.2",
-  "next@7.0.0",
+  "next@8.1.0",
   "prop-types@15.6.2",
-  "react@16.5.2",
+  "react@16.8.6",
   "react-apollo@2.2.1",
   "react-cookie@2.2.0",
-  "react-dom@16.5.2",
+  "react-dom@16.8.6",
   "react-redux@5.0.7",
   "redux@4.0.0",
-  "soya-next@0.7.4",
-  "soya-next-server@0.7.5"
+  "soya-next@0.8.0",
+  "soya-next-server@0.8.0"
 ];
 
-const devDependencies = ["soya-next-scripts@0.7.5"];
+const devDependencies = ["soya-next-scripts@0.8.0"];
 
 const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   const args = [];

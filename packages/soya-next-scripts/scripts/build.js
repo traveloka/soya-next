@@ -11,7 +11,7 @@ const { appDir } = require("soya-next-server/paths");
 const build = require("next/dist/build").default;
 const buildSoya = require("./utils/build-soya");
 const { PHASE_PRODUCTION_BUILD } = require("next/constants");
-const loadConfig = require("next/dist/server/config").default;
+const loadConfig = require("next-server/dist/server/config").default;
 
 const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_PRODUCTION_BUILD, appDir);

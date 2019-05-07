@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import config from "config";
 import htmlescape from "htmlescape";
 
@@ -10,19 +10,22 @@ delete __NEXT_CONFIG__.server;
 export default class extends Document {
   render() {
     return (
-      <html>
+      <Html>
         <Head />
         <body>
           <Main />
           <script
-            // eslint-disable-next-line react/no-danger
+            id="__NEXT_CONFIG__"
+            type="application/json"
+            nonce={this.props.nonce}
+            crossOrigin={this.props.crossOrigin || process.crossOrigin}
             dangerouslySetInnerHTML={{
-              __html: `__NEXT_CONFIG__ = ${htmlescape(__NEXT_CONFIG__)}`
+              __html: htmlescape(__NEXT_CONFIG__)
             }}
           />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }

@@ -1,6 +1,7 @@
+const { stringify, parse } = require("querystring");
 const { extname, join, normalize } = require("path");
 
-module.exports = page => (config, { buildId }) => {
+module.exports = page => (config, { buildId, isServer }) => {
   const entry = config.entry;
   config.entry = async () => {
     const entries = await entry();
@@ -8,10 +9,22 @@ module.exports = page => (config, { buildId }) => {
     const name = names.find(
       name => name === join("static", buildId, "pages", `${page}.js`)
     );
-    const [pageEntry] = entries[name];
-    const ext = extname(pageEntry);
-    if (normalize(pageEntry) !== join("pages", page + ext)) {
-      entries[name] = [join("soya-next-scripts", "pages", page)];
+    if (Array.isArray(entries[name])) {
+      const [pageEntry] = entries[name];
+      const ext = extname(pageEntry);
+      if (normalize(pageEntry) !== join("private-next-pages", page + ext)) {
+        entries[name] = [join("soya-next-scripts", "pages", page)];
+      }
+    } else {
+      const options = parse(entries[name].split("?")[1]);
+      const ext = extname(options.absolutePagePath);
+      if (
+        normalize(options.absolutePagePath) !==
+        join("private-next-pages", page + ext)
+      ) {
+        options.absolutePagePath = join("soya-next-scripts", "pages", page);
+      }
+      entries[name] = `next-client-pages-loader?${stringify(options)}!`;
     }
     return entries;
   };

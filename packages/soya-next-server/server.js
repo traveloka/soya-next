@@ -1,7 +1,7 @@
 const config = require("config");
 const express = require("express");
 const next = require("next");
-const loadNextConfig = require("next/dist/server/config").default;
+const loadNextConfig = require("next-server/dist/server/config").default;
 const { join } = require("path");
 const { createRouter } = require("soya-next/server/router");
 const { appDir } = require("./paths");

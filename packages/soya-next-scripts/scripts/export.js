@@ -11,9 +11,23 @@ const { appDir } = require("soya-next-server/paths");
 const { join } = require("path");
 const nextExport = require("next/dist/export").default;
 const { PHASE_EXPORT } = require("next/constants");
-const loadConfig = require("next/dist/server/config").default;
+const loadConfig = require("next-server/dist/server/config").default;
 const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_EXPORT, appDir);
 const conf = defaultConf(userConf);
+const printAndExit = (message, code = 1) => {
+  if (code === 0) {
+    console.log(message);
+  } else {
+    console.error(message);
+  }
+  process.exit(code);
+};
 
-nextExport(appDir, { silent: false, outdir: join(appDir, "out") }, conf);
+nextExport(appDir, { silent: false, outdir: join(appDir, "out") }, conf)
+  .then(() => {
+    printAndExit("Export successful", 0);
+  })
+  .catch(err => {
+    printAndExit(err);
+  });

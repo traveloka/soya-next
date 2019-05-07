@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import config from "config";
-import htmlescape from "htmlescape";
+import { htmlEscapeJsonString } from "next/dist/server/htmlescape";
 
 const __NEXT_CONFIG__ = { ...config };
 // exclude legacy and server config
@@ -20,7 +20,7 @@ export default class extends Document {
             nonce={this.props.nonce}
             crossOrigin={this.props.crossOrigin || process.crossOrigin}
             dangerouslySetInnerHTML={{
-              __html: htmlescape(__NEXT_CONFIG__)
+              __html: htmlEscapeJsonString(JSON.stringify(__NEXT_CONFIG__))
             }}
           />
           <NextScript />

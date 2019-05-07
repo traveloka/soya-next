@@ -1,6 +1,6 @@
 {
   "name": "todomvc",
-  "version": "0.7.6",
+  "version": "0.8.0",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -23,11 +23,11 @@
     "react-dom": "^16.8.6",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "soya-next": "^0.7.6",
-    "soya-next-server": "^0.7.6",
+    "soya-next": "^0.8.0",
+    "soya-next-server": "^0.8.0",
     "todomvc-app-css": "^2.1.2"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.7.5"
+    "soya-next-scripts": "^0.8.0"
   }
 }

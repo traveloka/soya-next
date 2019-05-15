@@ -1,3 +1,6 @@
+process.env.BABEL_ENV = process.env.BABEL_ENV || "development";
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+
 require("soya-next/config/default");
 
 process.on("unhandledRejection", err => {

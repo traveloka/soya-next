@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import React from "react";
 import hoistStatics from "hoist-non-react-statics";
 import { compose } from "redux";
 import { connect, Provider } from "react-redux";
-import { storeShape } from "react-redux/lib/utils/PropTypes";
 import applyReducers from "../redux/applyReducers";
 import withStore from "../redux/withStore";
 
@@ -14,7 +14,11 @@ export default configureStore => (reducers, ...connectArgs) => Page => {
 
   class WithReduxStore extends React.Component {
     static propTypes = {
-      store: storeShape.isRequired
+      store: PropTypes.shape({
+        subscribe: PropTypes.func.isRequired,
+        dispatch: PropTypes.func.isRequired,
+        getState: PropTypes.func.isRequired
+      }).isRequired
     };
 
     render() {

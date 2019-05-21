@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
 import hoistStatics from "hoist-non-react-statics";
-import { storeShape } from "react-redux/lib/utils/PropTypes";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
 
@@ -25,7 +25,11 @@ export default reducers => Component => {
     }
 
     static contextTypes = {
-      store: storeShape.isRequired
+      store: PropTypes.shape({
+        subscribe: PropTypes.func.isRequired,
+        dispatch: PropTypes.func.isRequired,
+        getState: PropTypes.func.isRequired
+      }).isRequired
     };
 
     constructor(props, context) {

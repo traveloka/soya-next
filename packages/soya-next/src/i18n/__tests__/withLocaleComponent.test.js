@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow, mount } from "enzyme";
+import { mount } from "enzyme";
 import withLocale from "../withLocaleComponent";
 import LocaleProvider from "../../components/LocaleProvider";
 
@@ -15,7 +15,7 @@ describe("withLocale", () => {
       defaultLocale: "id-id",
       siteLocales: ["id-id", "en-id"]
     };
-    Component = props => () => null;
+    Component = () => null;
     ComponentWithLocale = withLocale(Component);
   });
 

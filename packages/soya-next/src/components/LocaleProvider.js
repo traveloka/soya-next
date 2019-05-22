@@ -1,4 +1,3 @@
-import Router from "next/router";
 import PropTypes from "prop-types";
 import React from "react";
 import { localeShape } from "../constants/PropTypes";
@@ -29,7 +28,6 @@ class LocaleProvider extends React.Component {
   }
 
   render() {
-    const { locale } = this.props;
     return (
       <LocaleContext.Provider value={this.state}>
         {React.Children.only(this.props.children)}

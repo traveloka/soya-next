@@ -20,7 +20,7 @@ const loadDefaultConfig = nextConfig => {
 
 module.exports = ({ conf = loadDefaultConfig, dev, phase }) => {
   const nextConfig = loadNextConfig(phase, appDir);
-  const app = next({ conf: conf(nextConfig), dev });
+  const app = next({ conf: conf(nextConfig), dev }); // eslint-disable-line callback-return
   app
     .prepare()
     .then(() => {

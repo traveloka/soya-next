@@ -18,7 +18,7 @@ export default Page => {
 
     static async getInitialProps({ asPath, ...ctx }) {
       const context = process.browser ? window.__NEXT_DATA__.props : ctx.req;
-      const { defaultLocale, siteLocales, locale } = context;
+      const { defaultLocale, siteLocales } = context;
       if (process.browser) {
         if (ctx.query.locale) {
           const [language, country] = ctx.query.locale.split("-");

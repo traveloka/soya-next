@@ -31,7 +31,8 @@
     "soya-next-cli": "./bin/soya-next-cli.js"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.5.0",
+    "@babel/runtime-corejs2": "^7.5.0",
     "cross-spawn": "^6.0.5",
     "fs-extra": "^7.0.0",
     "yargs": "^12.0.2"

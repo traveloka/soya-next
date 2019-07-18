@@ -18,6 +18,7 @@
   - [Custom Document](user-guide/custom-document.md)
   - [Custom Marlint Configuration](user-guide/custom-marlint-configuration.md)
   - [Custom Routing](user-guide/custom-routing.md)
+  - [Typescript Configuration](user-guide/typescript-configuration.md)
   - [Universal Environment Configuration](user-guide/universal-environment-configuration.md)
 - [Migration Guide](migration-guide/README.md)
   - [0.4.x to 0.5.x](migration-guide/0.4.x-to-0.5.x.md)

@@ -1,25 +1,9 @@
-const { join } = require("path");
-const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+const withBundleAnalyzer = require("@next/bundle-analyzer");
 
 module.exports = (nextConfig = {}) =>
   Object.assign({}, nextConfig, {
     webpack(config, options) {
-      const { webpack } = withBundleAnalyzer({
-        analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
-        analyzeBrowser: ["browser", "both"].includes(
-          process.env.BUNDLE_ANALYZE
-        ),
-        bundleAnalyzerConfig: {
-          server: {
-            analyzerMode: "static",
-            reportFilename: join(options.dir, "bundles/server.html")
-          },
-          browser: {
-            analyzerMode: "static",
-            reportFilename: join(options.dir, "bundles/client.html")
-          }
-        }
-      });
+      const { webpack } = withBundleAnalyzer({ enabled: Boolean(process.env.BUNDLE_ANALYZE) })(nextConfig);
       const newConfig = webpack(config, options);
       if (typeof nextConfig.webpack === "function") {
         return nextConfig.webpack(newConfig, options);

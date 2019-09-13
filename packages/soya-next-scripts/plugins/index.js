@@ -22,6 +22,7 @@ module.exports = (nextConfig = {}) => {
       assetPrefix = config.basePath && config.basePath.test;
     }
   }
+  
   return compose(
     withSourceMaps,
     withResolver,

@@ -7617,17 +7617,23 @@ inquirer@^6.2.2:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-intl-messageformat-parser@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
-  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
+intl-format-cache@^4.2.6:
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.2.6.tgz#bd921d1e49b3c2229e95e08c5d472c93b68fd7d9"
+  integrity sha512-2iNv1haP8ExnejLleEJuJi1OLUtclz+lnryKhDPyw3pRhCqYK6imhFEGllXYTzTow1N22wl8M76oNMyCEDylAA==
 
-intl-messageformat@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
-  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
+intl-messageformat-parser@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-3.2.2.tgz#28cacc80a53823a28b5ecaf16b3b35d0a1d5f9d2"
+  integrity sha512-ax9639ST77YimAddTH/0Q9qhXuYS8ZVsoqOZinqnS90MbXaNuIq+KIdifaIndwI+lMEv3o+qNaGycXYvlh17rw==
+
+intl-messageformat@^7.5.2:
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-7.5.2.tgz#5258b7ec43adbdf7c9b3e79252dd68b5f40998b6"
+  integrity sha512-/aJQw9i7qFnLLW0wizIY97P/ronaS9vIH1K1rabTR76OgOYNhC791JSJAowiFxNzWvClXFd5iQmRKxXgYO/yNw==
   dependencies:
-    intl-messageformat-parser "1.4.0"
+    intl-format-cache "^4.2.6"
+    intl-messageformat-parser "^3.2.2"
 
 invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"

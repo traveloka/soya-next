@@ -1,6 +1,6 @@
 {
   "name": "custom-routes",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -26,6 +26,6 @@
     "soya-next-server": "^0.8.4"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.8.8"
+    "soya-next-scripts": "^0.8.9"
   }
 }

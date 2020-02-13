@@ -7062,9 +7062,9 @@ graphql-anywhere@^4.1.19:
     apollo-utilities "^1.0.21"
 
 graphql-tag@^2.9.2:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.9.2.tgz#2f60a5a981375f430bf1e6e95992427dc18af686"
-  integrity sha512-qnNmof9pAqj/LUzs3lStP0Gw1qhdVCUS7Ab7+SUB6KD5aX1uqxWQRwMnOGTkhKuLvLNIs1TvNz+iS9kUGl1MhA==
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
+  integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
 graphql@14.0.2, graphql@^14.0.2:
   version "14.0.2"

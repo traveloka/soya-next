@@ -13,7 +13,7 @@
     "test": "soya-next-scripts test"
   },
   "dependencies": {
-    "config": "^2.0.1",
+    "config": "^3.2.5",
     "express": "^4.16.3",
     "intl-messageformat": "^2.2.0",
     "next": "^8.1.0",

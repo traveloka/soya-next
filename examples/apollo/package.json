@@ -7,7 +7,7 @@
     "apollo-client": "^2.4.2",
     "apollo-link": "^1.2.3",
     "apollo-link-http": "^1.5.5",
-    "config": "^2.0.1",
+    "config": "^3.2.5",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",

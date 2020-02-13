@@ -48,7 +48,7 @@
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-marlint": "0.1.2",
     "eslint-plugin-react": "7.11.1",
-    "inquirer": "6.2.0",
+    "inquirer": "7.0.4",
     "jest": "^24.8.0",
     "lodash": "4.17.13",
     "next-assets-import": "0.0.2",

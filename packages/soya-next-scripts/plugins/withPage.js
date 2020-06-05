@@ -10,10 +10,29 @@ module.exports = page => (config, { buildId, isServer }) => {
       name => name === join("static", buildId, "pages", `${page}.js`)
     );
     if (Array.isArray(entries[name])) {
-      const [pageEntry] = entries[name];
-      const ext = extname(pageEntry);
-      if (normalize(pageEntry) !== join("private-next-pages", page + ext)) {
-        entries[name] = [join("soya-next-scripts", "pages", page)];
+      const newEntries = [];
+      let replaced = false;
+      entries[name].forEach(item => {
+        if (item.startsWith("next-client-pages-loader")) {
+          const options = parse(item.split("?")[1]);
+          const ext = extname(options.absolutePagePath);
+          if (
+            normalize(options.absolutePagePath) !==
+            join("private-next-pages", page + ext)
+          ) {
+            options.absolutePagePath = join("soya-next-scripts", "pages", page);
+          }
+          newEntries.push(`next-client-pages-loader?${stringify(options)}!`);
+        } else {
+          const ext = extname(item);
+          if (normalize(item) !== join("private-next-pages", page + ext)) {
+            newEntries.push(join("soya-next-scripts", "pages", page));
+            replaced = true;
+          }
+        }
+      })
+      if (replaced) {
+        entries[name] = newEntries;
       }
     } else {
       const options = parse(entries[name].split("?")[1]);

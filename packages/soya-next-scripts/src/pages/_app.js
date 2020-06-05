@@ -1,4 +1,4 @@
-import App, { Container, createUrl } from "next/app";
+import App, { createUrl } from "next/app";
 import React from "react";
 import { createPage } from "soya-next";
 
@@ -18,10 +18,6 @@ export default class extends App {
   }
 
   render() {
-    return (
-      <Container>
-        <BasePage {...this.props} />
-      </Container>
-    );
+    return <BasePage {...this.props} />;
   }
 }

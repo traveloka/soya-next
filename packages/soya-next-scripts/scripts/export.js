@@ -11,7 +11,10 @@ const { appDir } = require("soya-next-server/paths");
 const { join } = require("path");
 const nextExport = require("next/dist/export").default;
 const { PHASE_EXPORT } = require("next/constants");
-const loadConfig = require("next-server/dist/server/config").default;
+const fs = require('fs')
+const loadConfig = fs.existsSync("next-server/dist/server/config") ?
+  require("next-server/dist/server/config").default :
+  require("next/dist/next-server/server/config").default;
 const defaultConf = require("../next.config");
 const userConf = loadConfig(PHASE_EXPORT, appDir);
 const conf = defaultConf(userConf);

@@ -16,6 +16,5 @@ Object {
 exports[`Store Enhancer should replace store state with given reducers object 1`] = `
 Object {
   "auth": Object {},
-  "todos": Array [],
 }
 `;

@@ -15,13 +15,14 @@
   "dependencies": {
     "config": "^2.0.1",
     "express": "^4.16.3",
-    "next": "^8.1.0",
+    "next": "^9.4.4",
     "prop-types": "^15.6.2",
-    "react": "^16.8.6",
+    "react": "^16.12.0",
     "react-cookie": "^2.2.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.12.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "sass": "^1.26.7",
     "soya-next": "^0.8.4",
     "soya-next-server": "^0.8.4"
   },

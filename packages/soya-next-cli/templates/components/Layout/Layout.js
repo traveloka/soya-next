@@ -7,7 +7,7 @@ import "../../styles/global.css";
 const Layout = ({ children }) => (
   <div className={styles.layout}>
     <Head>
-      <link rel="shortcut icon" href="/static/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
     <img src={logo} />
     {children}

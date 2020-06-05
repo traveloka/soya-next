@@ -1,6 +1,6 @@
 {
   "name": "apollo",
-  "version": "0.8.9",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.10",
@@ -21,8 +21,8 @@
     "react-modal": "^3.6.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "soya-next": "^0.8.4",
-    "soya-next-server": "^0.8.4",
+    "soya-next": "^0.9.0",
+    "soya-next-server": "^0.9.0",
     "tachyons": "^4.11.1"
   },
   "scripts": {
@@ -36,6 +36,6 @@
     "test": "soya-next-scripts test"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.8.9"
+    "soya-next-scripts": "^0.9.0"
   }
 }

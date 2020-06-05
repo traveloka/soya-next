@@ -1,6 +1,6 @@
 {
   "name": "i18n",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -22,10 +22,10 @@
     "react-dom": "^16.12.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "soya-next": "^0.9.0",
-    "soya-next-server": "^0.9.0"
+    "soya-next": "^0.9.1",
+    "soya-next-server": "^0.9.1"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.9.0"
+    "soya-next-scripts": "^0.9.1"
   }
 }

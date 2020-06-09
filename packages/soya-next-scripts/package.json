@@ -1,6 +1,6 @@
 {
   "name": "soya-next-scripts",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A CLI which contains configuration and scripts used by soya-next-cli.",
   "main": "lib/index.js",
   "license": "MIT",

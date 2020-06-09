@@ -13,7 +13,7 @@ const withSASSModules = require("./withSASSModules");
 const withSourceMaps = require("@zeit/next-source-maps");
 const compose = require("lodash/flowRight");
 
-module.exports = (nextConfig = {}) => {
+module.exports = (nextConfig = { }) => {
   let assetPrefix = nextConfig.assetPrefix;
   if (!assetPrefix && config.basePath) {
     if (typeof config.basePath === "string") {
@@ -22,6 +22,8 @@ module.exports = (nextConfig = {}) => {
       assetPrefix = config.basePath && config.basePath.test;
     }
   }
+
+  nextConfig.exportTrailingSlash = true;
   
   return compose(
     withSourceMaps,

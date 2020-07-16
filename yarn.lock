@@ -1420,6 +1420,20 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
+"@formatjs/intl-numberformat@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-numberformat/-/intl-numberformat-5.3.1.tgz#d682cfe3c9dbced972ce5b2f7b374ec63ea68635"
+  integrity sha512-VSQwDiZc6JjJ2CadKY5EFxdWI7k3HLUXMZAqg6Rdox7vHkd4wqxoZqrctSjBeJsjQUnKxh5CPP8Sp9ht5nCo9g==
+  dependencies:
+    "@formatjs/intl-utils" "^3.8.1"
+
+"@formatjs/intl-utils@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-utils/-/intl-utils-3.8.1.tgz#e9bf5b7705dd9653d33f2f7af575d92bdb280b7c"
+  integrity sha512-Vm7WRiokXWdu4iWVAQ+omDVWRt4ImUzgfKJAWocz3m1h6/ftgc+YuIcL4RDE6TH3jYben7exTREWHXIwWnx4YA==
+  dependencies:
+    emojis-list "^3.0.0"
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -8174,17 +8188,25 @@ internal-slot@^1.0.2:
     has "^1.0.3"
     side-channel "^1.0.2"
 
-intl-messageformat-parser@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.4.0.tgz#b43d45a97468cadbe44331d74bb1e8dea44fc075"
-  integrity sha1-tD1FqXRoytvkQzHXS7Ho3qRPwHU=
+intl-format-cache@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-4.3.0.tgz#09bb93a06d9774bb35e5a7117c0f047475cd5f1c"
+  integrity sha512-kGumT8fncIYMXb+YiWJKJ0t8n1tjSGrysZ+IFvXJc8oGT9U9PzH8DY2pFd0OY8L8RId6uNk2AiAFGP6bBHFSTg==
 
-intl-messageformat@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-2.2.0.tgz#345bcd46de630b7683330c2e52177ff5eab484fc"
-  integrity sha1-NFvNRt5jC3aDMwwuUhd/9eq0hPw=
+intl-messageformat-parser@^5.3.4:
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-5.3.4.tgz#9171e672440dc22fe04010be042939d6b6721a72"
+  integrity sha512-SoxnxuZ8yj8w60z2XrE1dPGGmGvVqadUcJfCVCBRA/kPNIc10Ls44eXBVdrttrYHlztYB4UVvSeb+R8CGmP1SA==
   dependencies:
-    intl-messageformat-parser "1.4.0"
+    "@formatjs/intl-numberformat" "^5.3.1"
+
+intl-messageformat@^9.1.4:
+  version "9.1.4"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-9.1.4.tgz#c6dae0de1540dff77c788961444032ce00b3590f"
+  integrity sha512-3SOFdKPa0UXxHfcL2wskfvFc1cJ8PPKg1KkaoEkPKWtkdcMq1EAnb9jv51ic+KvBDsxwA3HgigJ8izljoLaGtg==
+  dependencies:
+    intl-format-cache "^4.3.0"
+    intl-messageformat-parser "^5.3.4"
 
 invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"

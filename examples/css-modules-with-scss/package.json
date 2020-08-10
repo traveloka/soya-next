@@ -15,7 +15,7 @@
   "dependencies": {
     "config": "^2.0.1",
     "express": "^4.16.3",
-    "next": "^9.4.4",
+    "next": "^9.5.1",
     "prop-types": "^15.6.2",
     "react": "^16.12.0",
     "react-cookie": "^2.2.0",

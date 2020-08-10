@@ -4,10 +4,10 @@ const { extname, join, normalize } = require("path");
 module.exports = page => (config, { buildId, isServer }) => {
   const entry = config.entry;
   config.entry = async () => {
-    const entries = await entry();
+    const entries = await entry();    
     const names = Object.keys(entries);
     const name = names.find(
-      name => name === join("static", buildId, "pages", `${page}.js`)
+      name => name === join("pages", `${page}`)
     );
     if (Array.isArray(entries[name])) {
       const newEntries = [];

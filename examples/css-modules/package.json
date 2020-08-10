@@ -1,6 +1,6 @@
 {
   "name": "css-modules",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -22,10 +22,10 @@
     "react-dom": "^16.12.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
-    "soya-next": "^0.9.1",
-    "soya-next-server": "^0.9.1"
+    "soya-next": "^0.9.3",
+    "soya-next-server": "^0.9.3"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.9.2"
+    "soya-next-scripts": "^0.9.3"
   }
 }

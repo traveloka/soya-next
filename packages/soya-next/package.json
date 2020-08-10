@@ -1,6 +1,6 @@
 {
   "name": "soya-next",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
   "license": "MIT",

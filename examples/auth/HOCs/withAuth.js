@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
 
-export default Page =>
+const withAuth =  Page =>
   class extends React.Component {
     static async getInitialProps(ctx) {
       const { cookies, res } = ctx;
@@ -20,3 +20,5 @@ export default Page =>
       return <Page {...this.props} />;
     }
   };
+
+export default withAuth;

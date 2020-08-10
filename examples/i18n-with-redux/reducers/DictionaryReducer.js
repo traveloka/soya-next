@@ -3,7 +3,7 @@ import { generateId } from "../utils/DictionaryUtil";
 
 const initialState = {};
 
-export default (state = initialState, action) => {
+const DictionaryReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TRANSLATION:
       return {
@@ -14,3 +14,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default DictionaryReducer;

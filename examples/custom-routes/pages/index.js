@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import PostLink from "../components/PostLink";
 
-export default () => (
+const IndexPage = () => (
   <Layout>
     <h1>My Blog</h1>
     <ul>
@@ -11,3 +11,5 @@ export default () => (
     </ul>
   </Layout>
 );
+
+export default IndexPage;

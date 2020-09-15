@@ -35,7 +35,7 @@
     "@babel/runtime-corejs2": "^7.5.0",
     "cross-spawn": "^6.0.5",
     "fs-extra": "^7.0.0",
-    "yargs": "^12.0.2"
+    "yargs": "^16.0.3"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

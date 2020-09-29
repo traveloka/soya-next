@@ -13,7 +13,7 @@ const withSASSModules = require("./withSASSModules");
 const withSourceMaps = require("@zeit/next-source-maps");
 const compose = require("lodash/flowRight");
 
-module.exports = (nextConfig = { }) => {
+module.exports = (nextConfig = {}) => {
   let assetPrefix = nextConfig.assetPrefix;
   if (!assetPrefix && config.basePath) {
     if (typeof config.basePath === "string") {
@@ -23,20 +23,39 @@ module.exports = (nextConfig = { }) => {
     }
   }
 
-  nextConfig.exportTrailingSlash = true;
-  
-  return compose(
-    withSourceMaps,
-    withResolver,
-    withAssetsImport,
-    withBundleAnalyzer,
-    withDocument,
-    withApp,
-    withCSSModules,
-    withCSS,
-    withConfig,
-    withMarlint,
-    withSASSModules,
-    withSASS
-  )(Object.assign({}, nextConfig, { assetPrefix }));
+  nextConfig.trailingSlash = true;
+
+  const {
+    SourceMaps = { enable: true },
+    Resolver = { enable: true },
+    AssetsImport = { enable: true },
+    BundleAnalyzer = { enable: true },
+    Document = { enable: true },
+    App = { enable: true },
+    CSSModules = { enable: true },
+    CSS = { enable: true },
+    Config = { enable: true },
+    Marlint = { enable: true },
+    SASSModules = { enable: true },
+    SASS = { enable: true },
+  } = config.soyaNextPlugins || {};
+
+  const plugins = [
+    { fn: withSourceMaps, config: SourceMaps },
+    { fn: withResolver, config: Resolver },
+    { fn: withAssetsImport, config: AssetsImport },
+    { fn: withBundleAnalyzer, config: Document },
+    { fn: withDocument, config: BundleAnalyzer },
+    { fn: withApp, config: App },
+    { fn: withCSSModules, config: CSSModules },
+    { fn: withCSS, config: CSS },
+    { fn: withConfig, config: Config },
+    { fn: withMarlint, config: Marlint },
+    { fn: withSASSModules, config: SASSModules },
+    { fn: withSASS, config: SASS },
+  ];
+
+  return compose(...plugins.filter((p) => p.config.enable).map((p) => p.fn))(
+    Object.assign({}, nextConfig, { assetPrefix })
+  );
 };

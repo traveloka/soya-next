@@ -1,6 +1,6 @@
 {
   "name": "i18n-with-redux",
-  "version": "0.8.9",
+  "version": "0.8.10",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -27,6 +27,6 @@
     "soya-next-server": "^0.8.4"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.8.9"
+    "soya-next-scripts": "^0.8.10"
   }
 }

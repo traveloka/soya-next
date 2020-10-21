@@ -1,6 +1,6 @@
 {
   "name": "typescript",
-  "version": "0.8.9",
+  "version": "0.8.10",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -34,7 +34,7 @@
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
     "@zeit/next-typescript": "^1.1.1",
-    "soya-next-scripts": "^0.8.9",
+    "soya-next-scripts": "^0.8.10",
     "typescript": "^3.2.2"
   }
 }

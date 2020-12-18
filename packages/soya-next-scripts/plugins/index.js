@@ -36,10 +36,9 @@ module.exports = (nextConfig = {}) => {
     Marlint = { enable: true },
     SASSModules = { enable: true },
     SASS = { enable: true },
-    forceTrailingSlashOverride = { enable: true },
   } = config.soyaNextPlugins || {};
 
-  if (forceTrailingSlashOverride.enable) {
+  if (nextConfig.trailingSlash === undefined) {
     nextConfig.trailingSlash = true;
   }
 

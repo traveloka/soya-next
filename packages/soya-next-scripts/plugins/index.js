@@ -23,8 +23,6 @@ module.exports = (nextConfig = {}) => {
     }
   }
 
-  nextConfig.trailingSlash = true;
-
   const {
     SourceMaps = { enable: true },
     Resolver = { enable: true },
@@ -38,7 +36,12 @@ module.exports = (nextConfig = {}) => {
     Marlint = { enable: true },
     SASSModules = { enable: true },
     SASS = { enable: true },
+    forceTrailingSlashOverride = { enable: true },
   } = config.soyaNextPlugins || {};
+
+  if (forceTrailingSlashOverride.enable) {
+    nextConfig.trailingSlash = true;
+  }
 
   const plugins = [
     { fn: withSourceMaps, config: SourceMaps },

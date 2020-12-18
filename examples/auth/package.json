@@ -1,6 +1,6 @@
 {
   "name": "auth",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -26,6 +26,6 @@
     "soya-next-server": "^0.9.4"
   },
   "devDependencies": {
-    "soya-next-scripts": "^0.9.4"
+    "soya-next-scripts": "^0.9.5"
   }
 }

@@ -60,8 +60,8 @@
     "next": "^9.5.3",
     "react-apollo": "^2.0.4",
     "react-cookie": "^2.0.0",
-    "react-redux": "^5.0.5",
-    "redux": "^4.0.0"
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

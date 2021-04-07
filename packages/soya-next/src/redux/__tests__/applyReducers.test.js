@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 import applyReducers from "../applyReducers";
 
 describe("applyReducers", () => {
@@ -37,9 +37,7 @@ describe("applyReducers", () => {
     }
 
     expect(() => {
-      shallow(<ReducersAppliedComponent store={createMockStore(false)} />, {
-        context: { store: createMockStore(false) }
-      });
+      mount(<ReducersAppliedComponent store={createMockStore(false)} />);
     }).toThrow("applyReducers must be used with Soya's redux enhancer");
   });
 
@@ -57,7 +55,7 @@ describe("applyReducers", () => {
 
   it("should apply reducers in constructor", () => {
     const addReducerMock = context.store.addReducer.mock;
-    shallow(<ReducersAppliedComponent store={context.store} />, { context });
+    mount(<ReducersAppliedComponent store={context.store} />);
     expect(addReducerMock.calls.length).toBe(1);
     expect(Object.keys(addReducerMock.calls[0][0])).toEqual(["unique"]);
   });

@@ -22,7 +22,7 @@ export default reducers => Component => {
       }
       store.addReducer(reducers);
       setLoaded(true);
-    })
+    }, [])
 
     if (!loaded) {
       return <></>;

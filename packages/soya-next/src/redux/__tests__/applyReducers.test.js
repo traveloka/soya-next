@@ -37,7 +37,7 @@ describe("applyReducers", () => {
     }
 
     expect(() => {
-      shallow(<ReducersAppliedComponent />, {
+      shallow(<ReducersAppliedComponent store={createMockStore(false)} />, {
         context: { store: createMockStore(false) }
       });
     }).toThrow("applyReducers must be used with Soya's redux enhancer");
@@ -57,7 +57,7 @@ describe("applyReducers", () => {
 
   it("should apply reducers in constructor", () => {
     const addReducerMock = context.store.addReducer.mock;
-    shallow(<ReducersAppliedComponent />, { context });
+    shallow(<ReducersAppliedComponent store={context.store} />, { context });
     expect(addReducerMock.calls.length).toBe(1);
     expect(Object.keys(addReducerMock.calls[0][0])).toEqual(["unique"]);
   });

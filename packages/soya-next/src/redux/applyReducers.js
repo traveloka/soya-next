@@ -1,51 +1,49 @@
-import PropTypes from "prop-types";
 import React from "react";
 import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
+import { ReactReduxContext } from "react-redux";
 
 export default reducers => Component => {
   if (typeof reducers === "undefined") {
     return Component;
   }
 
-  class ApplyReducers extends React.Component {
-    static displayName = getDisplayName("applyReducers", Component);
+  function ApplyReducers(props) {
+    const [loaded, setLoaded] = React.useState(false);
+    const context = React.useContext(ReactReduxContext);
+    const store = props.store || context.store;
 
-    static async getInitialProps(ctx) {
-      if (!ctx.store.soya) {
+    React.useEffect(() => {
+      if (!store.soya) {
         throw new Error(
           "applyReducers must be used with Soya's redux enhancer"
         );
       }
-      ctx.store.addReducer(reducers);
-      return (
-        Component.getInitialProps && (await Component.getInitialProps(ctx))
+      store.addReducer(reducers);
+      setLoaded(true);
+    })
+
+    if (!loaded) {
+      return <></>;
+    }
+
+    return (
+      <Component {...props} />
+    );
+  }
+  ApplyReducers.displayName = getDisplayName("applyReducers", Component);
+  ApplyReducers.getInitialProps = async (ctx) => {
+    if (!ctx.store.soya) {
+      throw new Error(
+        "applyReducers must be used with Soya's redux enhancer"
       );
     }
-
-    static contextTypes = {
-      store: PropTypes.shape({
-        subscribe: PropTypes.func.isRequired,
-        dispatch: PropTypes.func.isRequired,
-        getState: PropTypes.func.isRequired
-      }).isRequired
-    };
-
-    constructor(props, context) {
-      super(props, context);
-      this.store = props.store || context.store;
-      if (!this.store.soya) {
-        throw new Error(
-          "applyReducers must be used with Soya's redux enhancer"
-        );
-      }
-      this.store.addReducer(reducers);
-    }
-
-    render() {
-      return <Component {...this.props} />;
-    }
+    ctx.store.addReducer(reducers);
+    return (
+      Component.getInitialProps && (await Component.getInitialProps(ctx))
+    );
   }
+
   return hoistStatics(ApplyReducers, Component, NEXT_STATICS);
 };

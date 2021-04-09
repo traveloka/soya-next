@@ -2,7 +2,7 @@ import React from "react";
 import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
-import { ReactReduxContext } from "react-redux";
+import { ReactReduxContext, Provider } from "react-redux";
 
 export default reducers => Component => {
   if (typeof reducers === "undefined") {
@@ -10,22 +10,18 @@ export default reducers => Component => {
   }
 
   function ApplyReducers(props) {
-    const [loaded, setLoaded] = React.useState(false);
+    const flag = React.useRef(true);
     const context = React.useContext(ReactReduxContext);
     const store = props.store || context.store;
 
-    React.useEffect(() => {
+    if (flag.current) {
       if (!store.soya) {
         throw new Error(
           "applyReducers must be used with Soya's redux enhancer"
         );
       }
       store.addReducer(reducers);
-      setLoaded(true);
-    }, [])
-
-    if (!loaded) {
-      return <></>;
+      flag.current = false;
     }
 
     return (

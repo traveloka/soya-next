@@ -1,6 +1,6 @@
 {
   "name": "css-modules-with-scss",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "private": true,
   "scripts": {
     "analyze": "BUNDLE_ANALYZE=both soya-next-scripts build",
@@ -23,7 +23,7 @@
     "react-redux": "^7.2.3",
     "redux": "^4.0.5",
     "sass": "^1.26.7",
-    "soya-next": "^0.9.4",
+    "soya-next": "^0.9.6",
     "soya-next-server": "^0.9.4"
   },
   "devDependencies": {

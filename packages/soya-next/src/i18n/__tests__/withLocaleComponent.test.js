@@ -1,7 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
 import withLocale from "../withLocaleComponent";
 import LocaleProvider from "../../components/LocaleProvider";
+import { render } from "@testing-library/react";
 
 describe("withLocale", () => {
   let context, Component, ComponentWithLocale;
@@ -15,35 +15,38 @@ describe("withLocale", () => {
       defaultLocale: "id-id",
       siteLocales: ["id-id", "en-id"]
     };
-    Component = () => null;
+    Component = props => {
+      expect(props).toMatchSnapshot();
+      return <div data-testid={"component-locale"} />;
+    };
     ComponentWithLocale = withLocale(Component);
   });
 
-  it("should add default locale, locale, and site locales to component props", () => {
-    const wrapper = mount(
+  it("should add default locale, locale, and site locales to component props", async () => {
+    const { findByTestId } = render(
       <LocaleProvider {...context}>
         <ComponentWithLocale />
       </LocaleProvider>
     );
-    expect(wrapper.find(Component).props()).toMatchSnapshot();
+    expect(await findByTestId("component-locale")).toBeTruthy();
   });
 
-  it("should override locale context with locale props", () => {
+  it("should override locale context with locale props", async () => {
     const locale = { language: "en", country: "id" };
-    const wrapper = mount(
+    const { findByTestId } = render(
       <LocaleProvider {...context}>
         <ComponentWithLocale locale={locale} />
       </LocaleProvider>
     );
-    expect(wrapper.find(Component).props()).toMatchSnapshot();
+    expect(await findByTestId("component-locale")).toBeTruthy();
   });
 
-  it("should accept locale string props", () => {
-    const wrapper = mount(
+  it("should accept locale string props", async () => {
+    const { findByTestId } = render(
       <LocaleProvider {...context}>
         <ComponentWithLocale locale="en-id" />
       </LocaleProvider>
     );
-    expect(wrapper.find(Component).props()).toMatchSnapshot();
+    expect(await findByTestId("component-locale")).toBeTruthy();
   });
 });

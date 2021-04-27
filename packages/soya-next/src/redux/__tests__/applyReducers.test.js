@@ -1,9 +1,10 @@
 import React from "react";
-import { mount } from "enzyme";
 import applyReducers from "../applyReducers";
+import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
 
 describe("applyReducers", () => {
-  let context, Component, ReducersAppliedComponent;
+  let context, Component, ComponentWithProvider, ReducersAppliedComponent;
   const reducers = {
     unique: jest.fn()
   };
@@ -23,6 +24,11 @@ describe("applyReducers", () => {
     Component = () => <div />;
     Component.getInitialProps = () => ({ init: true });
     ReducersAppliedComponent = applyReducers(reducers)(Component);
+    ComponentWithProvider = () => (
+      <Provider store={context.store}>
+        <ReducersAppliedComponent />
+      </Provider>
+    );
   });
 
   it("should throw error if store is not using soya enhancer", async () => {
@@ -36,8 +42,9 @@ describe("applyReducers", () => {
       );
     }
 
+    context.store = createMockStore(false);
     expect(() => {
-      mount(<ReducersAppliedComponent store={createMockStore(false)} />);
+      render(<ComponentWithProvider />);
     }).toThrow("applyReducers must be used with Soya's redux enhancer");
   });
 
@@ -55,7 +62,7 @@ describe("applyReducers", () => {
 
   it("should apply reducers in constructor", () => {
     const addReducerMock = context.store.addReducer.mock;
-    mount(<ReducersAppliedComponent store={context.store} />);
+    render(<ComponentWithProvider />);
     expect(addReducerMock.calls.length).toBe(1);
     expect(Object.keys(addReducerMock.calls[0][0])).toEqual(["unique"]);
   });

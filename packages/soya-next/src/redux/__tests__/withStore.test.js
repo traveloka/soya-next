@@ -1,13 +1,18 @@
 import React from "react";
 import createConfigureStore from "../createConfigureStore";
 import withStore from "../withStore";
-import { shallow } from "enzyme";
+import { render } from "@testing-library/react";
 
 describe("withStore", () => {
   let Page, PageWithStore;
 
   beforeEach(() => {
-    Page = () => <div />;
+    Page = props => (
+      <>
+        {props.store ? <div data-testid={"props-store"}>store</div> : <></>}
+        {props.init ? <div data-testid={"props-init"}>init</div> : <></>}
+      </>
+    );
     Page.getInitialProps = () => ({ init: true });
     PageWithStore = withStore(createConfigureStore())(Page);
   });
@@ -23,12 +28,11 @@ describe("withStore", () => {
 
     it("should add store to page props", async () => {
       const props = await PageWithStore.getInitialProps({});
-      const wrapper = shallow(
+      const { findByTestId } = render(
         <PageWithStore {...props} store={{ soya: true }} />
       );
-      const propNames = Object.keys(wrapper.find(Page).props());
-      expect(propNames).toContain("init");
-      expect(propNames).toContain("store");
+      expect(await findByTestId("props-store")).toBeTruthy();
+      expect(await findByTestId("props-init")).toBeTruthy();
     });
   });
 
@@ -38,12 +42,11 @@ describe("withStore", () => {
     });
 
     it("should add store to page props", async () => {
-      delete global.window;
+      delete global.Window;
       const props = await PageWithStore.getInitialProps({});
-      const wrapper = shallow(<PageWithStore {...props} />);
-      const propNames = Object.keys(wrapper.find(Page).props());
-      expect(propNames).toContain("init");
-      expect(propNames).toContain("store");
+      const { findByTestId } = render(<PageWithStore {...props} />);
+      expect(await findByTestId("props-store")).toBeTruthy();
+      expect(await findByTestId("props-init")).toBeTruthy();
     });
   });
 });

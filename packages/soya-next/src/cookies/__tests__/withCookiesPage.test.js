@@ -1,13 +1,18 @@
 import React from "react";
-import { shallow } from "enzyme";
 import { Cookies } from "react-cookie";
 import withCookies from "../withCookiesPage";
+import { render } from "@testing-library/react";
 
 describe("withCookiesPage", () => {
   let Page, PageWithCookies;
 
   beforeEach(() => {
-    Page = () => <div />;
+    Page = props => {
+      expect(props).toMatchSnapshot();
+      return (
+        <>{props.init ? <div data-testid={"props-init"}>init</div> : <></>}</>
+      );
+    };
     Page.getInitialProps = () => ({ init: true });
     PageWithCookies = withCookies(Page);
   });
@@ -23,10 +28,11 @@ describe("withCookiesPage", () => {
 
     it("should add cookie to page props", async () => {
       const props = await PageWithCookies.getInitialProps({});
-      const wrapper = shallow(
+      const { findByTestId } = render(
         <PageWithCookies {...props} cookies={new Cookies()} />
       );
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+
+      expect(await findByTestId("props-init")).toBeTruthy();
     });
   });
 
@@ -42,8 +48,8 @@ describe("withCookiesPage", () => {
           universalCookies: new Cookies("key=value")
         }
       });
-      const wrapper = shallow(<PageWithCookies {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<PageWithCookies {...props} />);
+      expect(await findByTestId("props-init")).toBeTruthy();
       delete global.MOCK_IS_NODE;
     });
   });

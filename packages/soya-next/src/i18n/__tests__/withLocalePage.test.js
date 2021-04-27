@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow } from "enzyme";
 import withLocale from "../withLocalePage";
+import { render } from "@testing-library/react";
 
 describe("withLocalePage", () => {
   let context, commonProps, Page, PageWithLocale;
@@ -18,7 +18,10 @@ describe("withLocalePage", () => {
       defaultLocale: "id-id",
       siteLocales: ["id-id", "en-id"]
     };
-    Page = () => <div />;
+    Page = props => {
+      expect(props).toMatchSnapshot();
+      return <div data-testid={"component-locale"} />;
+    };
     Page.getInitialProps = () => ({ init: true });
     PageWithLocale = withLocale(Page);
   });
@@ -29,8 +32,8 @@ describe("withLocalePage", () => {
         ...commonProps,
         req: context
       });
-      const wrapper = shallow(<PageWithLocale {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<PageWithLocale {...props} />);
+      expect(await findByTestId("component-locale")).toBeTruthy();
     });
   });
 
@@ -48,8 +51,8 @@ describe("withLocalePage", () => {
         props: context
       };
       const props = await PageWithLocale.getInitialProps(commonProps);
-      const wrapper = shallow(<PageWithLocale {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<PageWithLocale {...props} />);
+      expect(await findByTestId("component-locale")).toBeTruthy();
     });
 
     it("should update locale if supported", async () => {
@@ -62,8 +65,8 @@ describe("withLocalePage", () => {
           locale: "en-id"
         }
       });
-      const wrapper = shallow(<PageWithLocale {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<PageWithLocale {...props} />);
+      expect(await findByTestId("component-locale")).toBeTruthy();
     });
 
     it("should not update locale if unsupported", async () => {
@@ -76,8 +79,8 @@ describe("withLocalePage", () => {
           locale: "en-sg"
         }
       });
-      const wrapper = shallow(<PageWithLocale {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<PageWithLocale {...props} />);
+      expect(await findByTestId("component-locale")).toBeTruthy();
     });
   });
 });

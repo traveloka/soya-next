@@ -1,0 +1,43 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "22:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: intl-messageformat
+    versions:
+    - 9.4.6
+    - 9.4.7
+    - 9.4.9
+    - 9.5.1
+    - 9.5.2
+    - 9.5.3
+    - 9.5.4
+    - 9.6.3
+    - 9.6.4
+    - 9.6.6
+    - 9.6.7
+    - 9.6.8
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: eslint-plugin-react
+    versions:
+    - 7.22.0
+    - 7.23.0
+    - 7.23.1
+  - dependency-name: config
+    versions:
+    - 3.3.3
+  - dependency-name: inquirer
+    versions:
+    - 7.3.3

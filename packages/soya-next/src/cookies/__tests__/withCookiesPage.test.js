@@ -32,7 +32,8 @@ describe("withCookiesPage", () => {
         <PageWithCookies {...props} cookies={new Cookies()} />
       );
 
-      expect(await findByTestId("props-init")).toBeTruthy();
+      const propsInit = await findByTestId("props-init");
+      expect(propsInit).toBeTruthy();
     });
   });
 
@@ -49,7 +50,8 @@ describe("withCookiesPage", () => {
         }
       });
       const { findByTestId } = render(<PageWithCookies {...props} />);
-      expect(await findByTestId("props-init")).toBeTruthy();
+      const propsInit = await findByTestId("props-init");
+      expect(propsInit).toBeTruthy();
       delete global.MOCK_IS_NODE;
     });
   });

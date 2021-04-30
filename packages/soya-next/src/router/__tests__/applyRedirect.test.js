@@ -94,7 +94,8 @@ describe("applyRedirect", () => {
         asPath: "/path"
       });
       const { findByTestId } = render(<RedirectAppliedPage {...props} />);
-      expect(await findByTestId("applied-redirect-page")).toBeTruthy();
+      const appliedRedirectPage = await findByTestId("applied-redirect-page");
+      expect(appliedRedirectPage).toBeTruthy();
     });
   });
 

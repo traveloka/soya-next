@@ -31,8 +31,10 @@ describe("withStore", () => {
       const { findByTestId } = render(
         <PageWithStore {...props} store={{ soya: true }} />
       );
-      expect(await findByTestId("props-store")).toBeTruthy();
-      expect(await findByTestId("props-init")).toBeTruthy();
+      const propsStore = await findByTestId("props-store");
+      const propsInit = await findByTestId("props-init");
+      expect(propsStore).toBeTruthy();
+      expect(propsInit).toBeTruthy();
     });
   });
 
@@ -45,8 +47,10 @@ describe("withStore", () => {
       delete global.Window;
       const props = await PageWithStore.getInitialProps({});
       const { findByTestId } = render(<PageWithStore {...props} />);
-      expect(await findByTestId("props-store")).toBeTruthy();
-      expect(await findByTestId("props-init")).toBeTruthy();
+      const propsStore = await findByTestId("props-store");
+      const propsInit = await findByTestId("props-init");
+      expect(propsStore).toBeTruthy();
+      expect(propsInit).toBeTruthy();
     });
   });
 });

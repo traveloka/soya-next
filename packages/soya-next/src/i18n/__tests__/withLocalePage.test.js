@@ -33,7 +33,8 @@ describe("withLocalePage", () => {
         req: context
       });
       const { findByTestId } = render(<PageWithLocale {...props} />);
-      expect(await findByTestId("component-locale")).toBeTruthy();
+      const componentLocale = await findByTestId("component-locale");
+      expect(componentLocale).toBeTruthy();
     });
   });
 
@@ -52,7 +53,8 @@ describe("withLocalePage", () => {
       };
       const props = await PageWithLocale.getInitialProps(commonProps);
       const { findByTestId } = render(<PageWithLocale {...props} />);
-      expect(await findByTestId("component-locale")).toBeTruthy();
+      const componentLocale = await findByTestId("component-locale");
+      expect(componentLocale).toBeTruthy();
     });
 
     it("should update locale if supported", async () => {
@@ -66,7 +68,8 @@ describe("withLocalePage", () => {
         }
       });
       const { findByTestId } = render(<PageWithLocale {...props} />);
-      expect(await findByTestId("component-locale")).toBeTruthy();
+      const componentLocale = await findByTestId("component-locale");
+      expect(componentLocale).toBeTruthy();
     });
 
     it("should not update locale if unsupported", async () => {
@@ -80,7 +83,8 @@ describe("withLocalePage", () => {
         }
       });
       const { findByTestId } = render(<PageWithLocale {...props} />);
-      expect(await findByTestId("component-locale")).toBeTruthy();
+      const componentLocale = await findByTestId("component-locale");
+      expect(componentLocale).toBeTruthy();
     });
   });
 });

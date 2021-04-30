@@ -28,7 +28,8 @@ describe("withLocale", () => {
         <ComponentWithLocale />
       </LocaleProvider>
     );
-    expect(await findByTestId("component-locale")).toBeTruthy();
+    const componentLocale = await findByTestId("component-locale");
+    expect(componentLocale).toBeTruthy();
   });
 
   it("should override locale context with locale props", async () => {
@@ -38,7 +39,8 @@ describe("withLocale", () => {
         <ComponentWithLocale locale={locale} />
       </LocaleProvider>
     );
-    expect(await findByTestId("component-locale")).toBeTruthy();
+    const componentLocale = await findByTestId("component-locale");
+    expect(componentLocale).toBeTruthy();
   });
 
   it("should accept locale string props", async () => {
@@ -47,6 +49,7 @@ describe("withLocale", () => {
         <ComponentWithLocale locale="en-id" />
       </LocaleProvider>
     );
-    expect(await findByTestId("component-locale")).toBeTruthy();
+    const componentLocale = await findByTestId("component-locale");
+    expect(componentLocale).toBeTruthy();
   });
 });

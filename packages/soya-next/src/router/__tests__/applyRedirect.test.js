@@ -1,7 +1,7 @@
 import React from "react";
 import Router from "next/router";
-import { shallow } from "enzyme";
 import applyRedirect from "../applyRedirect";
+import { render } from "@testing-library/react";
 
 jest.mock("next/router");
 
@@ -10,7 +10,10 @@ describe("applyRedirect", () => {
 
   beforeEach(() => {
     Router.push.mockClear();
-    Page = () => <div />;
+    Page = props => {
+      expect(props).toMatchSnapshot();
+      return <div data-testid={"applied-redirect-page"} />;
+    };
     Page.getInitialProps = () => ({ init: true });
     RedirectAppliedPage = applyRedirect(Page);
     window.__NEXT_DATA__ = {
@@ -90,8 +93,9 @@ describe("applyRedirect", () => {
       const props = await RedirectAppliedPage.getInitialProps({
         asPath: "/path"
       });
-      const wrapper = shallow(<RedirectAppliedPage {...props} />);
-      expect(wrapper.find(Page).props()).toMatchSnapshot();
+      const { findByTestId } = render(<RedirectAppliedPage {...props} />);
+      const appliedRedirectPage = await findByTestId("applied-redirect-page");
+      expect(appliedRedirectPage).toBeTruthy();
     });
   });
 

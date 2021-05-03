@@ -52,7 +52,7 @@
     "prop-types": "^15.6.2",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0",
-    "universal-cookie-express": "^3.0.4"
+    "universal-cookie-express": "^4.0.3"
   },
   "peerDependencies": {
     "config": "^2.0.0",

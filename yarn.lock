@@ -6559,14 +6559,7 @@ eslint-plugin-lodash@^5.1.0:
   dependencies:
     lodash "^4.17.15"
 
-eslint-plugin-marlint@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-marlint/-/eslint-plugin-marlint-0.1.2.tgz#e5babad8045bcc7d4b4976901bda3e03216b7a62"
-  integrity sha512-2hRCrA5RFltxrzqbZdNZqCNhL4E1u8riAmMjbRh9/TDvj5NjUSTCeBZo/q6gn/SY1d7Wa4J+KHeE/s127OUvbw==
-  dependencies:
-    requireindex "~1.1.0"
-
-eslint-plugin-marlint@^0.1.5:
+eslint-plugin-marlint@0.1.5, eslint-plugin-marlint@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-marlint/-/eslint-plugin-marlint-0.1.5.tgz#43eee642b8affd0381ef212f9fcc205960ede3b5"
   integrity sha512-54O1zbjQ0UCVk/T/rFQb69Cpt0FMmu0/wNMzrIDvXCUvw72RYJ9Om2hsqnV4P5UgWY5v+pypO7DybjM83/lLjw==
@@ -13098,11 +13091,6 @@ requireindex@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
-
-requireindex@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
-  integrity sha1-5UBLgVV+91225JxacgBIk/4D4WI=
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

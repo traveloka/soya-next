@@ -30,6 +30,10 @@
   "bin": {
     "soya-next-cli": "./bin/soya-next-cli.js"
   },
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:cjs": "babel --root-mode upward src --out-dir lib --extensions .ts,.tsx,.js --source-maps"
+  },
   "dependencies": {
     "@babel/runtime": "^7.5.0",
     "@babel/runtime-corejs2": "^7.5.0",

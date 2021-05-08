@@ -32,7 +32,7 @@
     "config": "^2.0.0",
     "express": "^4.16.0",
     "next": "^9.5.3",
-    "soya-next": "^0.8.0"
+    "soya-next": ">=0.8"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

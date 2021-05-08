@@ -32,26 +32,30 @@
   "bin": {
     "soya-next-scripts": "./bin/soya-next-scripts.js"
   },
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:cjs": "babel --root-mode upward src --out-dir lib --extensions .ts,.tsx,.js --source-maps"
+  },
   "dependencies": {
     "@next/bundle-analyzer": "^9.5.1",
     "@zeit/next-css": "1.0.2-canary.2",
     "@zeit/next-sass": "1.0.2-canary.2",
     "@zeit/next-source-maps": "0.0.3",
-    "babel-eslint": "10.0.1",
-    "chalk": "2.4.1",
-    "cross-spawn": "6.0.5",
+    "babel-eslint": "^10.1.0",
+    "chalk": "^2.4.1",
+    "cross-spawn": "^6.0.5",
     "css-loader": "1.0.0",
-    "eslint": "5.16.0",
-    "eslint-config-marlint": "6.3.4",
-    "eslint-config-prettier": "3.1.0",
-    "eslint-plugin-babel": "5.2.1",
-    "eslint-plugin-flowtype": "2.50.3",
-    "eslint-plugin-jsx-a11y": "6.1.1",
-    "eslint-plugin-marlint": "0.1.2",
-    "eslint-plugin-react": "7.11.1",
+    "eslint": "^7.26.0",
+    "eslint-config-marlint": "^7.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-marlint": "^1.0.0-alpha.0",
+    "eslint-plugin-react": "^7.23.2",
     "inquirer": "6.2.0",
-    "jest": "^24.8.0",
-    "lodash": "4.17.20",
+    "jest": "^26.6.3",
+    "lodash": "^4.17.20",
     "next-assets-import": "0.0.2",
     "next-config": "0.1.0",
     "next-eslint": "0.0.4",
@@ -60,8 +64,8 @@
   "peerDependencies": {
     "config": "^2.0.0",
     "next": "^9.5.3",
-    "soya-next": "^0.8.0",
-    "soya-next-server": "^0.8.0"
+    "soya-next": ">=0.8",
+    "soya-next-server": ">=0.8"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

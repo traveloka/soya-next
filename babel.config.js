@@ -1,5 +1,11 @@
 "use strict";
 
-module.exports = {
-  presets: ["next/babel"]
+module.exports = function babelConfig(api) {
+  const ignore = api.env("test") ? [] : ["**/__tests__/**"];
+
+  return {
+    presets: ["next/babel"],
+    comments: false,
+    ignore,
+  };
 };

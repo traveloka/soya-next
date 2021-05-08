@@ -1,5 +1,5 @@
 {
-  "name": "typescript",
+  "name": "with-typescript",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
@@ -30,11 +30,9 @@
     "soya-next-server": "^1.0.0"
   },
   "devDependencies": {
-    "@types/next": "^7.0.5",
-    "@types/react": "^16.7.13",
-    "@types/react-dom": "^16.0.11",
-    "@zeit/next-typescript": "^1.1.1",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.3",
     "soya-next-scripts": "^1.0.0",
-    "typescript": "^3.2.2"
+    "typescript": "^4.2.4"
   }
 }

@@ -4,6 +4,11 @@ import path from "path";
 import spawn from "cross-spawn";
 import yargs from "yargs";
 
+interface InstallOption {
+  dev?: boolean;
+  exact?: boolean;
+}
+
 process.on("unhandledRejection", err => {
   throw err;
 });
@@ -14,7 +19,7 @@ const argv = yargs
   .option("verbose", {
     type: "boolean",
     describe: "Show more details",
-    default: false
+    default: false,
   })
   .alias("help", "h")
   .alias("version", "v")
@@ -24,29 +29,35 @@ const argv = yargs
     'Create "todo-app" project relative to current directory'
   )
   .strict().argv;
-const projectDirectory = argv._[0];
+const projectDirectory = argv._[0] as string;
 
 const dependencies = [
   "apollo-client@2.3.8",
   "config@2.0.1",
   "express@4.16.3",
   "graphql@14.0.2",
-  "next@8.1.0",
+  "next@9.5.5",
   "prop-types@15.6.2",
-  "react@16.8.6",
+  "react@17.0.2",
   "react-apollo@2.2.1",
   "react-cookie@2.2.0",
-  "react-dom@16.8.6",
-  "react-redux@5.0.7",
-  "redux@4.0.0",
-  "soya-next@0.8.4",
-  "soya-next-server@0.8.4"
+  "react-dom@17.0.2",
+  "react-redux@7.2.3",
+  "redux@4.0.5",
+  "soya-next@1.0.0",
+  "soya-next-server@1.0.0",
 ];
 
-const devDependencies = ["soya-next-scripts@0.8.4"];
+const devDependencies = ["soya-next-scripts@1.0.0"];
 
-const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
+const install = (
+  cmd: string,
+  dependencies: string[],
+  options?: InstallOption
+) => {
+  const { dev = false, exact = true } = options || {};
   const args = [];
+
   if (cmd === "yarn") {
     args.push("add");
   } else {
@@ -60,7 +71,7 @@ const install = (cmd, dependencies, { dev = false, exact = true } = {}) => {
   }
   const { status } = spawn.sync(cmd, args, { stdio: "inherit" });
   if (status !== 0) {
-    process.exit(status);
+    process.exit(status ?? 1);
   }
 };
 
@@ -74,7 +85,7 @@ if (projectDirectory) {
 
   fs.ensureDirSync(projectDirectory);
   fs.copy(path.resolve(__dirname, "../templates"), root, {
-    overwrite: false
+    overwrite: false,
   }).then(async () => {
     try {
       await fs.move(
@@ -103,8 +114,8 @@ if (projectDirectory) {
         dev: "soya-next-scripts dev",
         export: "soya-next-scripts export",
         start: "soya-next-server",
-        test: "soya-next-scripts test"
-      }
+        test: "soya-next-scripts test",
+      },
     },
     { spaces: 2 }
   );
@@ -129,7 +140,7 @@ if (projectDirectory) {
   console.log(`Successfully created ${name} in ${root}.`);
   console.log("Run the following commands to start the app:");
   console.log();
-  let target;
+  let target: string;
   if (path.isAbsolute(projectDirectory)) {
     target = root;
   } else {

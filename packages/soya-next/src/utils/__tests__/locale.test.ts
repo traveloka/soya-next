@@ -1,4 +1,5 @@
 import { ensurePath, toPath, trimPath } from "../locale";
+import type { SoyaNextLocale } from "../../types";
 
 describe("Locale Utils", () => {
   describe("ensurePath", () => {
@@ -32,7 +33,7 @@ describe("Locale Utils", () => {
 
     it("should throw an error if locale is not an object", () => {
       expect(() => {
-        toPath({}, "id-id");
+        toPath({} as SoyaNextLocale, "id-id");
       }).toThrow(
         "Expected locale to be an object with country and language properties."
       );

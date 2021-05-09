@@ -1,4 +1,7 @@
-export default param => {
+export default function decodeParam<TParam>(
+  param: TParam
+): TParam extends string ? string : TParam;
+export default function decodeParam<TParam>(param: TParam) {
   if (typeof param !== "string" || param.length === 0) {
     return param;
   }
@@ -13,4 +16,4 @@ export default param => {
     }
     throw err;
   }
-};
+}

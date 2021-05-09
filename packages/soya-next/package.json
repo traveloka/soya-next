@@ -39,6 +39,7 @@
     "lib",
     "server",
     "cookies.js",
+    "global.d.ts",
     "i18n.js",
     "link.js",
     "pages.js",

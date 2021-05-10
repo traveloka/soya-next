@@ -1,26 +1,29 @@
-import PropTypes from "prop-types";
 import React from "react";
-import { localeShape } from "../constants/PropTypes";
 import LocaleContext from "../i18n/LocaleContext";
+import type { SoyaNextLocaleContext } from "../types";
 
-class LocaleProvider extends React.Component {
-  static propTypes = {
-    defaultLocale: PropTypes.string,
-    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
-    locale: localeShape,
-    children: PropTypes.element.isRequired
-  };
+export interface LocaleProviderProps extends SoyaNextLocaleContext {
+  children: React.ReactNode;
+}
+export interface LocaleProviderState extends SoyaNextLocaleContext {}
 
-  constructor(props) {
+class LocaleProvider extends React.Component<
+  LocaleProviderProps,
+  LocaleProviderState
+> {
+  constructor(props: LocaleProviderProps) {
     super(props);
     this.state = {
       defaultLocale: props.defaultLocale,
       siteLocales: props.siteLocales,
-      locale: props.locale
+      locale: props.locale,
     };
   }
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(
+    props: LocaleProviderProps,
+    state: LocaleProviderState
+  ) {
     if (props.locale !== state.locale) {
       return { locale: props.locale };
     }

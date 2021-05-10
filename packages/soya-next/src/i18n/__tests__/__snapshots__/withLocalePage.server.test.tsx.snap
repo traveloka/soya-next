@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withLocalePage - Server should add default locale, locale, and site locales to page props 1`] = `
+Object {
+  "defaultLocale": "id-id",
+  "init": true,
+  "locale": Object {
+    "country": "id",
+    "language": "id",
+  },
+  "siteLocales": Array [
+    "id-id",
+    "en-id",
+  ],
+}
+`;

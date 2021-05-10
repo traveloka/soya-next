@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withLocalePage - Browser should add default locale, locale, and site locales to page props 1`] = `
+"{
+  \\"init\\": true,
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ],
+  \\"locale\\": {
+    \\"language\\": \\"id\\",
+    \\"country\\": \\"id\\"
+  }
+}"
+`;
+
+exports[`withLocalePage - Browser should not update locale if unsupported 1`] = `
+"{
+  \\"init\\": true,
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ],
+  \\"locale\\": {
+    \\"language\\": \\"id\\",
+    \\"country\\": \\"id\\"
+  }
+}"
+`;
+
+exports[`withLocalePage - Browser should update locale if supported 1`] = `
+"{
+  \\"init\\": true,
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ],
+  \\"locale\\": {
+    \\"language\\": \\"en\\",
+    \\"country\\": \\"id\\"
+  }
+}"
+`;

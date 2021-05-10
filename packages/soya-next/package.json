@@ -40,11 +40,12 @@
     "server",
     "cookies.js",
     "global.d.ts",
+    "i18n.d.ts",
     "i18n.js",
     "link.js",
     "pages.js",
-    "prop-types.js",
     "prop-types.d.ts",
+    "prop-types.js",
     "redux.js",
     "router.js"
   ],

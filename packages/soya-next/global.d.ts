@@ -3,3 +3,7 @@ declare interface URIError extends Error {
   status?: number;
   statusCode?: number;
 }
+
+declare interface Window {
+  __NEXT_DATA__: import("next/dist/next-server/lib/utils").NEXT_DATA;
+}

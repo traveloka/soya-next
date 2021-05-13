@@ -38,6 +38,7 @@
     "config",
     "lib",
     "server",
+    "cookies.d.ts",
     "cookies.js",
     "global.d.ts",
     "i18n.d.ts",

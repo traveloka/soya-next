@@ -1,5 +1,7 @@
+import type { Cookies } from "react-cookie";
 import type { CompressionOptions } from "compression";
 
+//#region Soya-Next Common Types
 /**
  * Soya Legacy Configuration for Soya Next
  * ---
@@ -313,6 +315,21 @@ export interface SoyaNextLocaleContext {
   siteLocales?: string[];
   locale?: SoyaNextLocale | null;
 }
+//#endregion Soya-Next Common Types
 
-// Treat as module, but export empty object.
+//#region Vendor Module Augmentation
+declare module "next/dist/next-server/lib/utils" {
+  export interface NextPageContext extends SoyaNextLocaleContext {
+    cookies?: Cookies;
+  }
+}
+
+declare module "http" {
+  export interface IncomingMessage extends SoyaNextLocaleContext {
+    universalCookies?: Cookies;
+  }
+}
+//#endregion Vendor Module Augmentation
+
+// Treat as module by exporting empty object.
 export {};

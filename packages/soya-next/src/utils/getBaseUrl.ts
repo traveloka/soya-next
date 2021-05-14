@@ -23,6 +23,7 @@ export default function getBaseUrl(
       ? window.location.host
       : req?.headers.host) || localhost;
   let protocol = /^localhost(:\d+)?$/.test(host) ? "http:" : "https:";
+  protocol = localhostPort === 443 ? "https:" : protocol;
 
   if (typeof req?.headers["x-forwarded-host"] === "string") {
     host = req.headers["x-forwarded-host"];

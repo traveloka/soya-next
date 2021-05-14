@@ -42,10 +42,10 @@ describe("getBaseUrl - Server", () => {
   });
 
   it("should return the custom localhost when req is undefined", () => {
-    expect(getBaseUrl(undefined, "localhost", 8080)).toEqual({
-      host: "localhost:8080",
-      origin: "http://localhost:8080",
-      protocol: "http:",
+    expect(getBaseUrl(undefined, "localhost", 443)).toEqual({
+      host: "localhost",
+      origin: "https://localhost",
+      protocol: "https:",
     });
   });
 });

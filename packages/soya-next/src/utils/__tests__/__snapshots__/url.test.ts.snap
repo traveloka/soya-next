@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Url Util - convertLegacyUrlObjectToWhatwgUrl should convert complete legacy url object into WHATWG URL 1`] = `"https://user:password@localhost:8090/login?locale=en-id#tag"`;
+
+exports[`Url Util - convertLegacyUrlObjectToWhatwgUrl should convert empty legacy url object into WHATWG URL 1`] = `"http://localhost/"`;

@@ -43,6 +43,7 @@
     "global.d.ts",
     "i18n.d.ts",
     "i18n.js",
+    "link.d.ts",
     "link.js",
     "pages.js",
     "prop-types.d.ts",

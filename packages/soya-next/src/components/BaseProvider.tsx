@@ -1,25 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Cookies, CookiesProvider } from "react-cookie";
-import { localeShape } from "../constants/PropTypes";
-import LocaleProvider from "../components/LocaleProvider";
+import LocaleProvider from "./LocaleProvider";
+import type { SoyaNextLocaleContext } from "../types";
 
-class BaseProvider extends React.Component {
-  static propTypes = {
-    cookies: PropTypes.instanceOf(Cookies).isRequired,
-    defaultLocale: PropTypes.string,
-    siteLocales: PropTypes.arrayOf(PropTypes.string.isRequired),
-    locale: localeShape,
-    children: PropTypes.element.isRequired
-  };
+export interface BaseProviderProps extends SoyaNextLocaleContext {
+  children: React.ReactNode;
+  cookies?: Cookies;
+}
 
+class BaseProvider extends React.Component<BaseProviderProps> {
   render() {
     const {
       cookies,
       defaultLocale,
       siteLocales,
       locale,
-      children
+      children,
     } = this.props;
     return (
       <CookiesProvider cookies={cookies}>

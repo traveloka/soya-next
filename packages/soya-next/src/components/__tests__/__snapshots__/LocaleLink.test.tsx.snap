@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<LocaleLink /> should accept href and 'as' as object 1`] = `
+<div>
+  <span
+    as="/en/blog/my-post"
+    href="/blog/[slug]?locale=en-id"
+  >
+    <a>
+      My Post
+    </a>
+  </span>
+</div>
+`;
+
 exports[`<LocaleLink /> should accept locale object 1`] = `
 <div>
   <span
@@ -60,6 +73,19 @@ exports[`<LocaleLink /> should render <Link /> to navigate to custom route 1`] =
   >
     <a>
       Hello World
+    </a>
+  </span>
+</div>
+`;
+
+exports[`<LocaleLink /> should render the <Link /> successfully while passing wrong as or href path 1`] = `
+<div>
+  <span
+    as="/"
+    href="/?locale=id-id"
+  >
+    <a>
+      My Post
     </a>
   </span>
 </div>

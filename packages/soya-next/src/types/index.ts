@@ -1,5 +1,7 @@
-import type { Cookies } from "react-cookie";
 import type { CompressionOptions } from "compression";
+import type { IncomingMessage } from "http";
+import type { NextComponentType, NextPageContext } from "next";
+import type { Cookies } from "react-cookie";
 
 //#region Soya-Next Common Types
 /**
@@ -315,21 +317,46 @@ export interface SoyaNextLocaleContext {
   siteLocales?: string[];
   locale?: SoyaNextLocale | null;
 }
+
+/**
+ * Soya Next HTTP Incoming Message
+ * ---
+ *
+ * Custom HTTP `IncomingMessage` interface for
+ * soya-next usage.
+ */
+export interface SoyaNextHttpIncomingMessage
+  extends IncomingMessage,
+    SoyaNextLocaleContext {
+  universalCookies?: Cookies;
+}
+
+/**
+ * Soya Next Page Context
+ * ---
+ *
+ * Custom soya-next page context. You may use this interface
+ * instead of the standard `NextPageContext` interface since
+ * this interface contains specific properties for soya-next usage.
+ */
+export interface SoyaNextPageContext
+  extends Omit<NextPageContext, "req">,
+    SoyaNextLocaleContext {
+  cookies?: Cookies;
+  /**
+   * `HTTP` request object with specific soya-next properties.
+   */
+  req?: SoyaNextHttpIncomingMessage;
+}
+
+/**
+ * Soya Next `Page` type, use it as a guide to create `pages`.
+ */
+export type SoyaNextPage<
+  TProps = {},
+  TInitialProps = TProps
+> = NextComponentType<SoyaNextPageContext, TInitialProps, TProps>;
 //#endregion Soya-Next Common Types
-
-//#region Vendor Module Augmentation
-declare module "next/dist/next-server/lib/utils" {
-  export interface NextPageContext extends SoyaNextLocaleContext {
-    cookies?: Cookies;
-  }
-}
-
-declare module "http" {
-  export interface IncomingMessage extends SoyaNextLocaleContext {
-    universalCookies?: Cookies;
-  }
-}
-//#endregion Vendor Module Augmentation
 
 // Treat as module by exporting empty object.
 export {};

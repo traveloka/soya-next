@@ -4,15 +4,18 @@ import getDisplayName from "../utils/getDisplayName";
 import getBaseUrl from "../utils/getBaseUrl";
 import { ensurePath } from "../utils/locale";
 import { NEXT_STATICS } from "../constants/Statics";
-import type { NextPage, NextPageContext } from "next";
-import type { SoyaNextLocaleContext } from "../types";
+import type {
+  SoyaNextLocaleContext,
+  SoyaNextPage,
+  SoyaNextPageContext,
+} from "../types";
 
 export interface WithLocalePageInjectedProps extends SoyaNextLocaleContext {}
 export interface WithLocalePageProps extends SoyaNextLocaleContext {}
 
 export default function withLocalePage<
   TProps extends WithLocalePageInjectedProps
->(Page: NextPage<TProps>) {
+>(Page: SoyaNextPage<TProps>) {
   // TODO: remove class expression when the issue has been resolved
   // from typescript side.
   // - https://github.com/microsoft/TypeScript/issues/35822
@@ -23,7 +26,7 @@ export default function withLocalePage<
   > {
     static displayName = getDisplayName("withLocale", Page);
 
-    static async getInitialProps({ asPath, ...ctx }: NextPageContext) {
+    static async getInitialProps({ asPath, ...ctx }: SoyaNextPageContext) {
       const baseUrl = getBaseUrl(ctx.req);
       const context =
         typeof window !== "undefined"

@@ -4,7 +4,7 @@ import hoistStatics from "hoist-non-react-statics";
 import { Cookies } from "react-cookie";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
-import type { NextPage, NextPageContext } from "next";
+import type { SoyaNextPage, SoyaNextPageContext } from "../types";
 
 export interface WithCookiesPageInjectedProps {
   cookies?: Cookies;
@@ -15,7 +15,7 @@ export interface WithCookiesPageProps {
 
 export default function withCookiesPage<
   TProps extends WithCookiesPageInjectedProps
->(Page: NextPage<TProps>) {
+>(Page: SoyaNextPage<TProps>) {
   // TODO: remove class expression when the issue has been resolved
   // from typescript side.
   // - https://github.com/microsoft/TypeScript/issues/35822
@@ -28,7 +28,7 @@ export default function withCookiesPage<
 
     static displayName = getDisplayName("withCookies", Page);
 
-    static async getInitialProps(ctx: NextPageContext) {
+    static async getInitialProps(ctx: SoyaNextPageContext) {
       const cookies =
         typeof window !== "undefined" ||
         (typeof __NEXT_DATA__ !== "undefined" && __NEXT_DATA__.nextExport)

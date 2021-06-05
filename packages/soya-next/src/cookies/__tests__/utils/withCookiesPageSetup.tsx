@@ -1,9 +1,9 @@
 import React from "react";
 import withCookies from "../../withCookiesPage";
-import type { NextPage } from "next";
+import type { SoyaNextPage } from "../../../types";
 
 export default function setupWithCookiesPageTest() {
-  const Page: NextPage = props => (
+  const Page: SoyaNextPage = props => (
     <div data-testid={"with-cookies-props"}>
       {JSON.stringify(props, null, 2)}
     </div>

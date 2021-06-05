@@ -1,6 +1,6 @@
 import React from "react";
 import withLocale, { WithLocalePageInjectedProps } from "../../withLocalePage";
-import type { NextPage } from "next";
+import type { SoyaNextPage } from "../../../types";
 
 interface PageProps extends WithLocalePageInjectedProps {
   init?: boolean;
@@ -22,7 +22,7 @@ export default function setupLocalePageTest() {
     siteLocales: ["id-id", "en-id"],
   };
 
-  const Page: NextPage<PageProps> = props => (
+  const Page: SoyaNextPage<PageProps> = props => (
     <div data-testid={"component-locale-props"}>
       {JSON.stringify(props, null, 2)}
     </div>

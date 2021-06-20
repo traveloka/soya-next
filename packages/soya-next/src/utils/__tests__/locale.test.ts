@@ -5,23 +5,43 @@ describe("Locale Utils", () => {
   describe("ensurePath", () => {
     it("should ensure non-default locale url to have locale segment", () => {
       expect(
-        ensurePath("/about", { language: "en", country: "id" }, "id-id")
+        ensurePath(
+          "/about",
+          "http://localhost:3000",
+          { language: "en", country: "id" },
+          "id-id"
+        )
       ).toBe("/en/about");
 
-      expect(ensurePath("/", { language: "en", country: "id" }, "id-id")).toBe(
-        "/en/"
-      );
+      expect(
+        ensurePath(
+          "/",
+          "http://localhost:3000",
+          { language: "en", country: "id" },
+          "id-id"
+        )
+      ).toBe("/en/");
     });
 
     it("should ensure default locale url to not have locale segment", () => {
       expect(
-        ensurePath("/about", { language: "id", country: "id" }, "id-id")
+        ensurePath(
+          "/about",
+          "http://localhost:3000",
+          { language: "id", country: "id" },
+          "id-id"
+        )
       ).toBe("/about");
     });
 
     it("should return as is when locale segment matches current locale", () => {
       expect(
-        ensurePath("/en-sg/about", { language: "en", country: "sg" }, "id-id")
+        ensurePath(
+          "/en-sg/about",
+          "http://localhost:3000",
+          { language: "en", country: "sg" },
+          "id-id"
+        )
       ).toBe("/en-sg/about");
     });
   });
@@ -60,17 +80,26 @@ describe("Locale Utils", () => {
 
   describe("trimPath", () => {
     it("should return url as is if defaultLocale and siteLocales arguments are not specified", () => {
-      expect(trimPath("/en/")).toBe("/en/");
+      expect(trimPath("/en/", "http://localhost:3000")).toBe("/en/");
     });
 
     it("should remove locale segment from non-default locale url", () => {
-      expect(trimPath("/en/about", "id-id", ["id-id", "en-id"])).toBe("/about");
+      expect(
+        trimPath("/en/about", "http://localhost:3000", "id-id", [
+          "id-id",
+          "en-id",
+        ])
+      ).toBe("/about");
     });
 
     it("should not remove anything from default locale url", () => {
-      expect(trimPath("/", "id-id", ["id-id", "en-id"])).toBe("/");
+      expect(
+        trimPath("/", "http://localhost:3000", "id-id", ["id-id", "en-id"])
+      ).toBe("/");
 
-      expect(trimPath("/about", "id-id", ["id-id", "en-id"])).toBe("/about");
+      expect(
+        trimPath("/about", "http://localhost:3000", "id-id", ["id-id", "en-id"])
+      ).toBe("/about");
     });
   });
 });

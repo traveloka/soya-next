@@ -2,8 +2,8 @@ import createRouter from "../createRouter";
 
 jest.mock("express/lib/router", () =>
   jest.fn(() => {
-    const middlewares = [];
-    const routes = [];
+    const middlewares: any[] = [];
+    const routes: any[] = [];
     return {
       middlewares,
       routes,
@@ -12,14 +12,13 @@ jest.mock("express/lib/router", () =>
       }),
       use: jest.fn(middleware => {
         middlewares.push(middleware);
-      })
+      }),
     };
   })
 );
 
 describe("createRouter", () => {
-  let app;
-  const next = ({ dev }) => {
+  function createFakeNext(dev: boolean = false) {
     const handle = jest.fn();
     return {
       dev,
@@ -29,26 +28,25 @@ describe("createRouter", () => {
       handle,
       render: jest.fn(),
       render404: jest.fn(),
-      serveStatic: jest.fn()
+      serveStatic: jest.fn(),
     };
-  };
+  }
 
   describe("production", () => {
-    beforeEach(() => {
-      app = next({ dev: false }); // eslint-disable-line callback-return
-    });
-
     it("should create gzip enabled router", () => {
-      const router = createRouter(app);
+      const app = createFakeNext();
+      const router = createRouter(app as any);
+      // @ts-ignore
       expect(router.use.mock.calls.length).toBe(3);
     });
 
     it("should create router with base path and exclude a path", () => {
-      const router = createRouter(app, {
+      const app = createFakeNext();
+      const router = createRouter(app as any, {
         basePath: {
           test: "/base",
-          exclude: "/healthcheck"
-        }
+          exclude: "/healthcheck",
+        },
       });
       const req = { url: "/healthcheck" };
       const res = { json: jest.fn() };
@@ -61,17 +59,14 @@ describe("createRouter", () => {
   });
 
   describe("non-production", () => {
-    beforeEach(() => {
-      app = next({ dev: true }); // eslint-disable-line callback-return
-    });
-
     it("should create basic router", async () => {
-      const router = createRouter(app);
+      const app = createFakeNext(true);
+      const router = createRouter(app as any);
       const req = {
         headers: {},
         params: {
-          path: "/react.png"
-        }
+          path: "/react.png",
+        },
       };
       const res = { json: jest.fn() };
       const next = jest.fn();
@@ -92,50 +87,60 @@ describe("createRouter", () => {
 
       // next handler
       await router.routes[1].handler(req, res);
+      // @ts-ignore
       expect(app.handle).toBeCalled();
 
+      // @ts-ignore
       expect(router.use.mock.calls.length).toBe(2);
+      // @ts-ignore
       expect(router.get.mock.calls.length).toBe(2);
       expect(app.getRequestHandler).toBeCalled();
     });
 
     it("should create router with custom routes", async () => {
+      const app = createFakeNext(true);
       const routes = {
         "/p/:id": {
-          page: "/post"
-        }
+          page: "/post",
+        },
       };
-      const router = createRouter(app, { routes });
+      const router = createRouter(app as any, { routes });
       await router.routes[0].handler(
         {
           query: { locale: "en-id" },
-          params: { id: 1 }
+          params: { id: 1 },
         },
         {}
       );
       expect(app.render).toBeCalled();
       expect(app.render.mock.calls[0]).toMatchSnapshot();
+      // @ts-ignore
       expect(router.get.mock.calls.length).toBe(3);
     });
 
     it("should create router with redirection", () => {
+      const app = createFakeNext(true);
       const defaultLocale = "id-id";
       const routes = {
         "/p/:id": {
-          page: "/post"
-        }
+          page: "/post",
+        },
       };
       const redirects = {
         "/tentang": {
-          to: "/about"
+          to: "/about",
         },
         "/post/:id": {
-          to: "/p/:id"
-        }
+          to: "/p/:id",
+        },
       };
-      const router = createRouter(app, { defaultLocale, routes, redirects });
+      const router = createRouter(app as any, {
+        defaultLocale,
+        routes,
+        redirects,
+      });
       const res = {
-        redirect: jest.fn()
+        redirect: jest.fn(),
       };
       router.routes[0].handler({}, res);
       expect(res.redirect).toBeCalled();
@@ -144,27 +149,31 @@ describe("createRouter", () => {
         {
           locale: {
             language: "en",
-            country: "id"
+            country: "id",
           },
-          params: { id: 1 }
+          params: { id: 1 },
         },
         res
       );
       expect(res.redirect.mock.calls[1]).toMatchSnapshot();
+      // @ts-ignore
       expect(router.get.mock.calls.length).toBe(5);
     });
 
     it("should create locale aware router", () => {
-      const router = createRouter(app, {
+      const app = createFakeNext(true);
+      const router = createRouter(app as any, {
         defaultLocale: "id-id",
-        siteLocales: ["id-id", "en-id"]
+        siteLocales: ["id-id", "en-id"],
       });
+      // @ts-ignore
       expect(router.use.mock.calls.length).toBe(3);
     });
 
     it("should create router with base path", () => {
-      const router = createRouter(app, {
-        basePath: "/base"
+      const app = createFakeNext(true);
+      const router = createRouter(app as any, {
+        basePath: "/base",
       });
       const req = { url: "/base" };
       const res = { json: jest.fn() };
@@ -179,11 +188,12 @@ describe("createRouter", () => {
     });
 
     it("should create router with base path and exclude some paths", () => {
-      const router = createRouter(app, {
+      const app = createFakeNext(true);
+      const router = createRouter(app as any, {
         basePath: {
           test: "/base",
-          exclude: ["/healthcheck", "/whoami"]
-        }
+          exclude: ["/healthcheck", "/whoami"],
+        },
       });
       const req = { url: "/whoami" };
       const res = { json: jest.fn() };

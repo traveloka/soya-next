@@ -1,39 +1,70 @@
-import Router from "express/lib/router";
+import { Router } from "express";
 import cookieMiddleware from "universal-cookie-express";
 import createLocaleMiddleware from "./createLocaleMiddleware";
 import ensureRedirect from "../utils/ensureRedirect";
 import parseRedirectionPath from "../utils/parseRedirectionPath";
 import { toPath } from "../utils/locale";
 
-const defaultOptions = {
-  routes: {},
-  redirects: {}
-};
+import type { Request, Response } from "express";
+import type { ServerResponse } from "http";
+import type Server from "next/dist/next-server/server/next-server";
+import type {
+  SoyaNextConfig,
+  SoyaNextRedirectConfig,
+  SoyaNextServerConfig,
+} from "../types";
 
-export default (
-  app,
-  {
+declare module "next/dist/next-server/server/next-server" {
+  export default interface Server {
+    /**
+     * @deprecated `dev` property does not exist anymore
+     * since next 7.
+     */
+    dev?: boolean;
+  }
+}
+
+declare module "express-serve-static-core" {
+  export interface Router extends Record<string, any> {}
+}
+
+export interface CreateRouterOption {
+  basePath?: SoyaNextConfig["basePath"];
+  compression?: SoyaNextServerConfig["compression"];
+  defaultLocale?: SoyaNextConfig["defaultLocale"];
+  redirects?: SoyaNextConfig["redirects"];
+  routes?: SoyaNextConfig["routes"];
+  siteLocales?: SoyaNextConfig["siteLocales"];
+  whoami?: SoyaNextConfig["whoami"];
+}
+
+export default function createRouter(
+  app: Server,
+  options?: CreateRouterOption
+) {
+  const {
     basePath,
-    routes = defaultOptions.routes,
-    redirects = defaultOptions.redirects,
+    routes = {},
+    redirects = {},
     defaultLocale,
     siteLocales,
     compression,
-    whoami = {}
-  } = defaultOptions
-) => {
+    whoami = {},
+  } = options || {};
   const router = Router();
   const handle = app.getRequestHandler();
   if (!app.dev) {
     router.use(require("compression")(compression));
   }
 
-  const newRedirects = Object.keys(redirects).reduce((newRedirects, from) => {
+  const newRedirects = Object.keys(redirects).reduce<
+    Record<string, SoyaNextRedirectConfig>
+  >((newRedirects, from) => {
     const redirect = redirects[from];
     const newRoute = routes[redirect.to];
     newRedirects[from] = {
       page: (newRoute && newRoute.page) || redirect.to,
-      ...redirect
+      ...redirect,
     };
     return newRedirects;
   }, {});
@@ -47,8 +78,8 @@ export default (
   }
   if (basePath) {
     router.use((req, res, next) => {
-      let test;
-      let exclude;
+      let test: string | undefined;
+      let exclude: string | string[] | undefined;
       if (typeof basePath === "string") {
         test = basePath;
       } else {
@@ -60,17 +91,19 @@ export default (
       ).concat(exclude || []);
       if (
         (excludes.length && excludes.includes(req.url)) ||
-        req.url.startsWith(test)
+        req.url.startsWith(String(test))
       ) {
         req.url = req.url.replace(new RegExp(`^${test}/*`), "/");
         return next();
       }
-      app.render404(req, res);
+      // INFO: Don't know why express `Response` type error here while
+      // it already extends the `http.ServerResponse` class.
+      app.render404(req, res as ServerResponse);
     });
   }
   Object.keys(newRedirects).forEach(from => {
     const { method, status, to } = ensureRedirect(newRedirects[from]);
-    router[method.toLowerCase()](from, (req, res) => {
+    router[method.toLowerCase()](from, (req: any, res: any) => {
       const localeSegment = toPath(req.locale, defaultLocale);
       const redirectionPath = parseRedirectionPath(
         localeSegment + to,
@@ -81,8 +114,13 @@ export default (
   });
   Object.keys(routes).forEach(path => {
     const { method = "GET", page } = routes[path];
-    router[method.toLowerCase()](path, (req, res) => {
-      app.render(req, res, page, Object.assign({}, req.query, req.params));
+    router[method.toLowerCase()](path, (req: Request, res: Response) => {
+      app.render(
+        req,
+        res as ServerResponse,
+        page,
+        Object.assign({}, req.query, req.params)
+      );
     });
   });
   router.get("/whoami", (req, res) => {
@@ -92,9 +130,9 @@ export default (
       uptime: `${Math.floor(uptime / 86400)}d, ${Math.floor(
         (uptime % 86400) / 3600
       )}h, ${Math.floor((uptime % 3600) / 60)}m, ${Math.floor(uptime % 60)}s`,
-      ...whoami
+      ...whoami,
     });
   });
-  router.get("*", (req, res) => handle(req, res));
+  router.get("*", (req, res) => handle(req, res as ServerResponse));
   return router;
-};
+}

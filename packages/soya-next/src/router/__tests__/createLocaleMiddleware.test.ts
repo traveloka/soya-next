@@ -1,6 +1,17 @@
 import createLocaleMiddleware from "../createLocaleMiddleware";
 
 describe("Create Locale Middleware", () => {
+  function setupTest() {
+    return {
+      options: {
+        defaultLocale: "id-id",
+        siteLocales: ["id-id", "en-id", "en-sg"],
+      },
+      res: {} as any,
+      next: jest.fn(),
+    };
+  }
+
   it("requires default locale", () => {
     expect(() => createLocaleMiddleware()).toThrowErrorMatchingSnapshot();
   });
@@ -11,42 +22,37 @@ describe("Create Locale Middleware", () => {
     ).toThrowErrorMatchingSnapshot();
   });
 
-  let options, res, next;
-  beforeEach(() => {
-    options = {
-      defaultLocale: "id-id",
-      siteLocales: ["id-id", "en-id", "en-sg"]
-    };
-    res = {};
-    next = jest.fn();
-  });
-
   it("should fallback to default locale", () => {
-    const req = { url: "/" };
+    const { options, next, res } = setupTest();
+    const req: any = { url: "/" };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it("should fallback country to its default and remove locale segment from url", () => {
-    const req = { url: "/en/" };
+    const { options, next, res } = setupTest();
+    const req: any = { url: "/en/" };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it("should match even without trailing slash", () => {
-    const req = { url: "/en-sg" };
+    const { options, next, res } = setupTest();
+    const req: any = { url: "/en-sg" };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it("should match available site locales and remove locale segment from url", () => {
-    const req = { url: "/en-sg/" };
+    const { options, next, res } = setupTest();
+    const req: any = { url: "/en-sg/" };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });
 
   it("should fallback to default locale if none match", () => {
-    const req = { url: "/ms-my/" };
+    const { options, next, res } = setupTest();
+    const req: any = { url: "/ms-my/" };
     createLocaleMiddleware(options)(req, res, next);
     expect(req).toMatchSnapshot();
   });

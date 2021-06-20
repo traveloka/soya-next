@@ -38,6 +38,7 @@
     "config",
     "lib",
     "server",
+    "src/types",
     "cookies.d.ts",
     "cookies.js",
     "global.d.ts",
@@ -49,6 +50,7 @@
     "prop-types.d.ts",
     "prop-types.js",
     "redux.js",
+    "router.d.ts",
     "router.js"
   ],
   "scripts": {

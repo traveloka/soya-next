@@ -1,6 +1,17 @@
-import { parse as parseUrl } from "url";
+import getBaseUrl from "../utils/getBaseUrl";
 
-export default ({ defaultLocale, siteLocales } = {}) => {
+import type { RequestHandler } from "express";
+
+export interface CreateLocaleMiddlewareOption {
+  defaultLocale?: string;
+  siteLocales?: string[];
+}
+
+export default function createLocaleMiddleware(
+  options?: CreateLocaleMiddlewareOption
+): RequestHandler {
+  const { defaultLocale, siteLocales } = options || {};
+
   if (typeof defaultLocale !== "string") {
     throw new Error("Expected defaultLocale to be a locale string.");
   }
@@ -13,7 +24,8 @@ export default ({ defaultLocale, siteLocales } = {}) => {
   }
   return (req, res, next) => {
     let [language, country] = defaultLocale.split("-");
-    const { pathname } = parseUrl(req.url);
+    const baseUrl = getBaseUrl(req);
+    const { pathname } = new URL(req.url, baseUrl.origin);
     const [localeSegment] = pathname.substr(1).split("/");
     if (localeSegment) {
       const [languageSegment, countrySegment = country] = localeSegment.split(
@@ -29,8 +41,8 @@ export default ({ defaultLocale, siteLocales } = {}) => {
     req.siteLocales = siteLocales;
     req.locale = {
       country,
-      language
+      language,
     };
     next();
   };
-};
+}

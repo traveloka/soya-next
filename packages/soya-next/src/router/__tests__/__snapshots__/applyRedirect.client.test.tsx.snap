@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`applyRedirect - browser should render with initial props 1`] = `
+"{
+  \\"init\\": true
+}"
+`;

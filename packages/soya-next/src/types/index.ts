@@ -128,6 +128,18 @@ export interface SoyaNextPluginConfig {
  */
 export interface SoyaNextRedirectConfig {
   /**
+   * Request method, such as `POST`, `GET`, etc.
+   * @example POST
+   */
+  method?: string;
+
+  /**
+   * Page path.
+   * @example /new-page
+   */
+  page?: string;
+
+  /**
    * **Note:** It must match one of the `config.routes` key.
    * @example '/p/:id'
    */
@@ -142,6 +154,11 @@ export interface SoyaNextRedirectConfig {
  * by using `node-config`.
  */
 export interface SoyaNextRouteConfig {
+  /**
+   * @example POST
+   */
+  method?: string;
+
   /**
    * @example '/post'
    */

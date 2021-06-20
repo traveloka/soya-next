@@ -21,14 +21,14 @@ export default function getBaseUrl(
   let host =
     (typeof window !== "undefined"
       ? window.location.host
-      : req?.headers.host) || localhost;
+      : req?.headers?.host) || localhost;
   let protocol = /^localhost(:\d+)?$/.test(host) ? "http:" : "https:";
   protocol = localhostPort === 443 ? "https:" : protocol;
 
-  if (typeof req?.headers["x-forwarded-host"] === "string") {
+  if (typeof req?.headers?.["x-forwarded-host"] === "string") {
     host = req.headers["x-forwarded-host"];
   }
-  if (typeof req?.headers["x-forwarded-proto"] === "string") {
+  if (typeof req?.headers?.["x-forwarded-proto"] === "string") {
     protocol = `${req.headers["x-forwarded-proto"]}:`;
   }
 

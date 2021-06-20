@@ -7,11 +7,10 @@ import type { IncomingMessage } from "http";
 describe("getBaseUrl - Server", () => {
   function createReq(req?: Partial<IncomingMessage>): IncomingMessage {
     return {
-      ...req,
       headers: {
         host: "localhost",
-        ...(req?.headers || {}),
       },
+      ...req,
     } as IncomingMessage;
   }
 
@@ -43,6 +42,16 @@ describe("getBaseUrl - Server", () => {
 
   it("should return the custom localhost when req is undefined", () => {
     expect(getBaseUrl(undefined, "localhost", 443)).toEqual({
+      host: "localhost",
+      origin: "https://localhost",
+      protocol: "https:",
+    });
+  });
+
+  it("should return the custom localhost when the req.headers is undefined", () => {
+    expect(
+      getBaseUrl(createReq({ headers: undefined }), "localhost", 443)
+    ).toEqual({
       host: "localhost",
       origin: "https://localhost",
       protocol: "https:",

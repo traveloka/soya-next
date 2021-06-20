@@ -1,9 +1,8 @@
-type Params = {
-  method: string;
-  page: string;
-  status: number;
-  to: string;
-};
+import type { SoyaNextRedirectConfig } from "../types";
+
+export interface Params extends SoyaNextRedirectConfig {
+  status?: number;
+}
 
 export default function ensureRedirect({
   method = "GET",

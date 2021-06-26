@@ -15,10 +15,12 @@ export interface WithLocaleComponentProps {
 }
 
 /**
- * Give target component access to defaultLocale, locale, and siteLocales.
+ * Give target component access to `defaultLocale`, `locale`, and `siteLocales`.
  *
- * Ensure withLocale(Component) is rendered within createPage hierarchy.
+ * **Note**: Ensure `withLocale(Component)` is rendered within `createPage` hierarchy.
  * @param Component Target component.
+ * @returns A higher order React component class that passes
+ * `defaultLocale`, `locale`, and `siteLocales` to the component below.
  */
 export default function withLocaleComponent<
   TProps extends WithLocaleComponentInjectedProps

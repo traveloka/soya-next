@@ -38,6 +38,14 @@ export interface CreateRouterOption {
   whoami?: SoyaNextConfig["whoami"];
 }
 
+/**
+ * Creates locale aware express router with universal cookie and gzip compression enabled.
+ *
+ * @param app Next server.
+ * @param options `createRouter`'s options. See `SoyaNextConfig` interface
+ * for more information.
+ * @returns An object of express router.
+ */
 export default function createRouter(
   app: Server,
   options?: CreateRouterOption

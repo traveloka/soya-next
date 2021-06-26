@@ -23,6 +23,7 @@ export interface LocaleLinkProps extends LinkProps {
  * Soya Next - Locale Link
  * ---
  * A locale aware `<Link />` component for routing.
+ *
  * **Note**: Please ensure that `<LocaleLink />` is rendered
  * within `createPage` hierarchy.
  */
@@ -80,6 +81,7 @@ export class LocaleLink extends React.Component<LocaleLinkInjectedProps> {
  * Soya Next - Locale Link
  * ---
  * A locale aware `<Link />` component for routing.
+ *
  * **Note**: Please ensure that `<LocaleLink />` is rendered
  * within `createPage` hierarchy.
  */

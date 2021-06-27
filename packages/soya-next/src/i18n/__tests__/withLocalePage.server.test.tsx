@@ -9,7 +9,7 @@ describe("withLocalePage - Server", () => {
     const { commonProps, context, PageWithLocale } = setupTest();
     const props = await PageWithLocale.getInitialProps({
       ...commonProps,
-      req: context as IncomingMessage,
+      req: context as unknown as IncomingMessage,
     });
     expect(props).toMatchSnapshot();
   });

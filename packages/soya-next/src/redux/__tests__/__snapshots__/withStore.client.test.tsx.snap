@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withStore - browser should add store to page props 1`] = `
+<div
+  data-testid="props-store"
+>
+  {
+  "soya": true
+}
+</div>
+`;
+
+exports[`withStore - browser should add store to page props 2`] = `
+<div
+  data-testid="props-init"
+>
+  true
+</div>
+`;

@@ -49,6 +49,7 @@
     "pages.js",
     "prop-types.d.ts",
     "prop-types.js",
+    "redux.d.ts",
     "redux.js",
     "router.d.ts",
     "router.js"

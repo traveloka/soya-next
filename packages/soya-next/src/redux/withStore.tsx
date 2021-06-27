@@ -1,17 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
 
 import type { Cookies } from "react-cookie";
-import type { Action, AnyAction, PreloadedState, Store } from "redux";
+import type { PreloadedState } from "redux";
 import type {
   SoyaNextPage,
   SoyaNextPageContext,
   SoyaNextStore,
-  SoyaNextStoreExt,
-  SoyaNextThunkCompatStoreExt,
 } from "../types";
 
 type ConfigureStoreFn = ReturnType<
@@ -62,18 +59,6 @@ export default function withStore(configureStore: ConfigureStoreFn) {
       public store?: SoyaNextStore;
 
       static displayName = getDisplayName("withStore", Page);
-
-      static propTypes = {
-        reduxState: PropTypes.object.isRequired,
-        store: PropTypes.oneOfType([
-          PropTypes.object,
-          PropTypes.shape({
-            subscribe: PropTypes.func.isRequired,
-            dispatch: PropTypes.func.isRequired,
-            getState: PropTypes.func.isRequired,
-          }),
-        ]).isRequired,
-      };
 
       static async getInitialProps(ctx: SoyaNextPageContext) {
         const store = configureStoreIfNeeded(undefined, {

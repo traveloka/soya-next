@@ -2,6 +2,67 @@ import type { CompressionOptions } from "compression";
 import type { IncomingMessage } from "http";
 import type { NextComponentType, NextPageContext } from "next";
 import type { Cookies } from "react-cookie";
+import type {
+  Action,
+  AnyAction,
+  Dispatch,
+  Reducer,
+  ReducersMapObject,
+  Store,
+} from "redux";
+import type { ThunkDispatch } from "redux-thunk";
+
+//#region Soya-Next Redux Types
+/**
+ * Soya Next Store Extension
+ * ---
+ */
+export interface SoyaNextStoreExt<TState, TAction extends Action<any>> {
+  /**
+   * Is using soya redux enhancer?
+   */
+  soya: boolean;
+
+  /**
+   * Add reducer extension method for code-splitting.
+   */
+  addReducer: (
+    nextReducers: Reducer<TState, TAction> | ReducersMapObject<any, AnyAction>
+  ) => void;
+
+  /**
+   * Custom replaceReducer method for code-splitting.
+   */
+  replaceReducer: (
+    nextReducers: Reducer<TState, TAction> | ReducersMapObject<any, AnyAction>
+  ) => void;
+}
+
+/**
+ * Soya Next Thunk Compatible Store Extension
+ * ---
+ */
+export interface SoyaNextThunkCompatStoreExt<
+  TState = any,
+  TAction extends Action<any> = AnyAction,
+  TExtraArgs = any
+> {
+  dispatch: Dispatch<TAction> | ThunkDispatch<TState, TExtraArgs, TAction>;
+}
+
+/**
+ * Soya Next Store
+ * ---
+ */
+export type SoyaNextStore<
+  TState = any,
+  TAction extends Action<any> = AnyAction,
+  TStateExt = any,
+  TExtraArgs = any
+> = Store<TState & TStateExt, TAction> &
+  SoyaNextStoreExt<TState, TAction> &
+  SoyaNextThunkCompatStoreExt<TState, TAction, TExtraArgs>;
+//#endregion Soya-Next Redux Types
 
 //#region Soya-Next Common Types
 /**
@@ -364,10 +425,17 @@ export interface SoyaNextPageContext
    * `HTTP` request object with specific soya-next properties.
    */
   req?: SoyaNextHttpIncomingMessage;
+  store?: SoyaNextStore;
 }
 
 /**
- * Soya Next `Page` type, use it as a guide to create `pages`.
+ * Soya Next Page
+ * ---
+ *
+ * You can use this type when creating `pages` or `container` (if you are using
+ * container pattern).
+ * The difference between the `React.ComponentType` and `NextPage` is
+ * `NextPage` has special `getInitialProps` method inside it.
  */
 export type SoyaNextPage<
   TProps = {},

@@ -10,10 +10,7 @@ import type {
   SoyaNextPageContext,
   SoyaNextStore,
 } from "../types";
-
-type ConfigureStoreFn = ReturnType<
-  typeof import("./createConfigureStore").default
->;
+import type { ConfigureStoreFn } from "./createConfigureStore";
 
 export interface WithStoreInjectedProps<TState> {
   // INFO: Actually, this HOC doesn't inject cookies, but it should come

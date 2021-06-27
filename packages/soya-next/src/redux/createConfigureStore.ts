@@ -12,6 +12,8 @@ import type {
 } from "redux";
 import type { SoyaNextStoreExt, SoyaNextThunkCompatStoreExt } from "../types";
 
+export type ConfigureStoreFn = ReturnType<typeof createConfigureStore>;
+
 export default function createConfigureStore(
   globalReducers?: ReducersMapObject<any, AnyAction>
 ) {

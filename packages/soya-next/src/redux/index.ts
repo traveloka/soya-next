@@ -8,4 +8,5 @@ export type {
   WithApplyReducersInjectedProps,
   WithApplyReducersProps,
 } from "./applyReducers";
+export type { ConfigureStoreFn } from "./createConfigureStore";
 export type { WithStoreInjectedProps, WithStoreProps } from "./withStore";

@@ -18,34 +18,36 @@ import type {
   SoyaNextRedirectConfig,
 } from "../types";
 
-export interface WithApplyRedirectInjectedProps {
-  method?: string;
-  redirects?: Record<string, SoyaNextRedirectConfig>;
-}
-
 export interface WithApplyRedirectProps {
   method?: string;
   redirects?: Record<string, SoyaNextRedirectConfig>;
 }
 
-export default function applyRedirect<
-  TProps extends WithApplyRedirectInjectedProps
->(Page: SoyaNextPage<TProps>) {
+export default function applyRedirect<TProps extends object>(
+  Page: SoyaNextPage<TProps>
+) {
   const WithApplyRedirect = class WithApplyRedirect extends React.Component<
-    Omit<TProps, keyof WithApplyRedirectInjectedProps> & WithApplyRedirectProps
+    TProps & WithApplyRedirectProps
   > {
     static displayName = getDisplayName("applyRedirect", Page);
 
     static async getInitialProps(ctx: SoyaNextPageContext) {
-      const { defaultLocale, locale, method, redirects = {}, siteLocales } =
-        typeof window !== "undefined"
-          ? window.__NEXT_DATA__.props
-          : ctx.req || {};
+      const {
+        defaultLocale,
+        locale,
+        method,
+        redirects = {},
+        siteLocales,
+      } = typeof window !== "undefined"
+        ? window.__NEXT_DATA__.props
+        : ctx.req || {};
       if (typeof window !== "undefined") {
         for (const from of Object.keys(redirects)) {
-          const { method: redirectMethod, page, to } = ensureRedirect(
-            redirects[from]
-          );
+          const {
+            method: redirectMethod,
+            page,
+            to,
+          } = ensureRedirect(redirects[from]);
           if (redirectMethod.toLowerCase() === method.toLowerCase()) {
             const baseUrl = getBaseUrl(ctx.req);
             const keys: Key[] = [];

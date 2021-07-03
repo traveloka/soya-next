@@ -1,6 +1,3 @@
 export { default as applyRedirect } from "./applyRedirect";
 
-export type {
-  WithApplyRedirectInjectedProps,
-  WithApplyRedirectProps,
-} from "./applyRedirect";
+export type { WithApplyRedirectProps } from "./applyRedirect";

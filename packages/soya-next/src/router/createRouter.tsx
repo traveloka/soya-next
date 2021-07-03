@@ -93,9 +93,8 @@ export default function createRouter(
       } else {
         ({ test, exclude } = basePath);
       }
-      const excludes = (app.dev
-        ? ["/_next/webpack-hmr", "/_next/on-demand-entries-ping"]
-        : []
+      const excludes = (
+        app.dev ? ["/_next/webpack-hmr", "/_next/on-demand-entries-ping"] : []
       ).concat(exclude || []);
       if (
         (excludes.length && excludes.includes(req.url)) ||
@@ -111,7 +110,7 @@ export default function createRouter(
   }
   Object.keys(newRedirects).forEach(from => {
     const { method, status, to } = ensureRedirect(newRedirects[from]);
-    router[method.toLowerCase()](from, (req: any, res: any) => {
+    router[method.toLowerCase()](from, (req: Request, res: Response) => {
       const localeSegment = toPath(req.locale, defaultLocale);
       const redirectionPath = parseRedirectionPath(
         localeSegment + to,

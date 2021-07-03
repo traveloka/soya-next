@@ -11,9 +11,6 @@ import type {
   SoyaNextStore,
 } from "../types";
 
-export interface WithApplyReducersInjectedProps {
-  store?: SoyaNextStore;
-}
 export interface WithApplyReducersProps {
   store?: SoyaNextStore;
 }
@@ -30,17 +27,12 @@ export interface WithApplyReducersProps {
 export default function applyReducers(
   reducers?: ReducersMapObject<any, AnyAction>
 ) {
-  return <TProps extends WithApplyReducersInjectedProps>(
-    Component: SoyaNextPage<TProps>
-  ) => {
+  return <TProps extends object>(Component: SoyaNextPage<TProps>) => {
     if (typeof reducers === "undefined") {
       return Component;
     }
 
-    function ApplyReducers(
-      props: Omit<TProps, keyof WithApplyReducersInjectedProps> &
-        WithApplyReducersProps
-    ) {
+    function ApplyReducers(props: TProps & WithApplyReducersProps) {
       const flag = React.useRef(true);
       const context = React.useContext(ReactReduxContext);
       const store = props.store || (context.store as SoyaNextStore);

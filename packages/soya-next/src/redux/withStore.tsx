@@ -12,17 +12,12 @@ import type {
 } from "../types";
 import type { ConfigureStoreFn } from "./createConfigureStore";
 
-export interface WithStoreInjectedProps<TState> {
-  // INFO: Actually, this HOC doesn't inject cookies, but it should come
-  // from `createBasePage` method.
-  cookies?: Cookies;
-  reduxState: PreloadedState<TState>;
+export interface WithStoreInjectedProps {
   store: SoyaNextStore;
 }
 
 export interface WithStoreProps<TState> {
-  // INFO: Actually, this HOC doesn't inject cookies, but it should come
-  // from `createBasePage` method.
+  // INFO: cookies may be injected from `createBasePage` method.
   cookies?: Cookies;
   reduxState?: PreloadedState<TState>;
   store?: SoyaNextStore;
@@ -30,7 +25,7 @@ export interface WithStoreProps<TState> {
 
 export default function withStore(configureStore: ConfigureStoreFn) {
   return <
-    TProps extends WithStoreInjectedProps<TState>,
+    TProps extends WithStoreInjectedProps,
     TState = any,
     TExtraArgs = any
   >(
@@ -50,10 +45,9 @@ export default function withStore(configureStore: ConfigureStoreFn) {
     }
 
     const WithStore = class WithStore extends React.Component<
-      Omit<TProps, keyof WithStoreInjectedProps<TState>> &
-        WithStoreProps<TState>
+      Omit<TProps, keyof WithStoreInjectedProps> & WithStoreProps<TState>
     > {
-      public store?: SoyaNextStore;
+      public store: SoyaNextStore;
 
       static displayName = getDisplayName("withStore", Page);
 
@@ -72,7 +66,7 @@ export default function withStore(configureStore: ConfigureStoreFn) {
       }
 
       constructor(
-        props: Omit<TProps, keyof WithStoreInjectedProps<TState>> &
+        props: Omit<TProps, keyof WithStoreInjectedProps> &
           WithStoreProps<TState>
       ) {
         super(props);
@@ -81,7 +75,7 @@ export default function withStore(configureStore: ConfigureStoreFn) {
             ? configureStoreIfNeeded(props.reduxState, {
                 cookies: props.cookies,
               } as unknown as TExtraArgs)
-            : props.store;
+            : props.store!;
       }
 
       render() {

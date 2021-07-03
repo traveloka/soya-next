@@ -4,9 +4,8 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import type { SoyaNextPage } from "../../types";
-import type { WithApplyReducersInjectedProps } from "../applyReducers";
 
-interface ComponentProps extends WithApplyReducersInjectedProps {
+interface ComponentProps {
   init?: boolean;
 }
 

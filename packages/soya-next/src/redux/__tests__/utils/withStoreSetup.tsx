@@ -5,7 +5,7 @@ import withStore from "../../withStore";
 import type { SoyaNextPage } from "../../../types";
 import type { WithStoreInjectedProps } from "../../withStore";
 
-interface TestPageProps extends WithStoreInjectedProps<any> {
+interface TestPageProps extends WithStoreInjectedProps {
   init?: boolean;
 }
 

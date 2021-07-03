@@ -4,6 +4,7 @@ import hoistStatics from "hoist-non-react-statics";
 import { Cookies } from "react-cookie";
 import getDisplayName from "../utils/getDisplayName";
 import { NEXT_STATICS } from "../constants/Statics";
+
 import type { SoyaNextPage, SoyaNextPageContext } from "../types";
 
 export interface WithCookiesPageInjectedProps {
@@ -24,7 +25,7 @@ export default function withCookiesPage<
   const WithCookies = class WithCookies extends React.Component<
     Omit<TProps, keyof WithCookiesPageInjectedProps> & WithCookiesPageProps
   > {
-    cookies?: Cookies;
+    public cookies?: Cookies;
 
     static displayName = getDisplayName("withCookies", Page);
 

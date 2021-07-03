@@ -46,6 +46,7 @@
     "i18n.js",
     "link.d.ts",
     "link.js",
+    "pages.d.ts",
     "pages.js",
     "prop-types.d.ts",
     "prop-types.js",

@@ -11,6 +11,7 @@ import type {
   Store,
 } from "redux";
 import type { ThunkDispatch } from "redux-thunk";
+import type { ApolloClient } from "apollo-client";
 
 //#region Soya-Next Redux Types
 /**
@@ -420,6 +421,7 @@ export interface SoyaNextHttpIncomingMessage
 export interface SoyaNextPageContext
   extends Omit<NextPageContext, "req">,
     SoyaNextLocaleContext {
+  client?: ApolloClient<any>;
   cookies?: Cookies;
   /**
    * `HTTP` request object with specific soya-next properties.

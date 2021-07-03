@@ -1,12 +1,3 @@
-// INFO: status & statusCode fields are used inside decodeParam util.
-declare interface URIError extends Error {
-  status?: number;
-  statusCode?: number;
-}
-
-declare var __NEXT_DATA__: import("next/dist/next-server/lib/utils").NEXT_DATA;
-declare var store: import("./src/types").SoyaNextStore;
-
 //
 // ### Caution
 //
@@ -15,10 +6,19 @@ declare var store: import("./src/types").SoyaNextStore;
 //
 declare type __$SoyaNextLocaleContext =
   import("./src/types").SoyaNextLocaleContext;
-declare type __$SoyaNextConfig = import("./src/types").SoyaNextConfig;
+
+// INFO: status & statusCode fields are used inside decodeParam util.
+declare interface URIError extends Error {
+  status?: number;
+  statusCode?: number;
+}
+
+declare var __NEXT_DATA__: import("next/dist/next-server/lib/utils").NEXT_DATA;
+declare var store: import("./src/types").SoyaNextStore;
+declare var apolloClient: import("apollo-client").ApolloClient<any>;
 
 declare namespace Express {
   export interface Request extends __$SoyaNextLocaleContext {
-    redirects?: __$SoyaNextConfig["redirects"];
+    redirects?: import("./src/types").SoyaNextConfig["redirects"];
   }
 }

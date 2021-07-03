@@ -2,6 +2,7 @@ import React from "react";
 import hoistStatics from "hoist-non-react-statics";
 import getDisplayName from "../utils/getDisplayName";
 import LocaleContext from "./LocaleContext";
+
 import type { SoyaNextLocale, SoyaNextLocaleContext } from "../types";
 
 export interface WithLocaleComponentInjectedProps

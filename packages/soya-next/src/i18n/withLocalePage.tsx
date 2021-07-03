@@ -4,6 +4,7 @@ import getDisplayName from "../utils/getDisplayName";
 import getBaseUrl from "../utils/getBaseUrl";
 import { ensurePath } from "../utils/locale";
 import { NEXT_STATICS } from "../constants/Statics";
+
 import type {
   SoyaNextLocaleContext,
   SoyaNextPage,

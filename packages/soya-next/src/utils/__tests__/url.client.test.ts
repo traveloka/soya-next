@@ -24,7 +24,7 @@ describe("Url Util - convertLegacyUrlObjectToWhatwgUrl", () => {
   });
 });
 
-describe("Url Util - resolveUrl", () => {
+describe("Url Util - resolveUrl (browser)", () => {
   it("should resolve url successfully", () => {
     expect(resolveUrl("/one/two/three", "four")).toBe("/one/two/four");
     expect(resolveUrl("http://example.com/", "/one")).toBe(

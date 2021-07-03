@@ -36,11 +36,17 @@ export function resolveUrl(from: string, to: string) {
   // and then strip out '//dummy' from the result.
   // TODO: Change back the implementation based on the NodeJS documentation if
   // the browser doesn't return TypeError for 'resolve://' baseUrl.
-  const resolvedUrl = new URL(to, new URL(from, "resolve://dummy/"));
+  const baseUrl =
+    typeof window !== "undefined" ? "resolve://dummy/" : "resolve://";
+
+  const resolvedUrl = new URL(to, new URL(from, baseUrl));
   if (resolvedUrl.protocol === "resolve:") {
     // `from` is a relative URL.
     const { pathname, search, hash } = resolvedUrl;
-    return `${pathname}${search}${hash}`.replace("//dummy", "");
+    const result = `${pathname}${search}${hash}`;
+    return typeof window !== "undefined"
+      ? result.replace("//dummy", "")
+      : result;
   }
   return resolvedUrl.toString();
 }

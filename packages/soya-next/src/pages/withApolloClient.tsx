@@ -48,7 +48,7 @@ export function withApolloClientFactory<
             EnhancedPage.getInitialProps &&
             (await EnhancedPage.getInitialProps(ctx));
           if (typeof window === "undefined") {
-            if (ctx.res?.writableEnded) {
+            if (ctx.res?.writableEnded || ctx.res?.finished) {
               // When redirecting, the response is finished.
               // No point in continuing to render
               return;

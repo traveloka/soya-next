@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-server",
   "bugs": {
@@ -29,10 +29,10 @@
     "soya-next-server": "./index.js"
   },
   "peerDependencies": {
-    "config": "^2.0.0",
+    "config": "^2.0.0 || ^3",
     "express": "^4.16.0",
     "next": "^9.5.3",
-    "soya-next": "^0.8.0"
+    "soya-next": ">=0.8"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

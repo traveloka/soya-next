@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli",
   "bugs": {
@@ -30,12 +30,21 @@
   "bin": {
     "soya-next-cli": "./bin/soya-next-cli.js"
   },
+  "scripts": {
+    "build": "yarn build:cjs",
+    "build:cjs": "babel --root-mode upward src --out-dir lib --extensions .ts,.tsx,.js --source-maps"
+  },
   "dependencies": {
-    "@babel/runtime": "^7.5.0",
-    "@babel/runtime-corejs2": "^7.5.0",
-    "cross-spawn": "^6.0.5",
-    "fs-extra": "^7.0.0",
-    "yargs": "^12.0.2"
+    "@babel/runtime": "^7.13.0",
+    "@babel/runtime-corejs2": "^7.13.0",
+    "cross-spawn": "^7.0.3",
+    "fs-extra": "^9.1.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/fs-extra": "^9.0.11",
+    "@types/yargs": "^16.0.1"
   },
   "gitHead": "b148b81992c202e3d6d874d0f154d2673596978f"
 }

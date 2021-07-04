@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withLocale should accept locale string props 1`] = `
+"{
+  \\"locale\\": {
+    \\"country\\": \\"id\\",
+    \\"language\\": \\"en\\"
+  },
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ]
+}"
+`;
+
+exports[`withLocale should add default locale, locale, and site locales to component props 1`] = `
+"{
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ],
+  \\"locale\\": {
+    \\"language\\": \\"id\\",
+    \\"country\\": \\"id\\"
+  }
+}"
+`;
+
+exports[`withLocale should override locale context with locale props 1`] = `
+"{
+  \\"locale\\": {
+    \\"language\\": \\"en\\",
+    \\"country\\": \\"id\\"
+  },
+  \\"defaultLocale\\": \\"id-id\\",
+  \\"siteLocales\\": [
+    \\"id-id\\",
+    \\"en-id\\"
+  ]
+}"
+`;

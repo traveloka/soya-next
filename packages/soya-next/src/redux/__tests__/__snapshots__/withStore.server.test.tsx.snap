@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withStore - server should add store to page props 1`] = `
+Object {
+  "init": true,
+  "reduxState": Object {},
+  "store": Object {
+    "@@observable": [Function],
+    "addReducer": [Function],
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "soya": true,
+    "subscribe": [Function],
+  },
+}
+`;

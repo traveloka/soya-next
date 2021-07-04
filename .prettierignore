@@ -1,0 +1,5 @@
+.idea
+.next
+lib
+node_modules
+out

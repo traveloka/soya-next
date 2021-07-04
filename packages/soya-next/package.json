@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "A set of utility functions for React applications built on top of Next.js.",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next",
   "bugs": {
@@ -37,15 +38,31 @@
     "config",
     "lib",
     "server",
+    "src/types",
+    "cookies.d.ts",
     "cookies.js",
+    "global.d.ts",
+    "i18n.d.ts",
     "i18n.js",
+    "link.d.ts",
     "link.js",
+    "pages.d.ts",
     "pages.js",
+    "prop-types.d.ts",
     "prop-types.js",
+    "redux.d.ts",
     "redux.js",
+    "router.d.ts",
     "router.js"
   ],
+  "scripts": {
+    "build": "yarn build:cjs && yarn build:types",
+    "build:cjs": "babel --root-mode upward src --out-dir lib --extensions .ts,.tsx,.js --source-maps",
+    "build:types": "tsc --project tsconfig.types.json"
+  },
   "dependencies": {
+    "@types/compression": "^1.7.0",
+    "@types/hoist-non-react-statics": "^3.3.1",
     "compression": "^1.7.3",
     "hoist-non-react-statics": "^3.0.1",
     "path-to-regexp": "^2.4.0",
@@ -55,7 +72,7 @@
     "universal-cookie-express": "^3.0.4"
   },
   "peerDependencies": {
-    "config": "^2.0.0",
+    "config": "^2.0.0 || ^3",
     "express": "^4.16.0",
     "next": "^9.5.3",
     "react-apollo": "^2.0.4",

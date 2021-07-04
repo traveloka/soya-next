@@ -1,7 +1,7 @@
 export default ({
-  testMatch = ["**/__tests__/**/*.js?(x)", "**/?(*).(spec|test).js?(x)"],
+  testMatch = ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   ...jestConfig
 } = {}) => ({
   testMatch,
-  ...jestConfig
+  ...jestConfig,
 });

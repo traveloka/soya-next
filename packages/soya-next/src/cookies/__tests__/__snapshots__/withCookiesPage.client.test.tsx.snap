@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withCookiesPage - Browser should add cookie to page props 1`] = `
+"{
+  \\"init\\": true,
+  \\"cookies\\": {
+    \\"changeListeners\\": [],
+    \\"cookies\\": {},
+    \\"HAS_DOCUMENT_COOKIE\\": true
+  }
+}"
+`;

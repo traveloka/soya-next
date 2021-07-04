@@ -37,7 +37,7 @@
     "jest-environment-jsdom": "^26.6.2",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
-    "marlint": "^7.0.1",
+    "marlint": "^6.10.0",
     "next": "^9.5.3",
     "prettier": "^2.3.2",
     "react": "^17.0.2",

@@ -6,7 +6,7 @@
   "types": "lib/index.d.ts",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next",
   "bugs": {
@@ -72,7 +72,7 @@
     "universal-cookie-express": "^3.0.4"
   },
   "peerDependencies": {
-    "config": "^2.0.0",
+    "config": "^2.0.0 || ^3",
     "express": "^4.16.0",
     "next": "^9.5.3",
     "react-apollo": "^2.0.4",

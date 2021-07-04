@@ -1,5 +1,9 @@
 process.env.BABEL_ENV = process.env.BABEL_ENV || "development";
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
+// INFO: for backward compatibility with config@^2 since
+// array items and objects in config@^3 has been sealed and
+// new properties can not be added anymore in runtime.
+process.env.ALLOW_CONFIG_MUTATIONS = process.env.ALLOW_CONFIG_MUTATIONS || true;
 
 require("soya-next/config/default");
 

@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-scripts",
   "bugs": {
@@ -43,7 +43,7 @@
     "@zeit/next-source-maps": "0.0.3",
     "babel-eslint": "^10.1.0",
     "chalk": "^2.4.1",
-    "cross-spawn": "^6.0.5",
+    "cross-spawn": "^7.0.3",
     "css-loader": "1.0.0",
     "eslint": "^7.26.0",
     "eslint-config-marlint": "^7.0.0",
@@ -62,7 +62,7 @@
     "node-sass": "^4.14.1"
   },
   "peerDependencies": {
-    "config": "^2.0.0",
+    "config": "^2.0.0 || ^3",
     "next": "^9.5.3",
     "soya-next": ">=0.8",
     "soya-next-server": ">=0.8"

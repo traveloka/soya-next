@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "repository": "https://github.com/traveloka/soya-next/tree/master/packages/soya-next-cli",
   "bugs": {
